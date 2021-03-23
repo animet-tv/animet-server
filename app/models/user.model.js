@@ -8,7 +8,7 @@ const { nanoid } = require('nanoid');
 const UserSchema = mongoose.Schema({
     accountID: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
-    password: { type: String },
+    password: { type: String, required: true},
     avatarName: { type: String },
     googleId: { type: String },
     isGoogleUser: { type: Boolean, default: false },

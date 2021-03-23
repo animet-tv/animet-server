@@ -1,12 +1,12 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+const beautifyUnique = require('mongoose-beautiful-unique-validation');
 const { nanoid } = require('nanoid');
 
 
 const AnimetListItemSchema = mongoose.Schema({
         item_id: { type: String },
-        mal_id: { type: Number, unique: true},
+        mal_id: { type: Number },
         postID: { type: Number },
         img_url: { type: String },
         title: { type: String },
@@ -15,7 +15,7 @@ const AnimetListItemSchema = mongoose.Schema({
 }, { _id : false });
 
 const TrackedListItemSchema = mongoose.Schema({
-    mal_id: { type: Number }
+    mal_id: { type: Number,  }
 }, { _id : false });
 
 const UserProfileSchema = mongoose.Schema({
@@ -34,7 +34,7 @@ const UserProfileSchema = mongoose.Schema({
     completed: [ AnimetListItemSchema ]
     
 });
-UserProfileSchema.plugin(uniqueValidator);
+UserProfileSchema.plugin(beautifyUnique);
 
 const UserProfile = module.exports = mongoose.model('UserProfile', UserProfileSchema);
 
@@ -49,7 +49,8 @@ module.exports.createUserProfile =  async (newUserID, callback) => {
             completed: [],
         });
 
-        newUserProfile.save( (err => { console.log(err); }, callback));
+        console.log(newUserProfile);
+        newUserProfile.save( (err => { console.log(err); }, callback ));
     } catch (error) {
         console.log(error);
     }

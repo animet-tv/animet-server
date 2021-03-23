@@ -5,6 +5,8 @@ const SeasonAnime = require('../models/season.model');
 const Jikan = require('jikan-node');
 const mal = new Jikan();
 
+const TRENDING_AMOUNT = 10;
+
 router.get('/get-current-top-season', async (req, res) => {
     try {
         const getSeason = d => Math.floor((d.getMonth() / 12 * 4)) % 4;
@@ -52,7 +54,7 @@ router.get('/search', async (req, res) => {
         */
         const RESULT = [];
         const param = {
-            limit: 20,
+            limit: 10,
             order_by: 'title'
         }
        
@@ -81,9 +83,9 @@ router.get(
     async (req, res) => {
         try {
             TOP_RESULT = [];
-
+            var counter = 0;
             const response = await mal.findTop('anime','1', 'airing');
-            response.top.forEach(el => {
+            response.top.every(el => {
                 let newResult = ({
                     mal_id: el.mal_id,
                     title: el.title,
@@ -91,8 +93,14 @@ router.get(
                     score: el.score,
                     episodes: el.episodes,
                 });
-                
-                TOP_RESULT.push(newResult);
+                if (counter < TRENDING_AMOUNT) {
+                    TOP_RESULT.push(newResult);
+                    counter++;
+                } else {
+                    return false;
+                }
+
+                return true;
             });
             
             res.json(TOP_RESULT);
@@ -101,6 +109,6 @@ router.get(
             console.log(error);
         }
     }
-)
+);
 
 module.exports = router;

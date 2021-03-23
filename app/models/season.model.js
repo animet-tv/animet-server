@@ -14,7 +14,7 @@ module.exports.getTopSeason = async (request) => {
   try {
     const season_name = request.season;
     const season_year = request.year;
-    const AMOUNT = 30;
+    const AMOUNT = 20;
     /* 
       title: string;
       img_url: string;
@@ -73,7 +73,6 @@ module.exports.getTopSeason = async (request) => {
 module.exports.getSeasonById = async (id) => {
   try {
     var SORTED_RESULT = [];
-    const AMOUNT = 30;
 
     const getAllGenres = (genreObj) => {
       let genre = "";

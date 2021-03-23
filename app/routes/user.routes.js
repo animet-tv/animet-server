@@ -1,17 +1,15 @@
 const { nanoid } = require('nanoid');
 const jwt = require('jsonwebtoken');
-const config = require('../config/mongodb.config');
 const passport = require('passport');
 const User = require('../models/user.model');
 const UserProfile = require('../models/userprofile.model');
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const Jikan = require('jikan-node');
 
 router.post(
     '/register', 
-    body('avatarName').isLength({ min: 3 }),
+    body('avatarName').isLength({ min: 3 }).isString(),
     body('email').isEmail(),
     body('password').isLength({ min: 5 }),
     (req,res) => {
@@ -60,7 +58,8 @@ router.post(
                                 } 
                                         
                             });
-        
+                            
+                            console.log('befoer creating profile ');
                             /* create empty UserProfile for new user */
                             UserProfile.createUserProfile(accountId, (err) => {
                                 if (err) throw err;
