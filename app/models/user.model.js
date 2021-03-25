@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+const beautifyUnique = require('mongoose-beautiful-unique-validation');
 const bcrypt = require('bcrypt');
 const saltRounds = Number(process.env.SALT_ROUNDS);
 const UserList = require('./userprofile.model');
@@ -14,7 +14,7 @@ const UserSchema = mongoose.Schema({
     isGoogleUser: { type: Boolean, default: false },
     isProfilePublic: { type: Boolean, default: false }
 });
-UserSchema.plugin(uniqueValidator);
+UserSchema.plugin(beautifyUnique);
 
 const User = module.exports = mongoose.model('User', UserSchema);
 

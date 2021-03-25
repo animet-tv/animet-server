@@ -78,6 +78,7 @@ router.get('/search', async (req, res) => {
     }
 });
 
+
 router.get(
     '/trending',
     async (req, res) => {

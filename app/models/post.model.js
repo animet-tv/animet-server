@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+const beautifyUnique = require('mongoose-beautiful-unique-validation');
 
 const PostSchema = mongoose.Schema({
   postID: { type: String, index: true, unique: true },
@@ -24,7 +24,7 @@ const PostSchema = mongoose.Schema({
   },
   nsfw: { type: Boolean, Default: false }
 });
-PostSchema.plugin(uniqueValidator);
+PostSchema.plugin(beautifyUnique);
 
 const Post = module.exports = mongoose.model('Post', PostSchema);
 

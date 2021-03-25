@@ -6,6 +6,8 @@ const UserProfile = require('../models/userprofile.model');
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
+const Jikan = require('jikan-node');
+const mal = new Jikan();
 
 router.post(
     '/register', 
@@ -183,7 +185,7 @@ router.get(
 router.put(
     '/add-item-to-list',
     passport.authenticate(['regular-login'], { session: false }),
-    async (req, res) => {
+    (req, res) => {
         try {
 
             const addItemRequest = {
@@ -223,7 +225,54 @@ router.put(
             res.sendStatus(500);
         }
     }
-)
+);
+
+router.put(
+    '/add-item-to-list-by-title',
+    passport.authenticate(['regular-login'], { session: false }),
+    async (req, res) => {
+        const param = {
+            limit: 5,
+            order_by: 'title'
+        }
+        let result = await mal.search('anime',  req.body.animeTitle, param);
+       
+        
+        result.results.forEach(el => {
+            if (el.title === req.body.animeTitle) {
+                const addItemRequest = {
+                    accountID: req.user.accountID,
+                    mal_id: el.mal_id,
+                    img_url: el.image_url,
+                    title: el.title,
+                    nsfw: false,
+                    LIST: 'plan_to_watch'
+                }
+
+                UserProfile.exists({ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+                    if (err) {
+                        throw err;
+                    }
+    
+                    if (exists == false) {   /* does not exists */
+                        UserProfile.appendItemToList(addItemRequest, (err,callback) => {
+                            if (err) {
+                                res.json({ success: false, message: 'error while adding new item to list' });
+                                throw err;
+                            }
+                         
+                            res.json({ success: true, message: 'Anime has been added to list'});
+                            
+                        });
+                        
+                    } else {
+                        res.json({ success: false, message: 'Anime already in list'}); 
+                    }
+                });
+            } 
+    })
+}
+);
 
 router.put(
     '/remove-item-from-list',

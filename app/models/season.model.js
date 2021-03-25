@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+const beautifyUnique = require('mongoose-beautiful-unique-validation');
 
 const SeasonAnimeSchema = mongoose.Schema({
   animeList: {
     type: Object
   } 
 });
-SeasonAnimeSchema.plugin(uniqueValidator);
+SeasonAnimeSchema.plugin(beautifyUnique);
 
 const SeasonAnime = module.exports = mongoose.model('SeasonAnime', SeasonAnimeSchema);
+const AMOUNT = 20;
 
 module.exports.getTopSeason = async (request) => {
   try {
     const season_name = request.season;
     const season_year = request.year;
-    const AMOUNT = 20;
     /* 
       title: string;
       img_url: string;
