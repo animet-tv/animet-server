@@ -55,7 +55,8 @@ router.get('/search', async (req, res) => {
         const RESULT = [];
         const param = {
             limit: 10,
-            order_by: 'title'
+            order_by: 'title',
+            rated: 'r',
         }
        
         const response = await mal.search('anime',term, param);
