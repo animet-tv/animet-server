@@ -5,7 +5,7 @@ const SeasonAnime = require('../models/season.model');
 const Jikan = require('jikan-node');
 const mal = new Jikan();
 
-const TRENDING_AMOUNT = 10;
+const TRENDING_AMOUNT = 20;
 
 router.get('/get-current-top-season', async (req, res) => {
     try {
