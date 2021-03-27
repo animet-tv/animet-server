@@ -54,7 +54,7 @@ router.get('/search', async (req, res) => {
         */
         const RESULT = [];
         const param = {
-            limit: 10,
+            limit: 15,
             order_by: 'title',
             rated: 'r',
         }
