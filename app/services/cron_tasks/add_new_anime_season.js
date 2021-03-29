@@ -1,5 +1,7 @@
-const Jikan = require('jikan-node');
+require('dotenv').config()
+const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
+//mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const SeasonAnime = require('../../models/season.model');
 
 /* calculate season based on Northern hemispher */

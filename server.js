@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
 const app = express();
@@ -11,8 +11,8 @@ const passport = require('passport');
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
-
- const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
+const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
+const { populateDailyTop, cleanDailyTop } = require('./app/services/cron_tasks/get_daily_top'); 
 
 app.use(cors());
 app.use(logger('dev'));
@@ -60,16 +60,18 @@ const connectDB = async () => {
 };
 // Connecting to the database
 connectDB();
+cleanDailyTop();
+populateDailyTop();
 
-//populateNewSeason()
 
 // Devlopment
 /* database_clean(); */
 /* database_population(); */
 
 
-/* CRON tasks */
-// run every quarter '0 0 1 */3 *'
-/* cron tasking failing in deployment check it out */
-
+/* CRON tasks every 4 hours */
+cron.schedule('0 */4 * * *', () => {
+    cleanDailyTop();
+    populateDailyTop();
+});
 module.exports = app;

@@ -6,8 +6,9 @@ const UserProfile = require('../models/userprofile.model');
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const Jikan = require('jikan-node');
+const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
+// mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 
 router.post(
     '/register', 

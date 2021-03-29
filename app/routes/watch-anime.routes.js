@@ -1,8 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const Gapi = require('gogoanime');
+const rateLimit = require("express-rate-limit");
+const animeLimiter = rateLimit({
+    windowMs: 5 * 60 * 1000, // 1 minutes
+    max: 200
+});
 
-router.get('/get-anime-available', async(req, res) => {
+
+router.get(
+    '/get-anime-available', 
+    animeLimiter,
+    async(req, res) => {
     try {
         var result = [];
         var animeTitle = String(req.query.animeTitle);

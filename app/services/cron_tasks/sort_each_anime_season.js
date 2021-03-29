@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 const dbConfig = require('../../config/mongodb.config');
 
 
-/* ! Not Implemeted */
+/* ! Not Implemeted Yet */
 exports.sortEachAnimeSeason = () => {
     
     const uri = dbConfig.local_url;
