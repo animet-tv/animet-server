@@ -60,8 +60,8 @@ const connectDB = async () => {
 };
 // Connecting to the database
 connectDB();
-cleanDailyTop();
-populateDailyTop();
+/* cleanDailyTop();
+populateDailyTop(); */
 
 
 // Devlopment

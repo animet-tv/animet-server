@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Gapi = require('gogoanime');
+const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 1 minutes
@@ -13,6 +13,7 @@ router.get(
     animeLimiter,
     async(req, res) => {
     try {
+        console.time('apiCall');
         var result = [];
         var animeTitle = String(req.query.animeTitle);
         var dubTitle = animeTitle + ' ' + '(Dub)';
@@ -22,6 +23,9 @@ router.get(
         
         var apiResult = await Gapi.search(animeTitle);
         for (let el = 0; el < apiResult.length; el++) {
+            if(result.length > 2) {
+                break;
+            }
            const title = apiResult[el].title;
            if (title && result.length < 2) {
                 // find SUB 
@@ -33,11 +37,13 @@ router.get(
                 if (title === dubTitle) {
                     result.push(apiResult[el]);
                 }
+
            }
             
         }
-
+        console.timeEnd('apiCall');
         res.json(result);
+
     } catch (error) {
         console.log(error);
     }
