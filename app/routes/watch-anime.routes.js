@@ -18,47 +18,6 @@ router.get(
     animeLimiter,
     async(req, res) => {
     try {
-        console.time('apiCall');
-        var result = [];
-        var animeTitle = String(req.query.animeTitle);
-        var dubTitle = animeTitle + ' ' + '(Dub)';
-        /* remove special characters */
-         //console.log(animeTitle);
-         //animeTitle = animeTitle.replace(/[^a-zA-Z0-9 ]/g, '');
-        
-        var apiResult = await Gapi.search(animeTitle);
-        for (let el = 0; el < apiResult.length; el++) {
-            if(result.length > 2) {
-                break;
-            }
-           const title = apiResult[el].title;
-           if (title && result.length < 2) {
-                // find SUB 
-                if (title === animeTitle) {
-                    result.unshift(apiResult[el]);
-                }
-
-                // find DUB
-                if (title === dubTitle) {
-                    result.push(apiResult[el]);
-                }
-
-           }
-            
-        }
-        console.timeEnd('apiCall');
-        res.json(result);
-
-    } catch (error) {
-        console.log(error);
-    }
-});
-
-/* router.get(
-    '/get-anime-available', 
-    animeLimiter,
-    async(req, res) => {
-    try {
         var result = [];
         var animeTitle = String(req.query.animeTitle);
         var dubTitle = animeTitle + ' ' + '(Dub)';
@@ -103,7 +62,7 @@ router.get(
     } catch (error) {
         console.log(error);
     }
-}); */
+});
 
 /* BACKUP: iframe player links */
 router.get('/get-episode-stream', async(req, res) => {
