@@ -31,7 +31,7 @@ router.get(
     async (req, res) => {
     try {
         const getSeason = d => Math.floor((d.getMonth() / 12 * 4)) % 4;
-        const season = ['Winter', 'Spring', 'Summer', 'Autumn'][getSeason(new Date())];
+        const season = ['Winter', 'Spring', 'Summer', 'Autumn'][(getSeason(new Date())-1)];
         const year = new Date().getFullYear();
 
         const result = await SeasonAnime.getTopSeason({ season: season, year: year })
