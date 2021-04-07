@@ -14,7 +14,7 @@ exports.populateDailyTop = async () => {
         var _UPCOMING = [];
         
         // TRENDING
-        for (let i = 0; i < 6; i++) {
+        for (let i = 1; i < 7; i++) {
             var res_trending = await mal.findTop('anime',`${i}`, 'airing');
             res_trending.top.forEach(el => {
                 let newResult = ({
@@ -32,7 +32,7 @@ exports.populateDailyTop = async () => {
 
         
         // ALL_TIME_POPULAR
-        for (let i = 0; i < 6; i++) { 
+        for (let i = 1; i < 7; i++) { 
             var res_popular = await mal.findTop('anime',`${i}`, 'bypopularity');
             res_popular.top.forEach(el => {
                 let newResult = ({
@@ -50,7 +50,7 @@ exports.populateDailyTop = async () => {
         }
 
         // UPCOMING
-        for (let i = 0; i < 6; i++) { 
+        for (let i = 1; i < 7; i++) { 
             var res_upcoming = await mal.findTop('anime',`${i}`, 'upcoming');
             res_upcoming.top.forEach(el => {
                 let newResult = ({
