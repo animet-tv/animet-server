@@ -42,6 +42,12 @@ module.exports.registerUser = (newUser) => {
                     console.log(err);
                 }
             });
+
+            /* create empty UserProfile for new user */
+            UserList.createUserProfile(newUser.accountID, (err) => {
+                if (err) throw err;
+                
+            });
             
         });
 

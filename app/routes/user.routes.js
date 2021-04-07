@@ -12,7 +12,7 @@ const mal = new Jikan();
 
 router.post(
     '/register', 
-    body('avatarName').isLength({ min: 3 }).isString(),
+    body('avatarName').isLength({ min: 3 }),
     body('email').isEmail(),
     body('password').isLength({ min: 5 }),
     (req,res) => {
@@ -45,7 +45,6 @@ router.post(
                         if (isExist) {
                            res.json({ success: false, message: `${req.body.avatarName} is already taken`});
                         } else {
-                            
                             const accountId = nanoid();
                             const newUser = {
                                 accountID: accountId,
@@ -53,26 +52,23 @@ router.post(
                                 password: req.body.password,
                                 avatarName: req.body.avatarName,
                             };
-        
+                            
                             User.registerUser(newUser, (err, callback) => {
                                 if (err) {
                                     res.sendStatus(500);
                                     throw err;
                                 } 
-                                        
+                                
+    
                             });
                             
-                            console.log('befoer creating profile ');
-                            /* create empty UserProfile for new user */
-                            UserProfile.createUserProfile(accountId, (err) => {
-                                if (err) throw err;
-                            });
                             
                             /* user successfully created */
                             res.json({
                                 success: true,
                                 msg: `account email: ${newUser.email} successfully created`
                             });
+                            
                         }
                     });
                 }
@@ -115,7 +111,7 @@ router.post(
 
                             if (isMatch) {
                                 const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET, {
-                                    // WILL EXPIRE IN 24 hrs
+                                    // WILL EXPIRE IN  2d
                                     expiresIn: '2d'
                                 });
 
@@ -160,7 +156,8 @@ router.get(
             res.sendStatus(500);
         }
     }
-)
+);
+
 router.get(
     '/list', 
     passport.authenticate(['regular-login'], { session: false }),  
@@ -286,7 +283,6 @@ router.put(
                 LIST: req.body.LIST,
             }
 
-            console.log(req.body);
             const trackedItemReq = {
                 accountID: removeItemRequest.accountID,
                 mal_id: req.body.mal_id,
@@ -469,5 +465,141 @@ router.get(
         }
     }
 );
+
+router.get(
+    '/continue-watching',
+    passport.authenticate(['regular-login'], { session: false }),  
+    async (req, res) => {
+        try {
+            const accountID = req.user.accountID;
+
+            UserProfile.getContinueWatching(accountID, (err, continue_watching) => {
+                if (err) {
+                    res.json({ success: false, message: 'error while finding profile data'});
+                    throw err;
+                }
+
+                if (continue_watching) {
+                    res.json(continue_watching);
+                }
+            });
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }
+    }
+)
+
+router.put(
+    '/add-item-to-continue-watching',
+    passport.authenticate(['regular-login'], { session: false }),
+    async (req, res) => {
+        const param = {
+            limit: 5,
+            order_by: 'title'
+        }
+        let result = await mal.search('anime',  req.body.animeTitle, param);
+       
+        
+        result.results.forEach(el => {
+            if (el.title === req.body.animeTitle) {
+                const addItemRequest = {
+                    accountID: req.user.accountID,
+                    mal_id: el.mal_id,
+                    img_url: el.image_url,
+                    title: el.title,
+                    nsfw: false,
+                    episode_id: req.body.episode_id,
+                    timestamp: req.body.timestamp,
+                    currentEpisode: req.body.currentEpisode,
+                    totalEpisode: req.body.totalEpisode,
+                }
+
+                const trackedItemReq = {
+                    accountID:req.user.accountID,
+                    mal_id: el.mal_id,
+                }
+
+                UserProfile.exists({ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    // if exists remove and append new item
+                    if (exists) {
+                        UserProfile.removeItemFromContinueWatching(trackedItemReq, (err, doc) => {
+                            if (err) {
+                                throw err;
+                            } 
+                        });
+
+                        UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
+                            if (err) {
+                                res.json({ success: false, message: 'error while adding new item to list' });
+                                throw err;
+                            }
+                         
+                            res.json({ success: true, message: 'Anime has been added to continue watching'});
+                            
+                        });
+                    } else if (exists === false) {   /* if does not exists just append  */
+                        UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
+                            if (err) {
+                                res.json({ success: false, message: 'error while adding new item to list' });
+                                throw err;
+                            }
+                         
+                            res.json({ success: true, message: 'Anime has been added to continue watching'});
+                            
+                        });
+                        
+                    } else {
+                        res.json({ success: false, message: 'Anime already in continue watching'}); 
+                    }
+                });
+            } 
+    })
+}
+);
+
+
+router.put(
+    '/remove-item-from-continue-watching',
+    passport.authenticate(['regular-login'], { session: false }),
+    async (req, res) => {
+        console.log(req.body);
+        try {
+            const removeItemRequest = {
+                accountID: req.user.accountID,
+                item_id: req.body.item_id,
+            }
+
+            const trackedItemReq = {
+                accountID: removeItemRequest.accountID,
+                mal_id: req.body.mal_id,
+            }
+            
+            UserProfile.removeTrackedItem(trackedItemReq, (err, doc) => {
+                if (err) {
+                    throw err;
+                } 
+            });
+
+            UserProfile.removeItemFromContinueWatching(removeItemRequest, (err, callback) => {
+                if (err) {
+                    res.json({ success: false, message: 'error while removing anime from continue watching' });
+                    throw err;
+                }
+                res.json({ success: true, message: 'Anime removed from continue watching'});     
+    
+            });
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }
+    }
+);
+
+
 
 module.exports = router;
