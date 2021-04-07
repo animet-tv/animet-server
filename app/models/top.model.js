@@ -21,7 +21,7 @@ TopSchema.plugin(beautifyUnique);
 const Top = module.exports = mongoose.model('Top', TopSchema);
 
 
-module.exports.getTrending = async () => {
+module.exports.getTrending = async (pageNumber) => {
     try {
         return Top.find({},{'TRENDING': 1});
     } catch (error) {
@@ -29,7 +29,7 @@ module.exports.getTrending = async () => {
     }
 }
 
-module.exports.getPopular = async () => {
+module.exports.getPopular = async (pageNumber) => {
     try {
         return Top.find({},{'ALL_TIME_POPULAR': 1});
     } catch (error) {
@@ -37,7 +37,7 @@ module.exports.getPopular = async () => {
     }
 }
 
-module.exports.getUpcoming = async () => {
+module.exports.getUpcoming = async (pageNumber) => {
     try {
         return Top.find({},{'UPCOMING': 1});
     } catch (error) {

@@ -19,7 +19,7 @@ const seasonLimiter = rateLimit({
     max: 500
 });
 
-const trendingLimiter = rateLimit({
+const defaultLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
     max: 700
 });
@@ -31,7 +31,7 @@ router.get(
     async (req, res) => {
     try {
         const getSeason = d => Math.floor((d.getMonth() / 12 * 4)) % 4;
-        const season = ['Winter', 'Spring', 'Summer', 'Autumn'][(getSeason(new Date())-1)];
+        const season = ['Winter', 'Spring', 'Summer', 'Autumn'][(getSeason(new Date()))];
         const year = new Date().getFullYear();
 
         const result = await SeasonAnime.getTopSeason({ season: season, year: year })
@@ -108,10 +108,11 @@ router.get(
 
 router.get(
     '/trending',
-    trendingLimiter,
+    defaultLimiter,
     async (req, res) => {
         try {         
-            let result = await Top.getTrending();
+            let pageNumber = Number(req.query.pageNumber);
+            let result = await Top.getTrending(pageNumber);
             
             res.json(result[0].TRENDING);
         } catch (error) {
@@ -122,11 +123,12 @@ router.get(
 );
 
 router.get(
-    '/popular',
-    trendingLimiter,
+    '/all-time-popular',
+    defaultLimiter,
     async (req, res) => {
         try {         
-            let result = await Top.getPopular();
+            let pageNumber = Number(req.query.pageNumber);
+            let result = await Top.getPopular(pageNumber);
             
             res.json(result[0].ALL_TIME_POPULAR);
         } catch (error) {
@@ -139,10 +141,11 @@ router.get(
 
 router.get(
     '/upcoming',
-    trendingLimiter,
+    defaultLimiter,
     async (req, res) => {
-        try {         
-            let result = await Top.getUpcoming();
+        try {     
+            let pageNumber = Number(req.query.pageNumber);
+            let result = await Top.getUpcoming(pageNumber);
             
             res.json(result[0].UPCOMING);
         } catch (error) {
