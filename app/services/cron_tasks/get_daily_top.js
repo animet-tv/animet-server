@@ -50,7 +50,7 @@ exports.populateDailyTop = async () => {
         }
 
         // UPCOMING
-        for (let i = 1; i < 7; i++) { 
+        for (let i = 1; i < 6; i++) { 
             var res_upcoming = await mal.findTop('anime',`${i}`, 'upcoming');
             res_upcoming.top.forEach(el => {
                 let newResult = ({
