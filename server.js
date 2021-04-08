@@ -71,7 +71,7 @@ populateDailyTop();
 
 /* CRON tasks every 4 hours */
 cron.schedule('0 */4 * * *', () => {
-   /*  cleanDailyTop();
-    populateDailyTop(); */
+    cleanDailyTop();
+    populateDailyTop();
 });
 module.exports = app;
