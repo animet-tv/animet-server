@@ -502,7 +502,7 @@ router.put(
             order_by: 'title'
         }
 
-        let title = req.body.animeTitle.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+        let title = req.body.animeTitle;
         let result = await mal.search('anime',  title, param);
 
         result.results.forEach(el => {
