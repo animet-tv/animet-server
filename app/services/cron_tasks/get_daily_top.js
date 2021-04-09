@@ -72,6 +72,8 @@ exports.populateDailyTop = async () => {
             UPCOMING: _UPCOMING,
         });
         
+        cleanDailyTop();
+        
         newTopData.save();
 
         console.log('Updated Daily Top', ' ' , new Date());

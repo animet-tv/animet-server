@@ -8,6 +8,9 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
+const rp = require('request-promise');
+const streamApiURL = process.env.LOCAL_ANIMET_STREAM_API_URL;
+
 // mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 
 router.post(
@@ -196,7 +199,7 @@ router.put(
             }
 
         
-            UserProfile.exists({ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+            UserProfile.exists( { 'accountID': addItemRequest.accountID },{ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
                 if (err) {
                     throw err;
                 }
@@ -444,7 +447,6 @@ router.get(
                     throw err;
                 }
 
-                console.log(doc);
                 if (doc.isListPublic) {
                     UserProfile.getMyProfile(accountID, (err, list) => {
                         if (err) {
@@ -494,13 +496,15 @@ router.put(
     '/add-item-to-continue-watching',
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
+
         const param = {
             limit: 5,
             order_by: 'title'
         }
-        let result = await mal.search('anime',  req.body.animeTitle, param);
-       
-        
+
+        let title = req.body.animeTitle.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+        let result = await mal.search('anime',  title, param);
+
         result.results.forEach(el => {
             if (el.title === req.body.animeTitle) {
                 const addItemRequest = {
@@ -520,7 +524,7 @@ router.put(
                     mal_id: el.mal_id,
                 }
 
-                UserProfile.exists({ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+                UserProfile.exists({ 'accountID': addItemRequest.accountID },{ 'tracked_anime_continue_watching': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
                     if (err) {
                         throw err;
                     }
@@ -542,7 +546,7 @@ router.put(
                             res.json({ success: true, message: 'Anime has been added to continue watching'});
                             
                         });
-                    } else if (exists === false) {   /* if does not exists just append  */
+                    } else {   /* if does not exists just append  */
                         UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
                             if (err) {
                                 res.json({ success: false, message: 'error while adding new item to list' });
@@ -553,12 +557,14 @@ router.put(
                             
                         });
                         
-                    } else {
-                        res.json({ success: false, message: 'Anime already in continue watching'}); 
-                    }
+                    } 
                 });
-            } 
-    })
+            } else { // maybe english title and orginal title conflicted try again
+             
+            }
+    });
+
+    res.json({ success: false, message: 'Sorry for the inconveniences but we could not add the last anime you were watching to continue watching list'}); 
 }
 );
 
@@ -571,7 +577,7 @@ router.put(
         try {
             const removeItemRequest = {
                 accountID: req.user.accountID,
-                item_id: req.body.item_id,
+                mal_id: req.body.mal_id,
             }
 
             const trackedItemReq = {
@@ -579,7 +585,7 @@ router.put(
                 mal_id: req.body.mal_id,
             }
             
-            UserProfile.removeTrackedItem(trackedItemReq, (err, doc) => {
+            UserProfile.removeTracked_anime_continue_watching(trackedItemReq, (err, doc) => {
                 if (err) {
                     throw err;
                 } 
@@ -590,6 +596,8 @@ router.put(
                     res.json({ success: false, message: 'error while removing anime from continue watching' });
                     throw err;
                 }
+
+                
                 res.json({ success: true, message: 'Anime removed from continue watching'});     
     
             });

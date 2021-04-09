@@ -3,9 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
-const request = require('request');
 var rp = require('request-promise');
-const util = require('util');
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 1 minutes
     max: 200

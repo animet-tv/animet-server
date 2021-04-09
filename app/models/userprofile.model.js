@@ -15,11 +15,11 @@ const AnimetListItemSchema = mongoose.Schema({
 }, { _id : false });
 
 const TrackedListItemSchema = mongoose.Schema({
-    mal_id: { type: Number, unique: false, },
+    mal_id: { type: Number, unique: true, },
 }, { _id : false });
 
 const ContinueWatching = mongoose.Schema({
-    mal_id: { type: Number },
+    mal_id: { type: Number, unique: true, },
     anime: { type: AnimetListItemSchema },
     episode_id: { type: String },
     timestamp: { type: Number },
@@ -41,6 +41,7 @@ const UserProfileSchema = mongoose.Schema({
     tracked_anime: [TrackedListItemSchema],
     plan_to_watch: [AnimetListItemSchema],
     completed: [AnimetListItemSchema],
+    tracked_anime_continue_watching: [TrackedListItemSchema],
     continue_watching: [ ContinueWatching ]
     
 });
@@ -216,6 +217,40 @@ module.exports.removeTrackedItem = async (removeItemRequest, callback) => {
     }
 }
 
+module.exports.appendTracked_anime_continue_watching= async (addItemRequest, callback) => {
+    try {
+        
+        const _accountID = addItemRequest.accountID;
+        const _mal_id = addItemRequest.mal_id;
+
+        UserProfile.updateOne({ 'accountID': _accountID }, {
+            $addToSet: {
+                'tracked_anime_continue_watching': { 'mal_id': _mal_id}
+            }
+        }, callback);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports.removeTracked_anime_continue_watching = async (removeItemRequest, callback) => {
+    try {
+        const _accountID = removeItemRequest.accountID;
+        const _mal_id = removeItemRequest.mal_id;
+
+        UserProfile.updateOne({ 'accountID': _accountID }, {
+            $pull: {
+                'tracked_anime_continue_watching': { 'mal_id': _mal_id}
+            }
+        }, callback);
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
     try {
@@ -243,7 +278,7 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
             mal_id: _mal_id
         }
         
-        UserProfile.appendTrackedItem(trackedItemReq, (err, doc) => {
+        UserProfile.appendTracked_anime_continue_watching(trackedItemReq, (err, doc) => {
             if (err) {
                 throw err;
             } 

@@ -60,7 +60,7 @@ const connectDB = async () => {
 };
 // Connecting to the database
 connectDB();
-/* cleanDailyTop();
+/* 
 populateDailyTop(); */
 
 
@@ -69,9 +69,9 @@ populateDailyTop(); */
 /* database_population(); */
 
 
-/* CRON tasks every 4 hours */
-cron.schedule('0 */8 * * *', () => {
-    /* cleanDailyTop();
-    populateDailyTop(); */
+/* CRON tasks every midnight hours */
+cron.schedule('0 0 * * *', () => {
+    console.log('going maintenance mode runing cron tasks');
+    populateDailyTop();
 });
 module.exports = app;
