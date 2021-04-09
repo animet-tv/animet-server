@@ -8,8 +8,6 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
-const rp = require('request-promise');
-const streamApiURL = process.env.LOCAL_ANIMET_STREAM_API_URL;
 
 // mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 
@@ -191,7 +189,6 @@ router.put(
 
             const addItemRequest = {
                 accountID: req.user.accountID,
-                mal_id: req.body.mal_id,
                 img_url: req.body.img_url,
                 title: req.body.title,
                 nsfw: req.body.nsfw,
@@ -199,7 +196,7 @@ router.put(
             }
 
         
-            UserProfile.exists( { 'accountID': addItemRequest.accountID },{ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+            UserProfile.exists( { 'accountID': addItemRequest.accountID },{ 'tracked_anime': { 'title': addItemRequest.title } }, (err, exists) => {
                 if (err) {
                     throw err;
                 }
@@ -232,46 +229,37 @@ router.put(
     '/add-item-to-list-by-title',
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
-        const param = {
-            limit: 5,
-            order_by: 'title'
-        }
-        let result = await mal.search('anime',  req.body.animeTitle, param);
-       
-        
-        result.results.forEach(el => {
-            if (el.title === req.body.animeTitle) {
-                const addItemRequest = {
-                    accountID: req.user.accountID,
-                    mal_id: el.mal_id,
-                    img_url: el.image_url,
-                    title: el.title,
-                    nsfw: false,
-                    LIST: 'plan_to_watch'
+
+        if (req.body.animeTitle) {
+            const addItemRequest = {
+                accountID: req.user.accountID,
+                img_url: req.body.img_url,
+                title: req.body.animeTitle,
+                nsfw: false,
+                LIST: 'plan_to_watch'
+            }
+
+            UserProfile.exists({ 'tracked_anime': { 'title': addItemRequest.title } }, (err, exists) => {
+                if (err) {
+                    throw err;
                 }
 
-                UserProfile.exists({ 'tracked_anime': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
-                    if (err) {
-                        throw err;
-                    }
-    
-                    if (exists == false) {   /* does not exists */
-                        UserProfile.appendItemToList(addItemRequest, (err,callback) => {
-                            if (err) {
-                                res.json({ success: false, message: 'error while adding new item to list' });
-                                throw err;
-                            }
-                         
-                            res.json({ success: true, message: 'Anime has been added to list'});
-                            
-                        });
+                if (exists == false) {   /* does not exists */
+                    UserProfile.appendItemToList(addItemRequest, (err,callback) => {
+                        if (err) {
+                            res.json({ success: false, message: 'error while adding new item to list' });
+                            throw err;
+                        }
                         
-                    } else {
-                        res.json({ success: false, message: 'Anime already in list'}); 
-                    }
-                });
-            } 
-    })
+                        res.json({ success: true, message: 'Anime has been added to list'});
+                        
+                    });
+                    
+                } else {
+                    res.json({ success: false, message: 'Anime already in list'}); 
+                }
+            });
+        } 
 }
 );
 
@@ -288,7 +276,7 @@ router.put(
 
             const trackedItemReq = {
                 accountID: removeItemRequest.accountID,
-                mal_id: req.body.mal_id,
+                title: req.body.title,
             }
             
             UserProfile.removeTrackedItem(trackedItemReq, (err, doc) => {
@@ -320,7 +308,6 @@ router.put(
             
             const addItemRequest = {
                 accountID: req.user.accountID,
-                mal_id: req.body.mal_id,
                 img_url: req.body.img_url,
                 title: req.body.title,
                 nsfw: req.body.nsfw,
@@ -365,7 +352,6 @@ router.put(
             
             const addItemRequest = {
                 accountID: req.user.accountID,
-                mal_id: req.body.mal_id,
                 img_url: req.body.img_url,
                 title: req.body.title,
                 nsfw: req.body.nsfw,
@@ -381,7 +367,6 @@ router.put(
                 const removeItemRequest = {
                     accountID: req.user.accountID,
                     item_id: req.body.item_id,
-                    mal_id: req.body.mal_id,
                     LIST: 'completed',
                 }
     
@@ -497,74 +482,61 @@ router.put(
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
 
-        const param = {
-            limit: 5,
-            order_by: 'title'
+        var _title = req.body.animeTitle;
+        const addItemRequest = {
+            accountID: req.user.accountID,
+            img_url: req.body.img_url,
+            title: _title,
+            nsfw: false,
+            episode_id: req.body.episode_id,
+            timestamp: req.body.timestamp,
+            currentEpisode: req.body.currentEpisode,
+            totalEpisode: req.body.totalEpisode,
         }
 
-        let title = req.body.animeTitle;
-        let result = await mal.search('anime',  title, param);
+        const trackedItemReq = {
+            accountID:req.user.accountID,
+            title: _title,
+        }
 
-        result.results.forEach(el => {
-            if (el.title === req.body.animeTitle) {
-                const addItemRequest = {
-                    accountID: req.user.accountID,
-                    mal_id: el.mal_id,
-                    img_url: el.image_url,
-                    title: el.title,
-                    nsfw: false,
-                    episode_id: req.body.episode_id,
-                    timestamp: req.body.timestamp,
-                    currentEpisode: req.body.currentEpisode,
-                    totalEpisode: req.body.totalEpisode,
-                }
+        UserProfile.exists({ 'accountID': addItemRequest.accountID },{ 'tracked_anime_continue_watching': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+            if (err) {
+                throw err;
+            }
 
-                const trackedItemReq = {
-                    accountID:req.user.accountID,
-                    mal_id: el.mal_id,
-                }
-
-                UserProfile.exists({ 'accountID': addItemRequest.accountID },{ 'tracked_anime_continue_watching': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+            // if exists remove and append new item
+            if (exists) {
+                UserProfile.removeItemFromContinueWatching(trackedItemReq, (err, doc) => {
                     if (err) {
                         throw err;
-                    }
-
-                    // if exists remove and append new item
-                    if (exists) {
-                        UserProfile.removeItemFromContinueWatching(trackedItemReq, (err, doc) => {
-                            if (err) {
-                                throw err;
-                            } 
-                        });
-
-                        UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
-                            if (err) {
-                                res.json({ success: false, message: 'error while adding new item to list' });
-                                throw err;
-                            }
-                         
-                            res.json({ success: true, message: 'Anime has been added to continue watching'});
-                            
-                        });
-                    } else {   /* if does not exists just append  */
-                        UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
-                            if (err) {
-                                res.json({ success: false, message: 'error while adding new item to list' });
-                                throw err;
-                            }
-                         
-                            res.json({ success: true, message: 'Anime has been added to continue watching'});
-                            
-                        });
-                        
                     } 
                 });
-            } else { // maybe english title and orginal title conflicted try again
-             
-            }
-    });
 
-    res.json({ success: false, message: 'Sorry for the inconveniences but we could not add the last anime you were watching to continue watching list'}); 
+                UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
+                    if (err) {
+                        res.json({ success: false, message: 'Sorry for the inconveniences but we could not add the last anime you were watching to continue watching list' });
+                        throw err;
+                    }
+                    
+                    res.json({ success: true, message: 'Anime has been added to continue watching'});
+                    
+                });
+            } else {   /* if does not exists just append  */
+                UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
+                    if (err) {
+                        res.json({ success: false, message: 'Sorry for the inconveniences but we could not add the last anime you were watching to continue watching list' });
+                        throw err;
+                    }
+                    
+                    res.json({ success: true, message: 'Anime has been added to continue watching'});
+                    
+                });
+                
+            } 
+        });
+            
+   
+
 }
 );
 
@@ -577,12 +549,12 @@ router.put(
         try {
             const removeItemRequest = {
                 accountID: req.user.accountID,
-                mal_id: req.body.mal_id,
+                title: req.body.title,
             }
 
             const trackedItemReq = {
                 accountID: removeItemRequest.accountID,
-                mal_id: req.body.mal_id,
+                title: req.body.title,
             }
             
             UserProfile.removeTracked_anime_continue_watching(trackedItemReq, (err, doc) => {

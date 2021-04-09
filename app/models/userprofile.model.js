@@ -15,11 +15,12 @@ const AnimetListItemSchema = mongoose.Schema({
 }, { _id : false });
 
 const TrackedListItemSchema = mongoose.Schema({
-    mal_id: { type: Number, unique: true, },
+    title: { type: String, unique: true, },
 }, { _id : false });
 
+
 const ContinueWatching = mongoose.Schema({
-    mal_id: { type: Number, unique: true, },
+    title: { type: String, unique: true, },
     anime: { type: AnimetListItemSchema },
     episode_id: { type: String },
     timestamp: { type: Number },
@@ -108,7 +109,6 @@ module.exports.appendRating = async (ratingRequest) => {
 module.exports.appendItemToList= async (addItemRequest, callback) => {
     try {
         const _accountID = addItemRequest.accountID;
-        const _mal_id = addItemRequest.mal_id;
         const _img_url = addItemRequest.img_url;
         const _title = addItemRequest.title;
         const _nsfw = addItemRequest.nsfw;
@@ -117,7 +117,7 @@ module.exports.appendItemToList= async (addItemRequest, callback) => {
         /* add to tracked anime */
         const trackedItemReq = {
             accountID: _accountID,
-            mal_id: _mal_id
+            title: _title
         }
         
                 UserProfile.appendTrackedItem(trackedItemReq, (err, doc) => {
@@ -133,7 +133,6 @@ module.exports.appendItemToList= async (addItemRequest, callback) => {
                             'plan_to_watch':
                                 {   
                                     'item_id': nanoid(),
-                                    'mal_id': _mal_id,
                                     'img_url': _img_url,
                                     'title': _title,
                                     'nsfw': _nsfw,
@@ -148,7 +147,6 @@ module.exports.appendItemToList= async (addItemRequest, callback) => {
                             'completed':
                                 {   
                                     'item_id': nanoid(),
-                                    'mal_id': _mal_id,
                                     'img_url': _img_url,
                                     'title': _title,
                                     'nsfw': _nsfw,
@@ -167,7 +165,6 @@ module.exports.removeItemFromList = async (removeItemRequest, callback) => {
     try {
         const _accountID = removeItemRequest.accountID;
         const _item_id = removeItemRequest.item_id;
-        const _mal_id = removeItemRequest.mal_id;
         const _LIST = removeItemRequest.LIST;
         
         if (_LIST == 'plan_to_watch') { 
@@ -187,11 +184,11 @@ module.exports.appendTrackedItem= async (addItemRequest, callback) => {
     try {
         
         const _accountID = addItemRequest.accountID;
-        const _mal_id = addItemRequest.mal_id;
+        const _title = addItemRequest.title;
 
         UserProfile.updateOne({ 'accountID': _accountID }, {
             $addToSet: {
-                'tracked_anime': { 'mal_id': _mal_id}
+                'tracked_anime': { 'title': _title}
             }
         }, callback);
 
@@ -203,11 +200,11 @@ module.exports.appendTrackedItem= async (addItemRequest, callback) => {
 module.exports.removeTrackedItem = async (removeItemRequest, callback) => {
     try {
         const _accountID = removeItemRequest.accountID;
-        const _mal_id = removeItemRequest.mal_id;
+        const _title = removeItemRequest.title;
 
         UserProfile.updateOne({ 'accountID': _accountID }, {
             $pull: {
-                'tracked_anime': { 'mal_id': _mal_id}
+                'tracked_anime': { 'title': _title}
             }
         }, callback);
 
@@ -221,11 +218,11 @@ module.exports.appendTracked_anime_continue_watching= async (addItemRequest, cal
     try {
         
         const _accountID = addItemRequest.accountID;
-        const _mal_id = addItemRequest.mal_id;
+        const _title = addItemRequest.title;
 
         UserProfile.updateOne({ 'accountID': _accountID }, {
             $addToSet: {
-                'tracked_anime_continue_watching': { 'mal_id': _mal_id}
+                'tracked_anime_continue_watching': { 'title': _title}
             }
         }, callback);
 
@@ -237,11 +234,11 @@ module.exports.appendTracked_anime_continue_watching= async (addItemRequest, cal
 module.exports.removeTracked_anime_continue_watching = async (removeItemRequest, callback) => {
     try {
         const _accountID = removeItemRequest.accountID;
-        const _mal_id = removeItemRequest.mal_id;
+        const _title = removeItemRequest.title;
 
         UserProfile.updateOne({ 'accountID': _accountID }, {
             $pull: {
-                'tracked_anime_continue_watching': { 'mal_id': _mal_id}
+                'tracked_anime_continue_watching': { 'title': _title}
             }
         }, callback);
 
@@ -255,14 +252,12 @@ module.exports.removeTracked_anime_continue_watching = async (removeItemRequest,
 module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
     try {
         const _accountID = addItemRequest.accountID;
-        const _mal_id = addItemRequest.mal_id;
         const _img_url = addItemRequest.img_url;
         const _title = addItemRequest.title;
         const _nsfw = addItemRequest.nsfw;
 
         const AnimetListItemSchema  = ({
             'item_id': nanoid(),
-            'mal_id': _mal_id,
             'img_url': _img_url,
             'title': _title,
             'nsfw': _nsfw,
@@ -275,7 +270,7 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
 
         const trackedItemReq = {
             accountID: _accountID,
-            mal_id: _mal_id
+            title: _title
         }
         
         UserProfile.appendTracked_anime_continue_watching(trackedItemReq, (err, doc) => {
@@ -289,7 +284,7 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
                     {
                         $addToSet: {
                             'continue_watching': {
-                                 'mal_id': _mal_id,
+                                 'title': _title,
                                  'anime': AnimetListItemSchema,
                                  'episode_id': _episode_id,
                                  'timestamp': _timestamp,
@@ -308,10 +303,10 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
 module.exports.removeItemFromContinueWatching = async (removeItemRequest, callback) => {
     try {
         const _accountID = removeItemRequest.accountID;
-        const _mal_id = removeItemRequest.mal_id;
+        const _title = removeItemRequest.title;
         
         UserProfile.updateOne({ 'accountID': _accountID}, { 
-            $pull: { 'continue_watching': { 'mal_id': _mal_id } }
+            $pull: { 'continue_watching': { 'title': _title } }
         }, callback)
 
     } catch (error) {
