@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { nanoid } = require('nanoid');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
@@ -8,8 +9,17 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
-
 // mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
+
+// verifyToken
+
+router.post(
+    '/verify-token',
+    passport.authenticate(['regular-login'], { session: false }),  
+    (req, res) => {
+       res.json({ success: true});
+
+});
 
 router.post(
     '/register', 
@@ -113,7 +123,7 @@ router.post(
                             if (isMatch) {
                                 const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET, {
                                     // WILL EXPIRE IN  2d
-                                    expiresIn: '2d'
+                                    expiresIn: '1d'
                                 });
 
                                 // user auth correct 
@@ -121,7 +131,7 @@ router.post(
                                     success: true,
                                     token: 'JWT ' + token,
                                     user: {
-                                        accountID: user.accountID      
+                                        email: user.email      
                                     }
                                 });
                             } else {
