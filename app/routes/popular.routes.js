@@ -1,12 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const { getCurrentSeason } = require('../services/cron_tasks/add_new_anime_season');
 const SeasonAnime = require('../models/season.model');
 const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
-//mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const Top = require('../models/top.model');
-const TRENDING_AMOUNT = 20;
+mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 
 const rateLimit = require("express-rate-limit");
 const searchLimiter = rateLimit({
@@ -66,23 +66,19 @@ router.get(
     }
 });
 
+// Backup NOT IMPLEMENTED
 router.get(
     '/search', 
     searchLimiter,
     async (req, res) => {
     try {
-        const term = req.query.term;
-        /* 
-        mal_id: number
-        title: string;
-        img_url: string;
-        score: number;
-        episodes: number;
-        */
+        const term = req.query.word;
+
         const RESULT = [];
         const param = {
             limit:14,
             order_by: 'title',
+            rated: 'rx'
         }
        
         const response = await mal.search('anime',term, param);
@@ -141,6 +137,22 @@ router.get(
 
 router.get(
     '/upcoming',
+    defaultLimiter,
+    async (req, res) => {
+        try {     
+            let pageNumber = Number(req.query.pageNumber);
+            let result = await Top.getUpcoming(pageNumber);
+            
+            res.json(result[0].UPCOMING);
+        } catch (error) {
+            res.json({success: false});
+            console.log(error);
+        }
+    }
+);
+
+router.get(
+    '/on-going-series',
     defaultLimiter,
     async (req, res) => {
         try {     

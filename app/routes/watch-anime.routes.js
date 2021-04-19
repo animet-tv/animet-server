@@ -63,13 +63,21 @@ router.get(
 });
 
 /* BACKUP: iframe player links */
-router.get('/get-episode-stream', async(req, res) => {
+router.get('/gapi/get-episode-stream', async(req, res) => {
     try {
+      console.time('animeEpisodeHandler');
 
-        let streamEpisode = req.query.episodeID;
+        let links = [];
+        let streamEpisode = req.query.id;
         let apiResult = await Gapi.animeEpisodeHandler(streamEpisode);
-    
-        res.json(apiResult);
+        console.timeEnd('animeEpisodeHandler');
+        let link = {
+            size: 'High Speed',
+            src: `https://${apiResult[0].servers[0].iframe}`
+        }
+        links.push(link);
+
+        res.json({links: links});
     } catch (error) {
         console.log(error);
     }

@@ -11,8 +11,8 @@ const passport = require('passport');
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
-const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
-const { populateDailyTop, cleanDailyTop } = require('./app/services/cron_tasks/get_daily_top'); 
+// const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
+const { populateDailyTop, } = require('./app/services/cron_tasks/get_daily_top'); 
 
 app.use(cors());
 app.use(logger('dev'));
@@ -61,17 +61,16 @@ const connectDB = async () => {
 // Connecting to the database
 connectDB();
 
-/* 
-populateDailyTop(); */
+
+/* populateDailyTop(); */
 
 
 // Devlopment
 /* database_clean(); */
 /* database_population(); */
 
-
 /* CRON tasks every midnight hours */
-cron.schedule('0 0 * * *', () => {
+cron.schedule('0 0 6 * * ', () => {
     console.log('going maintenance mode runing cron tasks');
     populateDailyTop();
 });

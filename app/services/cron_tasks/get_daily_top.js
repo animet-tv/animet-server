@@ -4,7 +4,9 @@ const { MongoClient } = require("mongodb");
 const dbConfig = require('../../config/mongodb.config');
 const Jikan = require('animet-jikan-wrapper');
 const { delay } = require('bluebird');
+const { model } = require('../../models/top.model');
 const mal = new Jikan();
+mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 
 // get top 500 of each type 
 exports.populateDailyTop = async () => {
@@ -12,6 +14,7 @@ exports.populateDailyTop = async () => {
         var _TRENDING = [];
         var _ALL_TIME_POPULAR = [];
         var _UPCOMING = [];
+        var _SCHEDULE_FOR_TODAY = [];
         
         // TRENDING
         for (let i = 1; i < 6; i++) {
@@ -26,7 +29,7 @@ exports.populateDailyTop = async () => {
                 });
                 _TRENDING.push(newResult);
             });
-            await delay(10000);
+            await delay(5000);
             console.log(`gathering dailys TRENDING page:${i}`);
         }
 
@@ -44,7 +47,7 @@ exports.populateDailyTop = async () => {
                 });
                 _ALL_TIME_POPULAR.push(newResult);
             });
-            await delay(10000);
+            await delay(5000);
             console.log(`gathering dailys ALL TIME POPULAR page:${i}`);
 
         }
@@ -62,9 +65,25 @@ exports.populateDailyTop = async () => {
                 });
                 _UPCOMING.push(newResult);
             });
-            await delay(10000);
+            await delay(5000);
             console.log(`gathering dailys UPCOMING page:${i}`);
         }
+
+          // SCHEDULE FOR THIS WEEK
+          /* var date = new Date();
+          var weekDay = getWeekDay(date);
+          var res_upcoming = await mal.findSchedule(`${weekDay}`);
+          res_upcoming.top.forEach(el => {
+              let newResult = ({
+                  mal_id: el.mal_id,
+                  title: el.title,
+                  img_url: el.image_url,
+                  score: el.score,
+                  episodes: el.episodes,
+              });
+              _SCHEDULE_FOR_TODAY.push(newResult);
+          }); */
+       /*   console.log(`gathering dailys SCHEDULE_FOR_TODAY`); */
 
         const newTopData = new Top({
             TRENDING: _TRENDING,
@@ -72,7 +91,14 @@ exports.populateDailyTop = async () => {
             UPCOMING: _UPCOMING,
         });
         
-        cleanDailyTop();
+        Top.deleteMany({} , (err) => {
+            if (err) {
+              console.error(err);
+              process.exit(1);
+            }
+        
+            console.log('All Tops cleared');
+          });
         
         newTopData.save();
 
@@ -91,4 +117,16 @@ module.exports.cleanDailyTop = () => {
   
       console.log('All Tops cleared');
     });
+}
+
+
+function getWeekDay(date){
+    //Create an array containing each day, starting with Sunday.
+    var weekdays = new Array(
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    );
+    //Use the getDay() method to get the day.
+    var day = date.getDay();
+    //Return the element that corresponds to that index.
+    return weekdays[day];
 }
