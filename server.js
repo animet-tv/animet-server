@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
 const dbConfig = require('./app/config/mongodb.config');
-const cron = require('node-cron');
 const passport = require('passport');
+const cron = require('cron').CronJob;
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
@@ -42,7 +42,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 const url = process.env.LIVE_URL;
-//const url = dbConfig.local_url;
+const url = dbConfig.local_url;
 const connectDB = async () => {
     try {
         await mongoose.connect(url, {
@@ -70,8 +70,12 @@ connectDB();
 /* database_population(); */
 
 /* CRON tasks every midnight hours */
-cron.schedule('0 0 6 * * ', () => {
-    console.log('going maintenance mode runing cron tasks');
+const daily_db_workers = new cron('0 0 6 * *  *', function() {
+    console.log('going maintenance mode runing tasks');
     populateDailyTop();
-});
+   
+})
+
+daily_db_workers.start();
+
 module.exports = app;

@@ -6,6 +6,7 @@ const SeasonAnime = require('../models/season.model');
 const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
 const Top = require('../models/top.model');
+const Post = require('../models/post.model');
 mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 
 const rateLimit = require("express-rate-limit");
@@ -21,7 +22,7 @@ const seasonLimiter = rateLimit({
 
 const defaultLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 700
+    max: 600
 });
 
 
@@ -73,12 +74,16 @@ router.get(
     async (req, res) => {
     try {
         const term = req.query.word;
-
+        const nsfw = req.query.NSFW;
         const RESULT = [];
         const param = {
             limit:14,
             order_by: 'title',
             rated: 'rx'
+        }
+
+        if (nsfw === 'false') {
+            param.rated = 'r'
         }
        
         const response = await mal.search('anime',term, param);
@@ -160,6 +165,22 @@ router.get(
             let result = await Top.getUpcoming(pageNumber);
             
             res.json(result[0].UPCOMING);
+        } catch (error) {
+            res.json({success: false});
+            console.log(error);
+        }
+    }
+);
+
+router.get(
+    '/all-time-popular-hentai',
+    defaultLimiter,
+    async (req, res) => {
+        try {         
+            
+            let result = await Post.getTopHentai();
+            
+            res.json(result);
         } catch (error) {
             res.json({success: false});
             console.log(error);

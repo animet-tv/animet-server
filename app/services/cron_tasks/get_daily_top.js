@@ -14,7 +14,7 @@ exports.populateDailyTop = async () => {
         var _TRENDING = [];
         var _ALL_TIME_POPULAR = [];
         var _UPCOMING = [];
-        var _SCHEDULE_FOR_TODAY = [];
+
         
         // TRENDING
         for (let i = 1; i < 6; i++) {
@@ -69,22 +69,7 @@ exports.populateDailyTop = async () => {
             console.log(`gathering dailys UPCOMING page:${i}`);
         }
 
-          // SCHEDULE FOR THIS WEEK
-          /* var date = new Date();
-          var weekDay = getWeekDay(date);
-          var res_upcoming = await mal.findSchedule(`${weekDay}`);
-          res_upcoming.top.forEach(el => {
-              let newResult = ({
-                  mal_id: el.mal_id,
-                  title: el.title,
-                  img_url: el.image_url,
-                  score: el.score,
-                  episodes: el.episodes,
-              });
-              _SCHEDULE_FOR_TODAY.push(newResult);
-          }); */
-       /*   console.log(`gathering dailys SCHEDULE_FOR_TODAY`); */
-
+       
         const newTopData = new Top({
             TRENDING: _TRENDING,
             ALL_TIME_POPULAR: _ALL_TIME_POPULAR,

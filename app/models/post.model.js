@@ -79,3 +79,19 @@ module.exports.appendRating =  async (request, callback) => {
    }
 }
 
+
+
+module.exports.getTopHentai = async () => {
+  /*
+    !For now serve by rank  until we start collection user rating data and build custom ranking
+  */
+
+  try {
+    const nsfw = true;
+    const limit = 100;
+
+    return await Post.find({ 'nsfw': nsfw },{'_id': 0, 'postID': 1, 'title': 1, 'img_url': 1, 'score': 1, 'genre': 1, 'synopsis': 1}).sort({ 'score': -1}).limit(limit);
+  } catch (error) {
+    console.error(error);
+  }
+}
