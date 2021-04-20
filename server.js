@@ -42,7 +42,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 const url = process.env.LIVE_URL;
-const url = dbConfig.local_url;
+//const url = dbConfig.local_url;
 const connectDB = async () => {
     try {
         await mongoose.connect(url, {
