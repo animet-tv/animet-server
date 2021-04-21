@@ -8,6 +8,7 @@ const logger = require('morgan');
 const dbConfig = require('./app/config/mongodb.config');
 const passport = require('passport');
 const cron = require('cron').CronJob;
+const compression = require('compression');
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
@@ -18,7 +19,7 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(compression());
 // Passport Middleware 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,8 +42,7 @@ app.use('/api/watch-anime', watchAnime);
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const url = process.env.LIVE_URL;
-//const url = dbConfig.local_url;
+const url = dbConfig.live_url;
 const connectDB = async () => {
     try {
         await mongoose.connect(url, {

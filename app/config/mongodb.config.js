@@ -1,5 +1,4 @@
 module.exports = {
-    local_url: 'mongodb://localhost:27017/animet-db',
-    live_url:  process.env.live_url,
+    live_url:  process.env.DB_CONNECTION_URL,
     secret: process.env.passport_secret,
 }
