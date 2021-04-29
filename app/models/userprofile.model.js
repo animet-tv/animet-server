@@ -26,6 +26,7 @@ const ContinueWatching = mongoose.Schema({
     timestamp: { type: Number },
     currentEpisode: { type: Number },
     totalEpisode: { type: Number },
+    type: { type: Boolean },
     dateCreated: { type: Number, default: Date.now() }
 }, { _id: false});
 
@@ -255,7 +256,16 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
         const _img_url = addItemRequest.img_url;
         const _title = addItemRequest.title;
         const _nsfw = addItemRequest.nsfw;
-
+        var _type;
+        
+        if (addItemRequest.type === 'true') {
+            _type = true;
+        } else if (addItemRequest.type === 'false') {
+            _type = false;
+        } else {
+            _type = false;
+        }
+        
         const AnimetListItemSchema  = ({
             'item_id': nanoid(),
             'img_url': _img_url,
@@ -290,6 +300,7 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
                                  'timestamp': _timestamp,
                                  'currentEpisode': _currentEpisode,
                                  'totalEpisode': _totalEpisode,
+                                 'type': _type,
                             }
                         }
                     }, callback);            

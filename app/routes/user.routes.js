@@ -502,8 +502,9 @@ router.put(
             timestamp: req.body.timestamp,
             currentEpisode: req.body.currentEpisode,
             totalEpisode: req.body.totalEpisode,
+            type: req.body.type,
         }
-
+        
         const trackedItemReq = {
             accountID:req.user.accountID,
             title: _title,

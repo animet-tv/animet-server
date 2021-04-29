@@ -62,8 +62,8 @@ const connectDB = async () => {
 connectDB();
 
 
-/* populateDailyTop(); */
-
+/* populateDailyTop();
+ */
 
 // Devlopment
 /* database_clean(); */

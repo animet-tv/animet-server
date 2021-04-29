@@ -14,7 +14,7 @@ module.exports.populateDailyTop = async () => {
 
 
         // Fetch anime data by subtype
-        const fetchAnimeData_by_subType = async(list_name, subtype, waitAmountPerRequest = 3000, pages = 2) => {
+        const fetchAnimeData_by_subType = async(list_name, subtype, waitAmountPerRequest = 3000, pages = 4) => {
             try {
                 for (let i = 1; i < pages; i++) { 
                     let result = await mal.findTop('anime',`${i}`, `${subtype}`);
@@ -71,9 +71,9 @@ module.exports.populateDailyTop = async () => {
                 await fetchAnimeData_by_subType(_UPCOMING, 'upcoming');
 
                 // update all list title to english title
-                await updateTitle_to_englishTitle(_TRENDING);
+                /* await updateTitle_to_englishTitle(_TRENDING);
                 await updateTitle_to_englishTitle(_ALL_TIME_POPULAR);
-                await updateTitle_to_englishTitle(_UPCOMING);
+                await updateTitle_to_englishTitle(_UPCOMING); */
                 console.log('Updated Daily Top', ' ' , new Date());
             } catch (error) {
                 console.log(error);
