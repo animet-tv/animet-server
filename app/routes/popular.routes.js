@@ -31,6 +31,7 @@ router.get(
     seasonLimiter, 
     async (req, res) => {
     try {
+
         const getSeason = d => Math.floor((d.getMonth() / 12 * 4)) % 4;
         const season = ['Winter', 'Spring', 'Summer', 'Autumn'][(getSeason(new Date()))];
         const year = new Date().getFullYear();

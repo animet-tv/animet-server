@@ -65,10 +65,9 @@ router.get(
 /* BACKUP: iframe player links */
 router.get('/gapi/get-episode-stream', async(req, res) => {
     try {
-      console.time('animeEpisodeHandler');
-
+        console.log(req.query.episodeID);
         let links = [];
-        let streamEpisode = req.query.id;
+        let streamEpisode = req.query.episodeID;
         let apiResult = await Gapi.animeEpisodeHandler(streamEpisode);
         console.timeEnd('animeEpisodeHandler');
         let link = {
