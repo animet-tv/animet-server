@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -61,19 +61,19 @@ const connectDB = async () => {
 // Connecting to the database
 connectDB();
 
+/* 
+populateDailyTop(); */
 
-/* populateDailyTop();
- */
 
 // Devlopment
 /* database_clean(); */
 /* database_population(); */
 
 /* CRON tasks every midnight hours */
-const daily_db_workers = new cron('0 0 6 * *  *', function() {
-    console.log('going maintenance mode runing tasks');
-    populateDailyTop();
-   
+const daily_db_workers = new cron("0 6 * * *", async() => {
+    console.log('going maintenance mode updating Database . . .');
+    await populateDailyTop();
+    
 })
 
 daily_db_workers.start();

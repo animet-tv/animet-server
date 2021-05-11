@@ -1,13 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-const { getCurrentSeason } = require('../services/cron_tasks/add_new_anime_season');
 const SeasonAnime = require('../models/season.model');
 const Jikan = require('animet-jikan-wrapper');
 const mal = new Jikan();
 const Top = require('../models/top.model');
 const Post = require('../models/post.model');
 mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
+const Genre = require('../models/genres.model');
 
 const rateLimit = require("express-rate-limit");
 const searchLimiter = rateLimit({
@@ -17,12 +17,12 @@ const searchLimiter = rateLimit({
 
 const seasonLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 500
+    max: 1000
 });
 
 const defaultLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 600
+    max: 1000
 });
 
 
@@ -188,5 +188,20 @@ router.get(
         }
     }
 );
+
+router.get(
+    '/get-genres',
+    defaultLimiter,
+    async (req,res) => {
+        Genre.getAnimeGenres((err, result) => {
+            if (err) {
+                res.sendStatus(404);
+                throw err;
+            }
+            
+            res.json(result);
+        })
+    }
+)
 
 module.exports = router;
