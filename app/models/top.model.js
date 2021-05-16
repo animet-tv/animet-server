@@ -1,7 +1,13 @@
-const redis = require("redis");
-const client = redis.createClient(process.env.REDISCLOUD_URL);
 const mongoose = require('mongoose');
 const beautifyUnique = require('mongoose-beautiful-unique-validation');
+if (process.env.REDISTOGO_URL) {
+    // TODO: redistogo connection
+    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+    var redis = require("redis").createClient(rtg.port, rtg.hostname);
+    redis.auth(rtg.auth.split(":")[1]);
+} else {
+    var redis = require("redis").createClient();
+}
 
 
 const Anime = mongoose.Schema({
@@ -26,7 +32,7 @@ const Top = module.exports = mongoose.model('Top', TopSchema);
 
 module.exports.getTrending = async (callback) => {
     try {
-        client.get('TRENDING', (err, result) => {
+        redis.get('TRENDING', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -48,7 +54,7 @@ module.exports.getTrending = async (callback) => {
 
 module.exports.getPopular = async (callback) => {
     try {
-        client.get('ALL_TIME_POPULAR', (err, result) => {
+        redis.get('ALL_TIME_POPULAR', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -70,7 +76,7 @@ module.exports.getPopular = async (callback) => {
 
 module.exports.getUpcoming = async (callback) => {
     try {
-        client.get('UPCOMING', (err, result) => {
+        redis.get('UPCOMING', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
