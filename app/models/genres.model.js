@@ -1,3 +1,5 @@
+const redis = require("redis");
+const client = redis.createClient();
 const mongoose = require('mongoose');
 const beautifyUnique = require('mongoose-beautiful-unique-validation');
 
@@ -57,12 +59,25 @@ GenreSchema.plugin(beautifyUnique);
 
 const Genre = module.exports = mongoose.model('Genre', GenreSchema);
 
-
 module.exports.getAnimeGenres = async (callback) => {
     try {
-        await Genre.find({},{_id: 0}, callback);
+        client.get('GENRES', (err, result) => {
+                if (result) {
+                    const resultJSON = JSON.parse(result);
+                    callback(null, resultJSON);
+                } else {
+                    Genre.find({},{_id: 0})
+                        .then(
+                            _result => {
+                                client.setex('GENRES', 3600, JSON.stringify(_result));
+                                callback(null, _result);
+                            }
+                        )
+                }
+            })
     } catch (error) {
         console.log(error);
+        callback(null, false);
     }
 }
 

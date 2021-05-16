@@ -147,7 +147,7 @@ module.exports.populateDailyTop = async () => {
             try {
                 let subtype = ['airing', 'bypopularity', 'upcoming'];
                 for (let i = 0; i < tops_list.length; i++) {
-                    await fetchAnimeData_by_subType(i, subtype[i], 3000, 5);
+                    await fetchAnimeData_by_subType(i, subtype[i], 3000, 6);
                     await delay(2000);
                 }
 
@@ -160,7 +160,7 @@ module.exports.populateDailyTop = async () => {
                 let genres_name=["Action","Adventure","Cars","Comedy","Dementia","Demons","Drama","Dub","Ecchi","Fantasy","Game","Harem","Historical","Horror","Josei","Kids","Magic","Martial Arts","Mecha","Military","Music","Mystery","Parody","Police","Psychological","Romance","Samurai","School","Sci-Fi","Seinen","Shoujo","Shoujo Ai","Shounen","Shounen Ai","Slice of Life","Space","Sports","Super Power","Supernatural","Thriller","Vampire", "Yaoi", "Yuri"];
                 
                 for (let i = 0; i < genres_list.length; i++) {
-                   await updateGenre(genres_name[i],10,i);
+                   await updateGenre(genres_name[i],20,i);
                    await delay(2000);
                 }
 

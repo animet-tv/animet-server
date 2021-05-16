@@ -113,10 +113,15 @@ router.get(
     defaultLimiter,
     async (req, res) => {
         try {         
-            let pageNumber = Number(req.query.pageNumber);
-            let result = await Top.getTrending(pageNumber);
-            
-            res.json(result[0].TRENDING);
+            Top.getTrending((err, callback) => {
+                if (err) {
+                    res.sendStatus(404);
+                }
+
+                if (callback) {
+                    res.json(callback[0].TRENDING);
+                }
+            });
         } catch (error) {
             res.json({success: false});
             console.log(error);
@@ -129,10 +134,15 @@ router.get(
     defaultLimiter,
     async (req, res) => {
         try {         
-            let pageNumber = Number(req.query.pageNumber);
-            let result = await Top.getPopular(pageNumber);
-            
-            res.json(result[0].ALL_TIME_POPULAR);
+            Top.getPopular((err, callback) => {
+                if (err) {
+                    res.sendStatus(404);
+                }
+
+                if (callback) {
+                    res.json(callback[0].ALL_TIME_POPULAR);
+                }
+            });
         } catch (error) {
             res.json({success: false});
             console.log(error);
@@ -146,10 +156,15 @@ router.get(
     defaultLimiter,
     async (req, res) => {
         try {     
-            let pageNumber = Number(req.query.pageNumber);
-            let result = await Top.getUpcoming(pageNumber);
-            
-            res.json(result[0].UPCOMING);
+            Top.getUpcoming((err, callback) => {
+                if (err) {
+                    res.sendStatus(404);
+                }
+
+                if (callback) {
+                    res.json(callback[0].UPCOMING);
+                }
+            });
         } catch (error) {
             res.json({success: false});
             console.log(error);
@@ -198,7 +213,6 @@ router.get(
                 res.sendStatus(404);
                 throw err;
             }
-            
             res.json(result);
         })
     }

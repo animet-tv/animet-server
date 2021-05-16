@@ -1,3 +1,5 @@
+const redis = require("redis");
+const client = redis.createClient();
 const mongoose = require('mongoose');
 const beautifyUnique = require('mongoose-beautiful-unique-validation');
 
@@ -22,26 +24,68 @@ TopSchema.plugin(beautifyUnique);
 const Top = module.exports = mongoose.model('Top', TopSchema);
 
 
-module.exports.getTrending = async () => {
+module.exports.getTrending = async (callback) => {
     try {
-        return Top.find({},{'TRENDING': 1});
+        client.get('TRENDING', (err, result) => {
+                if (result) {
+                    const resultJSON = JSON.parse(result);
+                    callback(null, resultJSON);
+                } else {
+                    Top.find({},{'TRENDING': 1})
+                        .then(
+                            _result => {
+                                client.setex('TRENDING', 3600, JSON.stringify(_result));
+                                callback(null, _result);
+                            }
+                        )
+                }
+            })
     } catch (error) {
         console.log(error);
+        callback(null, false);
     }
 }
 
-module.exports.getPopular = async () => {
+module.exports.getPopular = async (callback) => {
     try {
-        return Top.find({},{'ALL_TIME_POPULAR': 1});
+        client.get('ALL_TIME_POPULAR', (err, result) => {
+                if (result) {
+                    const resultJSON = JSON.parse(result);
+                    callback(null, resultJSON);
+                } else {
+                    Top.find({},{'ALL_TIME_POPULAR': 1})
+                        .then(
+                            _result => {
+                                client.setex('ALL_TIME_POPULAR', 3600, JSON.stringify(_result));
+                                callback(null, _result);
+                            }
+                        )
+                }
+            })
     } catch (error) {
         console.log(error);
+        callback(null, false);
     }
 }
 
-module.exports.getUpcoming = async () => {
+module.exports.getUpcoming = async (callback) => {
     try {
-        return Top.find({},{'UPCOMING': 1});
+        client.get('UPCOMING', (err, result) => {
+                if (result) {
+                    const resultJSON = JSON.parse(result);
+                    callback(null, resultJSON);
+                } else {
+                    Top.find({},{'UPCOMING': 1})
+                        .then(
+                            _result => {
+                                client.setex('UPCOMING', 3600, JSON.stringify(_result));
+                                callback(null, _result);
+                            }
+                        )
+                }
+            })
     } catch (error) {
         console.log(error);
+        callback(null, false);
     }
 }
