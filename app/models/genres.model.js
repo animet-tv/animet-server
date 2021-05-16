@@ -1,7 +1,8 @@
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient(process.env.REDISCLOUD_URL || 'localhost');
 const mongoose = require('mongoose');
 const beautifyUnique = require('mongoose-beautiful-unique-validation');
+
 
 
 const Anime = mongoose.Schema({
