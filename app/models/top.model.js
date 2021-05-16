@@ -40,7 +40,7 @@ module.exports.getTrending = async (callback) => {
                     Top.find({},{'TRENDING': 1})
                         .then(
                             _result => {
-                                client.setex('TRENDING', 3600, JSON.stringify(_result));
+                                redis.setex('TRENDING', 3600, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -62,7 +62,7 @@ module.exports.getPopular = async (callback) => {
                     Top.find({},{'ALL_TIME_POPULAR': 1})
                         .then(
                             _result => {
-                                client.setex('ALL_TIME_POPULAR', 3600, JSON.stringify(_result));
+                                redis.setex('ALL_TIME_POPULAR', 3600, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -84,7 +84,7 @@ module.exports.getUpcoming = async (callback) => {
                     Top.find({},{'UPCOMING': 1})
                         .then(
                             _result => {
-                                client.setex('UPCOMING', 3600, JSON.stringify(_result));
+                                redis.setex('UPCOMING', 3600, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
