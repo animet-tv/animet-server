@@ -15,6 +15,7 @@ module.exports.populateDailyTop = async () => {
         var _TRENDING = [];
         var _ALL_TIME_POPULAR = [];
         var _UPCOMING = [];
+        var _MOVIES = [];
         var tops_list = [_TRENDING, _ALL_TIME_POPULAR, _UPCOMING];
 
         var _Action = [];
@@ -138,6 +139,19 @@ module.exports.populateDailyTop = async () => {
                 }
                 console.log(`Done fetching genre: ${genre}`);
                 genres_list[index] = result;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        let updateMovies = async (totalPages) => {
+            try {
+                let result = [];
+                
+                for (let i = 0; i < totalPages; i++) {
+                    const element = array[i];
+                    
+                }
             } catch (error) {
                 console.log(error);
             }

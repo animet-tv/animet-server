@@ -39,7 +39,7 @@ module.exports.getFeed = async (request) => {
     const nsfw = request.nsfw;
     const limit = request.limit;
 
-    return await Post.find({ 'nsfw': nsfw },{'_id': 0, 'postID': 1, 'title': 1, 'img_url': 1, 'score': 1, 'genre': 1, 'synopsis': 1}).sort({ 'score': -1}).limit(limit).skip(Math.floor(Math.random() * Math.floor(100)));
+    return await Post.find({ 'nsfw': nsfw },{'_id': 0, 'postID': 1, 'title': 1, 'img_url': 1, 'score': 1, 'genre': 1, 'synopsis': 1}).sort({ 'score': -1}).limit(200).skip(Math.floor(Math.random() * Math.floor(1400)));
   } catch (error) {
     console.error(error);
   }
@@ -49,7 +49,8 @@ module.exports.getRandomFeed = async (request) => {
   try {
     const nsfw = request.nsfw;
 
-    return await Post.find ({ 'nsfw': nsfw }, {'_id': 0, 'postID': 1, 'title': 1, 'img_url': 1, 'score': 1, 'genre': 1, 'synopsis': 1}).limit(200).skip(Math.floor(Math.random() * Math.floor(13000)));
+    console.log(nsfw);
+    return await Post.find ({ 'nsfw': nsfw }, {'_id': 0, 'postID': 1, 'title': 1, 'img_url': 1, 'score': 1, 'genre': 1, 'synopsis': 1}).limit(20).skip(Math.floor(Math.random() * Math.floor(5000)));
   } catch (error) {
     console.error(error);
   }
