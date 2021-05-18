@@ -9,6 +9,7 @@ const dbConfig = require('./app/config/mongodb.config');
 const passport = require('passport');
 const cron = require('cron').CronJob;
 const compression = require('compression');
+const os = require('os');
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
@@ -37,6 +38,47 @@ app.use('/api/post', post);
 app.use('/api/popular', popular);
 app.use('/api/user', user);
 app.use('/api/watch-anime', watchAnime);
+app.use('/server-stat', async(req,res) => {
+    try {
+        String.prototype.toHHMMSS = function () {
+            var sec_num = parseInt(this, 10); // don't forget the second param
+            var hours   = Math.floor(sec_num / 3600);
+            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+            var seconds = sec_num - (hours * 3600) - (minutes * 60);
+        
+            if (hours   < 10) {hours   = "0"+hours;}
+            if (minutes < 10) {minutes = "0"+minutes;}
+            if (seconds < 10) {seconds = "0"+seconds;}
+            var time    = hours+':'+minutes+':'+seconds;
+            return time;
+        }
+
+        var time = process.uptime();
+        var uptime = (time + "").toHHMMSS();
+        let cpu = os.cpus();
+
+        let result = {
+            os : os.type(),
+            cpu_model: cpu[0].model,
+            ram: {
+                free: numberWithCommas((os.freemem() / 1024 / 1024 ).toFixed(2)) + ' MB',
+                used: numberWithCommas(((os.totalmem() / 1024 / 1024) - (os.freemem() / 1024 / 1024 )).toFixed(2)) + ' MB',
+                total: numberWithCommas((os.totalmem() / 1024 / 1024).toFixed(2)) + ' MB',
+            },
+            uptime: uptime,
+            
+        }
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        res.json(result);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+})
 
 // Configuring the database
 const mongoose = require('mongoose');
