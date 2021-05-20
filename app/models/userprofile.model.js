@@ -19,13 +19,12 @@ const TrackedListItemSchema = mongoose.Schema({
 }, { _id : false });
 
 
+
 const ContinueWatching = mongoose.Schema({
-    title: { type: String, unique: true, },
-    anime: { type: AnimetListItemSchema },
-    episode_id: { type: String },
-    timestamp: { type: Number },
-    currentEpisode: { type: Number },
+    animeTitle: { type: String, unique: true, },
+    episodeNumber: { type: Number },
     totalEpisode: { type: Number },
+    img_url: { type: String },
     type: { type: Boolean },
     dateCreated: { type: Number, default: Date.now() }
 }, { _id: false});
@@ -249,13 +248,11 @@ module.exports.removeTracked_anime_continue_watching = async (removeItemRequest,
     }
 }
 
-
 module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
     try {
         const _accountID = addItemRequest.accountID;
         const _img_url = addItemRequest.img_url;
         const _title = addItemRequest.title;
-        const _nsfw = addItemRequest.nsfw;
         var _type;
         
         if (addItemRequest.type === 'true') {
@@ -265,16 +262,7 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
         } else {
             _type = false;
         }
-        
-        const AnimetListItemSchema  = ({
-            'item_id': nanoid(),
-            'img_url': _img_url,
-            'title': _title,
-            'nsfw': _nsfw,
-        });
 
-        const _episode_id =addItemRequest.episode_id;
-        const _timestamp = addItemRequest.timestamp;
         const _currentEpisode = addItemRequest.currentEpisode;
         const _totalEpisode = addItemRequest.totalEpisode;
 
@@ -294,13 +282,11 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
                     {
                         $addToSet: {
                             'continue_watching': {
-                                 'title': _title,
-                                 'anime': AnimetListItemSchema,
-                                 'episode_id': _episode_id,
-                                 'timestamp': _timestamp,
-                                 'currentEpisode': _currentEpisode,
-                                 'totalEpisode': _totalEpisode,
-                                 'type': _type,
+                                'animeTitle' : _title,
+                                'episodeNumber' : _currentEpisode,
+                                'totalEpisode' : _totalEpisode,
+                                'img_url': _img_url,
+                                'type' : _type,
                             }
                         }
                     }, callback);            
@@ -317,7 +303,7 @@ module.exports.removeItemFromContinueWatching = async (removeItemRequest, callba
         const _title = removeItemRequest.title;
         
         UserProfile.updateOne({ 'accountID': _accountID}, { 
-            $pull: { 'continue_watching': { 'title': _title } }
+            $pull: { 'continue_watching': { 'animeTitle': _title } }
         }, callback)
 
     } catch (error) {

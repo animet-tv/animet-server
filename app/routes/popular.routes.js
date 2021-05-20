@@ -8,6 +8,7 @@ const Top = require('../models/top.model');
 const Post = require('../models/post.model');
 mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const Genre = require('../models/genres.model');
+const PreparedTitle = require('../models/prepared-title.model');
 
 const rateLimit = require("express-rate-limit");
 const searchLimiter = rateLimit({
@@ -215,6 +216,27 @@ router.get(
             }
             res.json(result);
         })
+    }
+);
+
+router.get(
+    '/prepared-title',
+    async (req, res) => {
+        try {
+            PreparedTitle.getPreparedTitle((err, result) => {
+                if (err) {
+                    res.sendStatus(404);
+                    throw err;
+                }
+
+                if (result) {
+                    res.json(result);
+                }
+            })
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }
     }
 )
 

@@ -15,6 +15,7 @@ const os = require('os');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
 // const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
 const { populateDailyTop, } = require('./app/services/cron_tasks/get_daily_top'); 
+const { populatePreparedTitle } = require('./app/services/cron_tasks/get_animixplay_data');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -64,9 +65,8 @@ const connectDB = async () => {
 // Connecting to the database
 connectDB();
 
-
 /* populateDailyTop(); */
-
+/* populatePreparedTitle(); */
 
 // Devlopment
 /* database_clean(); */
@@ -76,6 +76,8 @@ connectDB();
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     await populateDailyTop();
+    await populatePreparedTitle();
+    console.log('done updating database')
     
 })
 

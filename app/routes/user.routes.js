@@ -491,16 +491,13 @@ router.put(
     '/add-item-to-continue-watching',
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
-
+        
         var _title = req.body.animeTitle;
         const addItemRequest = {
             accountID: req.user.accountID,
             img_url: req.body.img_url,
             title: _title,
-            nsfw: false,
-            episode_id: req.body.episode_id,
-            timestamp: req.body.timestamp,
-            currentEpisode: req.body.currentEpisode,
+            currentEpisode: req.body.episodeNumber,
             totalEpisode: req.body.totalEpisode,
             type: req.body.type,
         }

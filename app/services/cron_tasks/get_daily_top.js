@@ -9,7 +9,6 @@ const rs = require("request");
 const gogo_baseURL = "https://www1.gogoanime.ai/";
 const Genre = require('../../models/genres.model');
 
-// get top 500 of each type 
 module.exports.populateDailyTop = async () => {
     try {
         var _TRENDING = [];
