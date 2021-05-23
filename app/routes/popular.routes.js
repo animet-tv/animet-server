@@ -8,6 +8,7 @@ const Top = require('../models/top.model');
 const Post = require('../models/post.model');
 mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const Genre = require('../models/genres.model');
+const Movie = require('../models/movies.model');
 const PreparedTitle = require('../models/prepared-title.model');
 
 const rateLimit = require("express-rate-limit");
@@ -17,13 +18,13 @@ const searchLimiter = rateLimit({
 });
 
 const seasonLimiter = rateLimit({
-    windowMs: 5 * 60 * 1000, // 5 minutes
+    windowMs: 2 * 60 * 1000, // 5 minutes
     max: 1000
 });
 
 const defaultLimiter = rateLimit({
-    windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 1000
+    windowMs: 2 * 60 * 1000, // 5 minutes
+    max: 2000
 });
 
 
@@ -206,7 +207,7 @@ router.get(
 );
 
 router.get(
-    '/get-genres',
+    '/genres',
     defaultLimiter,
     async (req,res) => {
         Genre.getAnimeGenres((err, result) => {
@@ -216,6 +217,20 @@ router.get(
             }
             res.json(result);
         })
+    }
+);
+
+router.get(
+    '/movies',
+    defaultLimiter,
+    async (req,res) => {
+        Movie.getMovies((err, result) => {
+            if (err) {
+                res.sendStatus(404);
+                throw err;
+            }
+            res.json(result);
+        });
     }
 );
 
@@ -238,6 +253,6 @@ router.get(
             res.sendStatus(500);
         }
     }
-)
+);
 
 module.exports = router;

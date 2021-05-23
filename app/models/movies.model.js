@@ -13,28 +13,28 @@ if (process.env.REDISTOGO_URL) {
 
 const Anime = mongoose.Schema({
     title: { type: String },
-    id: { type: String }
+    img_url: { type: String }
 },{ _id : false });
 
 
-const PreparedTitleSchema = mongoose.Schema({
-    gogoanime: [Anime]
+const MovieSchema = mongoose.Schema({
+    Movies: [Anime]
 });
-PreparedTitleSchema.plugin(beautifyUnique);
+MovieSchema.plugin(beautifyUnique);
 
-const PreparedTitle = module.exports = mongoose.model('PreparedTitle', PreparedTitleSchema);
+const Movie = module.exports = mongoose.model('Movie', MovieSchema);
 
-module.exports.getPreparedTitle = async (callback) => {
+module.exports.getMovies = async (callback) => {
     try {
-        redis.get('PreparedTitle', (err, result) => {
+        redis.get('Movie', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
-                    PreparedTitle.find({},{_id: 0})
+                    Movie.find({},{_id: 0})
                         .then(
                             _result => {
-                                redis.setex('PreparedTitle', 50400, JSON.stringify(_result));
+                                redis.setex('Movie', 50400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )

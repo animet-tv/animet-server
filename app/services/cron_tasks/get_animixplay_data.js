@@ -1,15 +1,14 @@
 require('dotenv').config();
-const cheerio = require("whacko");
-const { delay } = require('bluebird');
-const rs = require("request");
-const { init } = require('../../models/top.model');
 const animixplay_data_URL = 'https://animixplay.to/assets/s/all.json';
+const animixplay_movie_URL = 'https://animixplay.to/a/XsWgdGCnKJfNvDFAM28EV';
 const axios = require('axios')
 const PreparedTitle = require('../../models/prepared-title.model');
+const Movie = require('../../models/movies.model');
+const FormData = require('form-data');
+const { delay } = require('bluebird');
 
-module.exports.populatePreparedTitle = async () => {
+const populatePreparedTitle = async () => {
     try {
-        let gogoanime_result = [];
 
         let fetchAnimixplay_data = async(callback) => {
             try {
@@ -48,6 +47,32 @@ module.exports.populatePreparedTitle = async () => {
                 callback(null, false);
             }
         };
+        
+        // fetch all the movie data exists in animixplay list
+        let fetchAnimixplay_movie = async (callback) => {
+            try {
+                let results = [];
+                let url = animixplay_movie_URL;
+                let bodyFormData = new FormData();
+                bodyFormData.append('movie', 99999999);
+                
+                // make inital call
+                axios({
+                    method: 'post',
+                    url: url,
+                    data: bodyFormData
+                }).then( res => {
+                    console.log(res);
+                }).catch(error => {
+                    console.log(error);
+                    callback(null, false);
+                });
+                
+            } catch (error) {
+                console(error);
+                callback(null, false);
+            }
+        }
         const init = async () => {
             try {
                 fetchAnimixplay_data((err, data) => {
@@ -83,14 +108,125 @@ module.exports.populatePreparedTitle = async () => {
                             }
                         })
                     }
+                });
+
+                fetchAnimixplay_movie((err, data) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    
+                    if (data) {
+                        console.log('yes');
+                    }
                 })
+
+                // fetching Movies 
+                
             } catch (error) {
                 console.log(error);
             }
         }
 
-        init()
+        init();
     } catch (error) {
         console.log(error);
     }
+}
+
+const populateMovies = async () => {
+    try {
+         // fetch all the movie data exists in animixplay list
+         let fetchAnimixplay_movie = async (last) => {
+            try {
+                var data = new FormData();
+                data.append('movie', last);
+
+                var config = {
+                    method: 'post',
+                    url: animixplay_movie_URL,
+                    headers: { 
+                        ...data.getHeaders()
+                    },
+                    data : data
+                };
+                return new Promise ((resolve, reject) => {
+                    axios(config)
+                    .then(function (response) {
+                        let data = response.data;
+                        resolve(data);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                    
+                })
+                
+            } catch (error) {
+                console(error);
+                callback(null, false);
+            }
+         };
+
+        const init = async () => {
+            try {
+                let _MOVIES = [];
+                var data = await fetchAnimixplay_movie('99999');   
+
+                if (data) {
+                    while(data.more) {
+                        let last = data.last;
+                        
+                        let list_movies = data.result;
+                        // parse each item
+                        for (let i = 0; i < list_movies.length; i++) {
+                            if (!list_movies[i].title.includes('(Dub)')) {
+                                let movie = ({
+                                    title: list_movies[i].title,
+                                    img_url: list_movies[i].picture
+                                });
+                                _MOVIES.push(movie);
+                            }
+                        }
+
+                        // fetch next set of data
+                        await delay(500);
+                        data = await fetchAnimixplay_movie(last);
+                        console.log(`last done: ${last}`);
+                    }
+
+                    // drop old Movies
+                    Movie.deleteMany({} , (err) => {
+                        if (err) {
+                            console.error(err);
+                            process.exit(1);
+                        }
+                    });
+
+                    // save new Movies 
+                    let newMovies = new Movie({
+                        Movies: _MOVIES
+                    });
+
+                    newMovies.save()
+                    console.log('new Movies saved ', new Date());
+
+                } else {
+                    // initial empty
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        init();
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports = {
+    populatePreparedTitle,
+    populateMovies
 }
