@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "animet-gogoanime": "^1.0.2",
+    "animet-gogoanime": "1.1.2",
     "animet-jikan-wrapper": "^1.0.0",
     "bcrypt": "^5.0.0",
     "bluebird": "^3.7.2",

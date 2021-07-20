@@ -10,7 +10,6 @@ const animeLimiter = rateLimit({
 });
 
 const streamApiURL = process.env.LOCAL_ANIMET_STREAM_API_URL;
-
 router.get(
     '/get-anime-available', 
     animeLimiter,

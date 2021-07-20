@@ -9,12 +9,11 @@ const dbConfig = require('./app/config/mongodb.config');
 const passport = require('passport');
 const cron = require('cron').CronJob;
 const compression = require('compression');
-const os = require('os');
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
 // const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
-const { populateDailyTop, } = require('./app/services/cron_tasks/get_daily_top'); 
+const { populateDailyTop } = require('./app/services/cron_tasks/get_daily_top'); 
 const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
 
 app.use(cors());
@@ -65,8 +64,9 @@ const connectDB = async () => {
 // Connecting to the database
 connectDB();
 
+
 /* populateDailyTop(); */
-/* populatePreparedTitle(); */
+/* animixplay.populatePreparedTitle(); */
 /* animixplay.populateMovies(); */
 
 // Devlopment

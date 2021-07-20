@@ -5,7 +5,7 @@ const axios = require('axios')
 const PreparedTitle = require('../../models/prepared-title.model');
 const Movie = require('../../models/movies.model');
 const FormData = require('form-data');
-const { delay } = require('bluebird');
+const { delay, reject, resolve } = require('bluebird');
 
 const populatePreparedTitle = async () => {
     try {
@@ -25,10 +25,11 @@ const populatePreparedTitle = async () => {
             } catch (error) {
                 console.log(error);
                 callback(null, false);
+
             }
         }
 
-        let parseAnimixplay_data = async(data, type, callback) => {
+       /*  let parseAnimixplay_data = async(data, type, callback) => {
             try {
                 let result = [];
                 if (type === 'gogoanime') {
@@ -46,33 +47,61 @@ const populatePreparedTitle = async () => {
             } catch (error) {
                 callback(null, false);
             }
-        };
+        }; */
         
-        // fetch all the movie data exists in animixplay list
-        let fetchAnimixplay_movie = async (callback) => {
+        let parseAnimixplay_data = async(data, type) => {
             try {
-                let results = [];
-                let url = animixplay_movie_URL;
-                let bodyFormData = new FormData();
-                bodyFormData.append('movie', 99999999);
-                
-                // make inital call
-                axios({
-                    method: 'post',
-                    url: url,
-                    data: bodyFormData
-                }).then( res => {
-                    console.log(res);
-                }).catch(error => {
-                    console.log(error);
-                    callback(null, false);
-                });
-                
+                let result = [];
+                if (type === 'gogoanime') {
+                    data.forEach(el => {
+                        if (el.e === '1') {
+                            let item = ({
+                                title: el.title,
+                                id: el.id,
+                            });
+                            result.push(item);
+                        }
+                    });
+                    return new Promise(resolve => {
+                        console.log('parsed gogoanime successfully');
+                        resolve(result)
+                    });
+                } else if (type === '4anime') {
+                    data.forEach(el => {
+                        if(el.e === '4') {
+                            let _id = el.id.substring(2)
+                            let item = ({
+                                title: el.title,
+                                id: _id,
+                            });
+                            result.push(item);
+                        }
+                    });
+                    return new Promise(resolve => {
+                        console.log('parsed 4anime successfully');
+                        resolve(result)
+                    });
+                } else if (type === 'kimanime') {
+                    data.forEach(el => {
+                        if(el.e === '9') {
+                            let _id = el.id.substring(2)
+                            let item = ({
+                                title: el.title,
+                                id: _id,
+                            });
+                            result.push(item);
+                        }
+                    });
+                    return new Promise(resolve => {
+                        console.log('parsed kimanime successfully');
+                        resolve(result)
+                    });
+                }
             } catch (error) {
-                console(error);
-                callback(null, false);
+                throw error;
             }
-        }
+        };
+  
         const init = async () => {
             try {
                 fetchAnimixplay_data((err, data) => {
@@ -81,46 +110,45 @@ const populatePreparedTitle = async () => {
                     }
 
                     if (data) {
-                        parseAnimixplay_data(data, 'gogoanime', (err, result) => {
-                            if(err) {
+                        var result_gogoanime = [];
+                        var result_4anime = [];
+                        var result_kimanime = [];
+
+                        parseAnimixplay_data(data, 'gogoanime')
+                            .then(result => {
+                                result_gogoanime = result;
+
+                                    parseAnimixplay_data(data, 'kimanime')
+                                        .then(result => {
+                                            result_kimanime = result;
+                                            
+                                            // drop old PreparedTitle
+                                            PreparedTitle.deleteMany({} , (err) => {
+                                                if (err) {
+                                                    console.error(err);
+                                                    process.exit(1);
+                                                }
+                                            
+                                                console.log('old PreparedTitle dropped ', new Date());
+                                            });
+            
+                                            // save new PreparedTitle
+                                            let newPreparedTitle = new PreparedTitle ({
+                                                gogoanime: result_gogoanime,
+                                                fouranime: result_4anime,
+                                                kimanime: result_kimanime
+                                            });
+            
+                                            newPreparedTitle.save();
+                                            console.log('new PreparedTitle saved ', new Date());
+                                        });
+
+                            }).catch (err => {
                                 console.log(err);
-                            }
-
-                            if (result) {
-                                // drop old PreparedTitle
-                                PreparedTitle.deleteMany({} , (err) => {
-                                    if (err) {
-                                        console.error(err);
-                                        process.exit(1);
-                                    }
-                                
-                                    console.log('PreparedTitle cleared ', new Date());
-                                });
-
-                                // save new PreparedTitle
-                                let newPreparedTitle = new PreparedTitle ({
-                                    gogoanime: result,
-                                });
-
-                                newPreparedTitle.save();
-                                console.log('new PreparedTitle saved ', new Date());
-                                
-                            }
-                        })
+                            })
                     }
                 });
-
-                fetchAnimixplay_movie((err, data) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    
-                    if (data) {
-                        console.log('yes');
-                    }
-                })
-
-                // fetching Movies 
+ 
                 
             } catch (error) {
                 console.log(error);

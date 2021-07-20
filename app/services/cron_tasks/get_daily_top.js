@@ -14,7 +14,6 @@ module.exports.populateDailyTop = async () => {
         var _TRENDING = [];
         var _ALL_TIME_POPULAR = [];
         var _UPCOMING = [];
-        var _MOVIES = [];
         var tops_list = [_TRENDING, _ALL_TIME_POPULAR, _UPCOMING];
 
         var _Action = [];
@@ -87,32 +86,6 @@ module.exports.populateDailyTop = async () => {
             }
         }
 
-        // Update lsit title to english title 
-        const updateTitle_to_englishTitle = async (list_name, waitAmountPerRequest = 3000) => {
-            try {
-               /*  for(let i = 1; i<list_name.length; i++) {
-                    console.log(`${list_name[i].mal_id}` );
-                    let mal_id_res = await mal.findAnime(`${list_name[i].mal_id}`,'/','1');
-                    console.log(mal_id_res);
-                    list_name[i].title = mal_id_res.title_english;
-                    await delay(waitAmountPerRequest);
-                } */
-
-                for (let i = 0; i < list_name.length; i++) {
-                    let mal_id_res = await mal.findAnime(`${list_name[i].mal_id}`);
-                    if (mal_id_res.title_english != null) {
-                        list_name[i].title = mal_id_res.title_english; 
-                    }
-                    console.log('updated title to english: ', i);
-                    await delay(waitAmountPerRequest);     
-                }
-
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        
         let updateGenre = async (genre, totalPages, index) => {
             try {
                 var type = genre;
@@ -143,32 +116,14 @@ module.exports.populateDailyTop = async () => {
             }
         }
 
-        let updateMovies = async (totalPages) => {
-            try {
-                let result = [];
-                
-                for (let i = 0; i < totalPages; i++) {
-                    const element = array[i];
-                    
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
         const init = async () => {
             try {
                 let subtype = ['airing', 'bypopularity', 'upcoming'];
                 for (let i = 0; i < tops_list.length; i++) {
-                    await fetchAnimeData_by_subType(i, subtype[i], 3000, 7);
+                    await fetchAnimeData_by_subType(i, subtype[i], 3000, 5);
                     await delay(2000);
                 }
 
-                // update all list title to english title
-                /* await updateTitle_to_englishTitle(_TRENDING);
-                await updateTitle_to_englishTitle(_ALL_TIME_POPULAR);
-                await updateTitle_to_englishTitle(_UPCOMING); */
-                
                 //updateGenre('Action',1);
                 let genres_name=["Action","Adventure","Cars","Comedy","Dementia","Demons","Drama","Dub","Ecchi","Fantasy","Game","Harem","Historical","Horror","Josei","Kids","Magic","Martial Arts","Mecha","Military","Music","Mystery","Parody","Police","Psychological","Romance","Samurai","School","Sci-Fi","Seinen","Shoujo","Shoujo Ai","Shounen","Shounen Ai","Slice of Life","Space","Sports","Super Power","Supernatural","Thriller","Vampire", "Yaoi", "Yuri"];
                 
@@ -188,7 +143,7 @@ module.exports.populateDailyTop = async () => {
                     console.log('All Tops cleared', new Date());
                 });
 
-                     // drop old genre object
+                // drop old genre object
                 Genre.deleteMany({} , (err) => {
                     if (err) {
                         console.error(err);

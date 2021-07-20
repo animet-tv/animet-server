@@ -245,6 +245,7 @@ router.get(
                 }
 
                 if (result) {
+
                     res.json(result);
                 }
             })
