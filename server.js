@@ -15,6 +15,7 @@ const compression = require('compression');
 // const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
 const { populateDailyTop } = require('./app/services/cron_tasks/get_daily_top'); 
 const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
+const recentlyadded = require('./app/services/cron_tasks/get_recently_added');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -72,12 +73,16 @@ connectDB();
 // Devlopment
 /* database_clean(); */
 /* database_population(); */
+/* recentlyadded.cleanRecentlyAdded(); */
+/* recentlyadded.populateRecentlyAdded() */
 
 /* CRON tasks every midnight hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     await populateDailyTop();
     await animixplay.populatePreparedTitle();
+    await recentlyadded.cleanRecentlyAdded();
+    await recentlyadded.populateRecentlyAdded()
     console.log('done updating database')
     
 })
