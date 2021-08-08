@@ -143,7 +143,6 @@ router.get(
                 }
 
                 if (callback) {
-                    console.log(callback);
                     res.json(callback[0].ALL_TIME_POPULAR);
                 }
             });
