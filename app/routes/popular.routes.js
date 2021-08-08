@@ -143,6 +143,7 @@ router.get(
                 }
 
                 if (callback) {
+                    console.log(callback);
                     res.json(callback[0].ALL_TIME_POPULAR);
                 }
             });
@@ -196,9 +197,7 @@ router.get(
     defaultLimiter,
     async (req, res) => {
         try {         
-            
             let result = await Post.getTopHentai();
-            
             res.json(result);
         } catch (error) {
             res.json({success: false});
