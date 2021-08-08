@@ -55,12 +55,11 @@ module.exports.getTrending = async (callback) => {
 module.exports.getPopular = async (callback) => {
     try {
         redis.get('ALL_TIME_POPULAR', (err, result) => {
-                if ((result !== undefined) && (result !== null) && result.length > 0) {
+                if ((result !== undefined) && (result !== null)) {
                     const resultJSON = JSON.parse(result);
-                    console.log(resultJSON);
                     callback(null, resultJSON);
                 } else {
-                    Top.find({},{'ALL_TIME_POPULAR': 1})
+                    Top.find({},{'ALL_TIME_POPULAR': 1,_id: 0})
                         .then(
                             _result => {
                                 redis.setex('ALL_TIME_POPULAR', 21600, JSON.stringify(_result));
