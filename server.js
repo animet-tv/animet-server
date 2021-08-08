@@ -66,7 +66,7 @@ const connectDB = async () => {
 connectDB();
 
 
-populateDailyTop();
+/* populateDailyTop(); */
 /* animixplay.populatePreparedTitle(); */
 /* animixplay.populateMovies(); */
 
