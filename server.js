@@ -66,7 +66,7 @@ const connectDB = async () => {
 connectDB();
 
 
-/* populateDailyTop(); */
+populateDailyTop();
 /* animixplay.populatePreparedTitle(); */
 /* animixplay.populateMovies(); */
 
@@ -77,7 +77,7 @@ connectDB();
 /* recentlyadded.populateRecentlyAdded() */
 
 /* CRON tasks every midnight hours */
-const daily_db_workers = new cron("0 6 * * *", async() => {
+const daily_db_workers = new cron("0 2 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     await populateDailyTop();
     await animixplay.populatePreparedTitle();

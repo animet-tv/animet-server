@@ -33,7 +33,7 @@ const Top = module.exports = mongoose.model('Top', TopSchema);
 module.exports.getTrending = async (callback) => {
     try {
         redis.get('TRENDING', (err, result) => {
-                if (result) {
+                if ((result !== undefined) && (result !== null)) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
@@ -55,7 +55,7 @@ module.exports.getTrending = async (callback) => {
 module.exports.getPopular = async (callback) => {
     try {
         redis.get('ALL_TIME_POPULAR', (err, result) => {
-                if (result) {
+                if ((result !== undefined) && (result !== null)) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
@@ -77,7 +77,7 @@ module.exports.getPopular = async (callback) => {
 module.exports.getUpcoming = async (callback) => {
     try {
         redis.get('UPCOMING', (err, result) => {
-                if (result) {
+                if ((result !== undefined) && (result !== null)) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
