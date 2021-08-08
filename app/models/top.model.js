@@ -55,9 +55,9 @@ module.exports.getTrending = async (callback) => {
 module.exports.getPopular = async (callback) => {
     try {
         redis.get('ALL_TIME_POPULAR', (err, result) => {
-                console.log(result.length > 0);
                 if ((result !== undefined) && (result !== null) && result.length > 0) {
                     const resultJSON = JSON.parse(result);
+                    console.log(resultJSON);
                     callback(null, resultJSON);
                 } else {
                     Top.find({},{'ALL_TIME_POPULAR': 1})
