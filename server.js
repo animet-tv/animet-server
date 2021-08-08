@@ -66,6 +66,10 @@ const connectDB = async () => {
 connectDB();
 
 
+// handel favicon request
+app.get('/favicon.ico', (req, res) => res.status(204));
+
+
 /* populateDailyTop(); */
 /* animixplay.populatePreparedTitle(); */
 /* animixplay.populateMovies(); */
