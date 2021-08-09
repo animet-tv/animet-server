@@ -34,10 +34,11 @@ module.exports.getTrending = async (callback) => {
     try {
         redis.get('TRENDING', (err, result) => {
             console.log(result);
-                if ((result !== undefined) && (result !== null)) {
+                if ((result !== undefined) && (result !== null) && result.length > 100) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
+                    console.log('shit', result.length); 
                     Top.find({},{'TRENDING': 1})
                         .then(
                             _result => {
