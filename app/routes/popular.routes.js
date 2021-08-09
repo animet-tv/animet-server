@@ -121,8 +121,8 @@ router.get(
                     res.sendStatus(404);
                 }
 
-                if (callback[0].TRENDING) {
-                    res.json(callback[0].TRENDING);
+                if (callback) {
+                    res.json(callback.TRENDING);
                 }else {
                     res.sendStatus(404);
                 }
@@ -144,8 +144,8 @@ router.get(
                     res.sendStatus(404);
                 }
 
-                if (callback[0].ALL_TIME_POPULAR) {
-                    res.json(callback[0].ALL_TIME_POPULAR);
+                if (callback) {
+                    res.json(callback.ALL_TIME_POPULAR);
                 } else {
                     res.sendStatus(404);
                 }
@@ -168,8 +168,8 @@ router.get(
                     res.sendStatus(404);
                 }
 
-                if (callback[0].UPCOMING) {
-                    res.json(callback[0].UPCOMING);
+                if (callback) {
+                    res.json(callback.UPCOMING);
                 }else {
                     res.sendStatus(404);
                 }
