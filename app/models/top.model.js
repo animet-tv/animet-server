@@ -33,6 +33,7 @@ const Top = module.exports = mongoose.model('Top', TopSchema);
 module.exports.getTrending = async (callback) => {
     try {
         redis.get('TRENDING', (err, result) => {
+            console.log(result);
                 if ((result !== undefined) && (result !== null)) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
