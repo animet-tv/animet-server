@@ -33,12 +33,10 @@ const Top = module.exports = mongoose.model('Top', TopSchema);
 module.exports.getTrending = async (callback) => {
     try {
         redis.get('TRENDING', (err, result) => {
-            console.log(result);
-                if ((result !== undefined) && (result !== null) && result.length > 100) {
+                if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
-                    console.log('shit', result.length); 
                     Top.find({},{'TRENDING': 1})
                         .then(
                             _result => {
@@ -57,11 +55,11 @@ module.exports.getTrending = async (callback) => {
 module.exports.getPopular = async (callback) => {
     try {
         redis.get('ALL_TIME_POPULAR', (err, result) => {
-                if ((result !== undefined) && (result !== null)) {
+                if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
-                    Top.find({},{'ALL_TIME_POPULAR': 1,_id: 0})
+                    Top.find({},{'ALL_TIME_POPULAR': 1})
                         .then(
                             _result => {
                                 redis.setex('ALL_TIME_POPULAR', 21600, JSON.stringify(_result));
@@ -79,7 +77,7 @@ module.exports.getPopular = async (callback) => {
 module.exports.getUpcoming = async (callback) => {
     try {
         redis.get('UPCOMING', (err, result) => {
-                if ((result !== undefined) && (result !== null)) {
+                if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
