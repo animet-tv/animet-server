@@ -121,8 +121,10 @@ router.get(
                     res.sendStatus(404);
                 }
 
-                if (callback) {
+                if (callback[0].TRENDING) {
                     res.json(callback[0].TRENDING);
+                }else {
+                    res.sendStatus(404);
                 }
             });
         } catch (error) {
@@ -142,8 +144,10 @@ router.get(
                     res.sendStatus(404);
                 }
 
-                if (callback) {
+                if (callback[0].ALL_TIME_POPULAR) {
                     res.json(callback[0].ALL_TIME_POPULAR);
+                } else {
+                    res.sendStatus(404);
                 }
             });
         } catch (error) {
@@ -164,8 +168,10 @@ router.get(
                     res.sendStatus(404);
                 }
 
-                if (callback) {
+                if (callback[0].UPCOMING) {
                     res.json(callback[0].UPCOMING);
+                }else {
+                    res.sendStatus(404);
                 }
             });
         } catch (error) {
