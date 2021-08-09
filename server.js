@@ -81,7 +81,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 /* recentlyadded.populateRecentlyAdded() */
 
 /* CRON tasks every midnight hours */
-const daily_db_workers = new cron("0 2 * * *", async() => {
+const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     await populateDailyTop();
     await animixplay.populatePreparedTitle();
