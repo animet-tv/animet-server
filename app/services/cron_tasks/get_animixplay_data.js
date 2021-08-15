@@ -1,7 +1,7 @@
 require('dotenv').config();
 const animixplay_data_URL = 'https://animixplay.to/assets/s/all.json';
 const animixplay_movie_URL = 'https://animixplay.to/a/XsWgdGCnKJfNvDFAM28EV';
-const axios = require('axios')
+const axios = require('axios');
 const PreparedTitle = require('../../models/prepared-title.model');
 const Movie = require('../../models/movies.model');
 const FormData = require('form-data');

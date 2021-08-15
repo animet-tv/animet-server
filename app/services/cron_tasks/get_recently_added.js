@@ -3,6 +3,7 @@ const rs = require("request");
 const animet_stream_api = process.env.ANIMET_STREAM_API_URL;
 const RecentlyAdded = require("../../models/recently-added.model");
 const { delay } = require('bluebird');
+const HelperService = require('../helper-service');
 
 let populateRecentlyAdded = async() => {
     try {
@@ -44,6 +45,17 @@ let populateRecentlyAdded = async() => {
         
         newRecentlyAdded.save();
         console.log('RecentlyAdded saved');
+
+       /*  HelperService.appendTitlesToPreparedTitle_IF_NOT_EXISTS(recentlyAdded, (err,callback) => {
+            try {
+                if (err) {
+                    console.log(err);
+                } 
+                console.log(callback);
+            } catch (error) {
+                
+            }
+        }) */
 
     } catch (error) {
         console.log(error);

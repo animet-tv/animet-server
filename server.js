@@ -16,6 +16,7 @@ const compression = require('compression');
 const { populateDailyTop } = require('./app/services/cron_tasks/get_daily_top'); 
 const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
 const recentlyadded = require('./app/services/cron_tasks/get_recently_added');
+const spotlight = require('./app/services/cron_tasks/get_spotlight');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -77,20 +78,28 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 // Devlopment
 /* database_clean(); */
 /* database_population(); */
-/* recentlyadded.cleanRecentlyAdded(); */
-/* recentlyadded.populateRecentlyAdded() */
+/* recentlyadded.cleanRecentlyAdded();
+recentlyadded.populateRecentlyAdded() */
+/* spotlight.buildWeeklySpotlight() */
 
-/* CRON tasks every midnight hours */
+/* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     await populateDailyTop();
     await animixplay.populatePreparedTitle();
     await recentlyadded.cleanRecentlyAdded();
-    await recentlyadded.populateRecentlyAdded()
+    await recentlyadded.populateRecentlyAdded();
     console.log('done updating database')
     
-})
-
+});
+/* CRON tasks every week on sunday 8:05am */
+const weekly_db_workers = new cron("5 8 * * 6", async() => {
+    console.log('going maintenance mode updating Database . . .');
+    await spotlight.buildWeeklySpotlight();
+    console.log('done updating database')
+    
+});
 daily_db_workers.start();
+weekly_db_workers.start();
 
 module.exports = app;

@@ -11,6 +11,7 @@ const Genre = require('../models/genres.model');
 const Movie = require('../models/movies.model');
 const PreparedTitle = require('../models/prepared-title.model');
 const RecentlyAdded = require('../models/recently-added.model');
+const Spotlight = require('../models/spotlight.model');
 
 const rateLimit = require("express-rate-limit");
 const searchLimiter = rateLimit({
@@ -269,6 +270,26 @@ router.get(
                     res.json(result[0]['gogoanime']);
                 }
             })            
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }
+    }
+);
+
+router.get(
+    '/spotlight',
+    async (req,res) => {
+        try {
+            Spotlight.getSpotlight((err, result) => {
+                if (err) {
+                    res.sendStatus(404);
+                    throw err;
+                }
+                if (result) {
+                    res.json(result[0]['spotlight']);
+                }
+            });          
         } catch (error) {
             console.log(error);
             res.sendStatus(500);
