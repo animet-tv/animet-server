@@ -19,7 +19,6 @@ let populateRecentlyAdded = async() => {
                     // parse json to array obj
                     let result = JSON.parse(resp.body);
                     result = result.results;
-                    
                     result.forEach(el => {
                         recentlyAdded.push({
                             title: el.title,
@@ -39,6 +38,7 @@ let populateRecentlyAdded = async() => {
               page++;
         }
 
+        console.log(recentlyAdded);
         const newRecentlyAdded = new RecentlyAdded({
             gogoanime: recentlyAdded
         });

@@ -9,9 +9,6 @@ const UserSchema = mongoose.Schema({
     accountID: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true},
-    avatarName: { type: String },
-    googleId: { type: String },
-    isGoogleUser: { type: Boolean, default: false },
     isProfilePublic: { type: Boolean, default: false }
 });
 UserSchema.plugin(beautifyUnique);
@@ -32,7 +29,6 @@ module.exports.registerUser = (newUser) => {
             
             const user = new User({
                 accountID: newUser.accountID,
-                avatarName: newUser.avatarName,
                 email: newUser.email,
                 password: hash,
             });
@@ -73,15 +69,15 @@ module.exports.getUserByEmail = function (email, callback) {
 
 module.exports.getUserByAccountID = async (id, callback) => {
     try {
-        User.findOne({ 'accountID': id }, {'googleId': 0,  'password': 0 ,'_id': 0,  '__v': 0 }, callback)
+        User.findOne({ 'accountID': id }, { 'password': 0 ,'_id': 0,  '__v': 0 }, callback)
     } catch (error) {
         console.log(error);
     }
 }
 
 /* Social Sign Register */
-module.exports.findOrCreate = (googleId, callback) => {
-   /* return user if user already registerd  */
+/* module.exports.findOrCreate = (googleId, callback) => {
+   // return user if user already registerd  
     User.countDocuments({ googleId: googleId }, (err, count) => {
         if (err) throw err;
 
@@ -89,14 +85,12 @@ module.exports.findOrCreate = (googleId, callback) => {
             const query = { googleId: googleId }; 
             User.findOne(query, callback);
         } else {
-            /* User does not exist so register it as new user */
+            // User does not exist so register it as new user 
             const accountID = nanoid();
 
             const user = new User({
                 accountID: accountID,
                 email: newUser.email,
-                googleId: googleId,
-                isGoogleUser: true
             });
          
             user.save( function (err) {
@@ -105,8 +99,8 @@ module.exports.findOrCreate = (googleId, callback) => {
                 }
             });
          
-            /* create UserList since current user sign in with google */
-              /* create empty userlist for new user */
+            // create UserList since current user sign in with google 
+            // create empty userlist for new user 
               UserList.createUserList(accountID, (err) => {
                 if (err) throw err;
             });
@@ -114,7 +108,7 @@ module.exports.findOrCreate = (googleId, callback) => {
 
    });
 
-}
+} */
 
 /* set list public status */
 module.exports.setListStatus = async(request, callback) => {

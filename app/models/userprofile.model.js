@@ -6,7 +6,6 @@ const { nanoid } = require('nanoid');
 
 const AnimetListItemSchema = mongoose.Schema({
         item_id: { type: String },
-        mal_id: { type: Number },
         postID: { type: Number },
         img_url: { type: String },
         title: { type: String },

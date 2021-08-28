@@ -89,8 +89,7 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
     await animixplay.populatePreparedTitle();
     await recentlyadded.cleanRecentlyAdded();
     await recentlyadded.populateRecentlyAdded();
-    console.log('done updating database')
-    
+    console.log('done updating database') 
 });
 /* CRON tasks every week on sunday 8:05am */
 const weekly_db_workers = new cron("5 8 * * 6", async() => {

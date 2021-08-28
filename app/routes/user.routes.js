@@ -7,11 +7,6 @@ const UserProfile = require('../models/userprofile.model');
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const Jikan = require('animet-jikan-wrapper');
-const mal = new Jikan();
-// mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
-
-// verifyToken
 
 router.post(
     '/verify-token',
@@ -23,7 +18,6 @@ router.post(
 
 router.post(
     '/register', 
-    body('avatarName').isLength({ min: 3 }),
     body('email').isEmail(),
     body('password').isLength({ min: 5 }),
     (req,res) => {
@@ -44,44 +38,30 @@ router.post(
                 if (count > 0) {
                     res.json({success: false, message: 'user by that email or avatar name already exist try different one'});
                 } else {
-
-                    /* check if avatar name not taken */
-
-                    User.exists({'avatarName': req.body.avatarName}, (err, isExist) => {
+                    const accountId = nanoid();
+                    const newUser = {
+                        accountID: accountId,
+                        email: req.body.email,
+                        password: req.body.password,
+                    };
+                    
+                    User.registerUser(newUser, (err, callback) => {
                         if (err) {
-                            res.json({ success: false, message: 'something went wrong please try again'});
+                            res.sendStatus(500);
                             throw err;
-                        }
+                        } 
+                        
 
-                        if (isExist) {
-                           res.json({ success: false, message: `${req.body.avatarName} is already taken`});
-                        } else {
-                            const accountId = nanoid();
-                            const newUser = {
-                                accountID: accountId,
-                                email: req.body.email,
-                                password: req.body.password,
-                                avatarName: req.body.avatarName,
-                            };
-                            
-                            User.registerUser(newUser, (err, callback) => {
-                                if (err) {
-                                    res.sendStatus(500);
-                                    throw err;
-                                } 
-                                
-    
-                            });
-                            
-                            
-                            /* user successfully created */
-                            res.json({
-                                success: true,
-                                msg: `account email: ${newUser.email} successfully created`
-                            });
-                            
-                        }
                     });
+                    
+                    /* user successfully created */
+                    res.json({
+                        success: true,
+                        msg: `account email: ${newUser.email} successfully created`
+                    });
+                    
+                    
+                    
                 }
             })
 
@@ -507,7 +487,7 @@ router.put(
             title: _title,
         }
 
-        UserProfile.exists({ 'accountID': addItemRequest.accountID },{ 'tracked_anime_continue_watching': { 'mal_id': addItemRequest.mal_id } }, (err, exists) => {
+        UserProfile.exists({ 'accountID': addItemRequest.accountID },{ 'tracked_anime_continue_watching': { 'title': addItemRequest.title } }, (err, exists) => {
             if (err) {
                 throw err;
             }
