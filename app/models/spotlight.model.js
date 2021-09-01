@@ -10,18 +10,6 @@ if (process.env.REDISTOGO_URL) {
     var redis = require("redis").createClient();
 }
 
-
-/* 
-    title,
-    img,
-    type,
-    synopsis,
-    relased,
-    genres,
-    status,
-    episodes,
-    totalepisode
-*/
 const Anime = mongoose.Schema({
     title: {type: String},
     img: {type: String},

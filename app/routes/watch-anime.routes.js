@@ -4,10 +4,18 @@ const router = express.Router();
 const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
 var rp = require('request-promise');
+const anime60fps_demon_slayer = require('../../demonslayer_60fps.json');
+
 const animeLimiter = rateLimit({
-    windowMs: 5 * 60 * 1000, // 1 minutes
+    windowMs: 5 * 60 * 1000, // 5 minutes
     max: 200
 });
+
+const anime60fps = rateLimit({
+    windowMs: 5 * 60 * 1000, // 5 minutes
+    max: 100
+});
+
 
 const streamApiURL = process.env.LOCAL_ANIMET_STREAM_API_URL;
 router.get(
@@ -80,6 +88,23 @@ router.get('/gapi/get-episode-stream', async(req, res) => {
         console.log(error);
     }
 });
+
+router.get(
+    '/anime60fps',
+     anime60fps,
+     async(req, res) => {
+         try {
+             res.header("Content-Type", "application/json");
+             
+             let title = req.query.title;
+             console.log(title);
+             if (title === 'Demon Slayer') {
+                 res.json(anime60fps_demon_slayer);
+             }
+         } catch (error) {
+             console.log(error);
+         }
+     })
 
 
 module.exports = router;
