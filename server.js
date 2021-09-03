@@ -93,8 +93,7 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
     await animixplay.populatePreparedTitle();
     await recentlyadded.cleanRecentlyAdded();
     await recentlyadded.populateRecentlyAdded();
-    await mediafire.initMediaFire();
-
+    
     console.log('done updating database') 
 });
 /* CRON tasks every week on sunday 8:05am */
@@ -104,7 +103,14 @@ const weekly_db_workers = new cron("5 8 * * 6", async() => {
     console.log('done updating database')
     
 });
+
+const hourly_workers = new cron("0 * * * *", async() => {
+    console.log('going maintenance mode updating server json files . . .');
+    await mediafire.initMediaFire();
+    console.log('done updating server')
+});
+
+hourly_workers.start();
 daily_db_workers.start();
 weekly_db_workers.start();
-
 module.exports = app;
