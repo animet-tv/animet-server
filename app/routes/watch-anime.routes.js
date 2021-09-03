@@ -4,7 +4,7 @@ const router = express.Router();
 const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
 var rp = require('request-promise');
-const anime60fps_demon_slayer = require('../../demonslayer_60fps.json');
+const anime60fps_demon_slayer = require('../../anime60/demonslayer_60fps.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -100,6 +100,8 @@ router.get(
              console.log(title);
              if (title === 'Demon Slayer') {
                  res.json(anime60fps_demon_slayer);
+             } else if (title === 'Demon Slayer Mugen Train') {
+                 
              }
          } catch (error) {
              console.log(error);

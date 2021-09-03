@@ -17,6 +17,7 @@ const { populateDailyTop } = require('./app/services/cron_tasks/get_daily_top');
 const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
 const recentlyadded = require('./app/services/cron_tasks/get_recently_added');
 const spotlight = require('./app/services/cron_tasks/get_spotlight');
+const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
 
 app.use(cors());
 app.use(logger('dev'));
@@ -53,8 +54,7 @@ const connectDB = async () => {
         await mongoose.connect(url, {
             useNewUrlParser: true,
             useCreateIndex: true,
-            useUnifiedTopology: true,
-            useFindAbuildWeeklySpotlightndModify: false
+            useUnifiedTopology: true
         });
         console.log("Connected to MongoDB.");
         /* test_data.initial_testData(); */
@@ -81,7 +81,11 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 /* recentlyadded.cleanRecentlyAdded();
 recentlyadded.populateRecentlyAdded() */
 /* spotlight.buildWeeklySpotlight() */
+/* let a = (async() => {
+    await mediafire.initMediaFire();
+})
 
+a(); */
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
@@ -89,6 +93,8 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
     await animixplay.populatePreparedTitle();
     await recentlyadded.cleanRecentlyAdded();
     await recentlyadded.populateRecentlyAdded();
+    await mediafire.initMediaFire();
+
     console.log('done updating database') 
 });
 /* CRON tasks every week on sunday 8:05am */
