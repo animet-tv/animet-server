@@ -101,7 +101,16 @@ router.get(
              if (title === 'Demon Slayer') {
                  res.json(anime60fps_demon_slayer);
              } else if (title === 'Demon Slayer Mugen Train') {
-                 
+                 let tmp = {
+                     anime60fps: [
+                         {
+                             mediafire_download_url: 'https://bacchus.fra1.digitaloceanspaces.com/demon_slayer_mugen_train/playlist.m3u8',
+                             en_subtitle_url: `https://frosty-snyder-1df076.netlify.app/subtitles/demon_slayer_mugen_train_eng/Demon-Slayer-Mugen-Train.en.vtt`,
+                             episode_number: 1
+                         }
+                     ]
+                 };
+                 res.json(tmp);
              }
          } catch (error) {
              console.log(error);
