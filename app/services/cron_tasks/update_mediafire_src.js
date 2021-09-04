@@ -7,10 +7,10 @@ const { del } = require("request");
 
 const updateMediaFireURLs = async() => {
     try {
-        let result = [];
-        let anime60Titles = ['demonslayer_60fps.json']
-
+        let anime60Titles = ['demonslayer_60fps.json', 'shingeki_no_kyojin_the_final_season_60fps.json']
+        console.log();
         for (let i = 0; i < anime60Titles.length; i++) {
+            let result = [];
             let array_Title = await readJson(anime60Titles[i])
             
             // for each url find download url and append
@@ -29,10 +29,10 @@ const updateMediaFireURLs = async() => {
                                 episode_number: array_Title.anime60fps[j].episode_number,
                             }
                             result.push(newResultItem);
-                            console.log(`Progress: ${Math.floor((j / array_Title.anime60fps.length) * 100)}%...`);
+                            console.log(`Progress: ${Math.floor((j / array_Title.anime60fps.length) * 100)}%`);
                         }
                     })
-                    await delay(4000);
+                    await delay(Math.floor(getRandomArbitrary(3000, 6500)));
                 }
             }
             // overwrite old json 
@@ -86,6 +86,9 @@ const initMediaFire = async() => {
     }
 }
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
 module.exports = {
     updateMediaFireURLs,

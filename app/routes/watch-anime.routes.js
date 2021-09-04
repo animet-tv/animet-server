@@ -5,6 +5,7 @@ const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
 var rp = require('request-promise');
 const anime60fps_demon_slayer = require('../../anime60/demonslayer_60fps.json');
+const shingeki_no_kyojin_the_final_season = require('../../anime60/shingeki_no_kyojin_the_final_season_60fps.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -100,6 +101,8 @@ router.get(
              console.log(title);
              if (title === 'Demon Slayer') {
                  res.json(anime60fps_demon_slayer);
+             } else if (title === 'Shingeki no Kyojin: The Final Season') {
+                 res.json(shingeki_no_kyojin_the_final_season);
              } else if (title === 'Demon Slayer Mugen Train') {
                  let tmp = {
                      anime60fps: [
