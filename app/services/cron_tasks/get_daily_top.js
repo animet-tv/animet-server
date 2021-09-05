@@ -120,7 +120,7 @@ module.exports.populateDailyTop = async () => {
             try {
                 let subtype = ['airing', 'bypopularity', 'upcoming'];
                 for (let i = 0; i < tops_list.length; i++) {
-                    await fetchAnimeData_by_subType(i, subtype[i], 3000, 5);
+                    await fetchAnimeData_by_subType(i, subtype[i], 3000, 7);
                     await delay(2000);
                 }
 

@@ -104,7 +104,7 @@ const weekly_db_workers = new cron("5 8 * * 6", async() => {
     
 });
 
-const hourly_workers = new cron("0 * * * *", async() => {
+const hourly_workers = new cron("*/30 * * * *", async() => {
     console.log('going maintenance mode updating server json files . . .');
     await mediafire.initMediaFire();
     console.log('done updating server')

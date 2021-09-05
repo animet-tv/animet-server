@@ -76,7 +76,7 @@ module.exports.getAnimeGenres = async (callback) => {
                     Genre.find({},{_id: 0})
                         .then(
                             _result => {
-                                redis.setex('GENRES', 21600, JSON.stringify(_result));
+                                redis.setex('GENRES', 10800, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
