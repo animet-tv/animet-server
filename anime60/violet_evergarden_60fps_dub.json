@@ -1,0 +1,35 @@
+{
+    "anime60fps": [
+      {
+          "src": "https://www.dailymotion.com/embed/video/k4h73Adc54KN0MxbEMi?autoplay=1",
+          "iframe": true,
+          "episode_number": 1
+      },
+      {
+          "src": "https://www.dailymotion.com/embed/video/k2AGyHI0vqzrDkxbEMh?autoplay=1",
+          "iframe": true,
+          "episode_number": 2
+      },
+      {
+          "src": "https://www.dailymotion.com/embed/video/k1rc2rEi9HKz6gxbEMg?autoplay=1",
+          "iframe": true,
+          "episode_number": 3
+      },
+      {
+          "src": "https://www.dailymotion.com/embed/video/x83yyk7?autoplay=1",
+          "iframe": true,
+          "episode_number": 4
+      },
+      {
+          "src": "https://www.dailymotion.com/embed/video/x83yyk7?autoplay=1",
+          "iframe": true,
+          "episode_number": 5
+      },
+      {
+          "src": "https://www.dailymotion.com/embed/video/x83yyk6?autoplay=1",
+          "iframe": true,
+          "episode_number": 6
+      }
+    ]
+  }
+  

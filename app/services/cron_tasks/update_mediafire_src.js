@@ -27,6 +27,7 @@ const updateMediaFireURLs = async() => {
                                 mediafire_download_url: src,
                                 en_subtitle_url: array_Title.anime60fps[j].en_subtitle_url,
                                 episode_number: array_Title.anime60fps[j].episode_number,
+                                iframe: false,
                             }
                             result.push(newResultItem);
                             console.log(`Progress: ${Math.floor((j / array_Title.anime60fps.length) * 100)}%`);
