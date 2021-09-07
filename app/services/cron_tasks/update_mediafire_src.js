@@ -7,7 +7,7 @@ const { del } = require("request");
 
 const updateMediaFireURLs = async() => {
     try {
-        let anime60Titles = ['demonslayer_60fps.json', 'shingeki_no_kyojin_the_final_season_60fps.json']
+        let anime60Titles = ['demonslayer_60fps.json']
         console.log();
         for (let i = 0; i < anime60Titles.length; i++) {
             let result = [];

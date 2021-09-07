@@ -1,9 +1,16 @@
 [
   {
-    "title": "Demon Slayer",
-    "cover_img": "https://gogocdn.net/cover/kimetsu-no-yaiba.png",
-    "isDub": false,
-    "isSub": true,
+    "title": "Violet Evergarden",
+    "cover_img": "https://cdn.myanimelist.net/images/anime/1795/95088l.webp",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd"
+  },
+  {
+    "title": "Shingeki no Kyojin: The Final Season",
+    "cover_img": "https://cdn.myanimelist.net/images/anime/1773/109409l.webp",
+    "isDub": true,
+    "isSub": false,
     "quality": "hd"
   },
   {
@@ -14,17 +21,10 @@
     "quality": "4k"
   },
   {
-    "title": "Shingeki no Kyojin: The Final Season",
-    "cover_img": "https://cdnimg.xyz/cover/shingeki-no-kyojin-the-final-season.png",
+    "title": "Demon Slayer",
+    "cover_img": "https://gogocdn.net/cover/kimetsu-no-yaiba.png",
     "isDub": false,
     "isSub": true,
-    "quality": "hd"
-  },
-  {
-    "title": "Violet Evergarden",
-    "cover_img": "https://cdnimg.xyz/cover/violet-evergarden.png",
-    "isDub": true,
-    "isSub": false,
     "quality": "hd"
   }
 ]
