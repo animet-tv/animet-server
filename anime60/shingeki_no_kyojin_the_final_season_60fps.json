@@ -14,6 +14,31 @@
       "src": "https://www.dailymotion.com/embed/video/x840grb?autoplay=1",
       "iframe": true,
       "episode_number": 3
+    },
+    {
+      "src": "https://www.dailymotion.com/embed/video/x840hug?autoplay=1",
+      "iframe": true,
+      "episode_number": 4
+    },
+    {
+      "src": "https://www.dailymotion.com/embed/video/x840hue?autoplay=1",
+      "iframe": true,
+      "episode_number": 5
+    },
+    {
+      "src": "https://www.dailymotion.com/embed/video/x840k5z?autoplay=1",
+      "iframe": true,
+      "episode_number": 6
+    },
+    {
+      "src": "https://www.dailymotion.com/embed/video/x840k5y?autoplay=1",
+      "iframe": true,
+      "episode_number": 7
+    },
+    {
+      "src": "https://www.dailymotion.com/embed/video/x840k5x?autoplay=1",
+      "iframe": true,
+      "episode_number": 8
     }
   ]
 }
