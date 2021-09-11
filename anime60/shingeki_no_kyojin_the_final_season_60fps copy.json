@@ -1,5 +1,5 @@
 {
-  "anime60fps": [
+  "subbed": [
     {
       "mediafire_url": "http://www.mediafire.com/file/13p6j6fv3eo0h80/%5BErai-raws%5D%5BAnime60FPS.com%5DSK-60-1080p60.mkv/file",
       "mediafire_download_url": "http://download844.mediafire.com/2by9h2nejirg/13p6j6fv3eo0h80/%5BErai-raws%5D%5BAnime60FPS.com%5DSKS4-01-1080p60.mkv",
@@ -105,5 +105,6 @@
       "episode_number": 15,
       "iframe": false
     }
-  ]
+  ],
+  "dubbed": []
 }

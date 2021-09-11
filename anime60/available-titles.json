@@ -1,5 +1,12 @@
 [
   {
+    "title": "Weathering With You",
+    "cover_img": "https://upload.wikimedia.org/wikipedia/en/6/66/Weathering_with_You_Poster.jpg",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k"
+  },
+  {
     "title": "Violet Evergarden",
     "cover_img": "https://cdn.myanimelist.net/images/anime/1795/95088l.webp",
     "isDub": true,
@@ -16,13 +23,6 @@
   {
     "title": "Demon Slayer Mugen Train",
     "cover_img": "https://gogocdn.net/cover/kimetsu-no-yaiba-movie-mugen-ressha-hen-camrip.png",
-    "isDub": false,
-    "isSub": true,
-    "quality": "4k"
-  },
-  {
-    "title": "Demon Slayer",
-    "cover_img": "https://gogocdn.net/cover/kimetsu-no-yaiba.png",
     "isDub": false,
     "isSub": true,
     "quality": "hd"

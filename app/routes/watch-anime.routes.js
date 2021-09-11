@@ -8,6 +8,7 @@ const anime60fps_demon_slayer = require('../../anime60/demonslayer_60fps.json');
 const shingeki_no_kyojin_the_final_season = require('../../anime60/shingeki_no_kyojin_the_final_season_60fps.json');
 const violet_evergarden_60fps_dub = require('../../anime60/violet_evergarden_60fps_dub.json');
 const available_titles_60fps = require('../../anime60/available-titles.json');
+const weathering_with_you = require('../../anime60/weathering_with_you.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -115,8 +116,9 @@ router.get(
 
              if (title === 'Demon Slayer') {
                  res.json(anime60fps_demon_slayer);
-             } else if (title === 'Shingeki no Kyojin: The Final Season') {
-                 console.log('nigger');
+             } else if (title === 'Weathering With You') {
+                res.json(weathering_with_you);
+            }else if (title === 'Shingeki no Kyojin: The Final Season') {
                  res.json(shingeki_no_kyojin_the_final_season);
              } else if (title === 'Demon Slayer Mugen Train') {
                  let tmp = {
@@ -131,7 +133,7 @@ router.get(
                  res.json(tmp);
              } else if (title === 'Violet Evergarden') {
                  res.json(violet_evergarden_60fps_dub);
-             }
+             } 
          } catch (error) {
              console.log(error);
          }
