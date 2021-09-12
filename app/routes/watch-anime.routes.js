@@ -117,15 +117,22 @@ router.get(
              if (title === 'Demon Slayer') {
                  res.json(anime60fps_demon_slayer);
              } else if (title === 'Weathering With You') {
-                res.json(weathering_with_you);
+                let tmp = {
+                    anime60fps: [
+                        {
+                            src: 'https://bacchus.fra1.digitaloceanspaces.com/weathering_with_you_sub/weathering_with_you_sub.m3u8',
+                            episode_number: 1
+                        }
+                    ]
+                };
+                res.json(tmp);
             }else if (title === 'Shingeki no Kyojin: The Final Season') {
                  res.json(shingeki_no_kyojin_the_final_season);
              } else if (title === 'Demon Slayer Mugen Train') {
                  let tmp = {
                      anime60fps: [
                          {
-                             mediafire_download_url: 'https://bacchus.fra1.digitaloceanspaces.com/demon_slayer_mugen_train/playlist.m3u8',
-                             en_subtitle_url: `https://frosty-snyder-1df076.netlify.app/subtitles/demon_slayer_mugen_train_eng/Demon-Slayer-Mugen-Train.en.vtt`,
+                             src: 'https://bacchus.fra1.digitaloceanspaces.com/demon_slayer_mugen_train/playlist.m3u8',
                              episode_number: 1
                          }
                      ]
