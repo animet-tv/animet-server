@@ -1,5 +1,12 @@
 [
   {
+    "title": "Weathering with You",
+    "cover_img": "https://upload.wikimedia.org/wikipedia/en/6/66/Weathering_with_You_Poster.jpg",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k"
+  },
+  {
     "title": "Violet Evergarden",
     "cover_img": "https://cdn.myanimelist.net/images/anime/1795/95088l.webp",
     "isDub": true,

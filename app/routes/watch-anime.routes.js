@@ -116,16 +116,8 @@ router.get(
 
              if (title === 'Demon Slayer') {
                  res.json(anime60fps_demon_slayer);
-             } else if (title === 'Weathering With You') {
-                let tmp = {
-                    anime60fps: [
-                        {
-                            src: 'https://bacchus.fra1.digitaloceanspaces.com/weathering_with_you_sub/weathering_with_you_sub.m3u8',
-                            episode_number: 1
-                        }
-                    ]
-                };
-                res.json(tmp);
+             } else if (title === 'Weathering with You') {
+                res.json(weathering_with_you);
             }else if (title === 'Shingeki no Kyojin: The Final Season') {
                  res.json(shingeki_no_kyojin_the_final_season);
              } else if (title === 'Demon Slayer Mugen Train') {
