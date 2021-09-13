@@ -78,8 +78,8 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 // Devlopment
 /* database_clean(); */
 /* database_population(); */
-recentlyadded.cleanRecentlyAdded();
-recentlyadded.populateRecentlyAdded()
+/* recentlyadded.cleanRecentlyAdded();
+recentlyadded.populateRecentlyAdded() */
 /* spotlight.buildWeeklySpotlight() */
 /* let a = (async() => {
     await mediafire.initMediaFire();
