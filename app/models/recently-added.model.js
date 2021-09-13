@@ -29,23 +29,6 @@ const RecentlyAdded = module.exports = mongoose.model('RecentlyAdded', RecentlyA
 
 module.exports.getRecentlyAdded = async (callback) => {
     try {
-        RecentlyAdded.find({},{_id: 0})
-                        .then(
-                            _result => {
-                                
-                                callback(null, _result);
-                            }
-                        )
-    } catch (error) {
-        console.log(error);
-        callback(null, false);
-    }
-}
-
-
-
-/* module.exports.getRecentlyAdded = async (callback) => {
-    try {
         redis.get('RecentlyAdded', (err, result) => { 
             // check if redis have any data store if not fetch from DB
             if ((result !== undefined) && (result !== null)) {
@@ -66,4 +49,5 @@ module.exports.getRecentlyAdded = async (callback) => {
         callback(null, false);
     }
 }
- */
+
+
