@@ -20,7 +20,8 @@ const RecentlyAddedEntity = mongoose.Schema({
 },{ _id : false });
 
 const RecentlyAddedSchema = mongoose.Schema({
-    gogoanime: [RecentlyAddedEntity],
+    SUB: [RecentlyAddedEntity],
+    DUB: [RecentlyAddedEntity]
 });
 RecentlyAddedSchema.plugin(beautifyUnique);
 
@@ -37,7 +38,7 @@ module.exports.getRecentlyAdded = async (callback) => {
                     RecentlyAdded.find({},{_id: 0})
                         .then(
                             _result => {
-                                redis.setex('RecentlyAdded', 50400, JSON.stringify(_result));
+                                redis.setex('RecentlyAdded', 14400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )

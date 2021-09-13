@@ -267,7 +267,7 @@ router.get(
                 }
                 
                 if (result) {
-                    res.json(result[0]['gogoanime']);
+                    res.json(result[0]);
                 }
             })            
         } catch (error) {

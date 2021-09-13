@@ -7,11 +7,13 @@ const HelperService = require('../helper-service');
 
 let populateRecentlyAdded = async() => {
     try {
-        let recentlyAdded = [];
+        let recentlyAdded_sub = [];
+        let recentlyAdded_dub = [];
         // fetch recently added first 2 pages
         let page = 1;
-        while(page < 4) {
-            let url = `${animet_stream_api}api/recentlyadded/${page}`;
+
+        while(page < 5) {
+            let url = `${animet_stream_api}api/v2/recentlyadded/?type=false&page=${page}`;
             console.log(url);
             rs(url, (err, resp, html) => {
                 if (!err) {
@@ -20,7 +22,7 @@ let populateRecentlyAdded = async() => {
                     let result = JSON.parse(resp.body);
                     result = result.results;
                     result.forEach(el => {
-                        recentlyAdded.push({
+                        recentlyAdded_sub.push({
                             title: el.title,
                             id: el.id,
                             episodeNumber:  Number(el.episodenumber),
@@ -38,11 +40,40 @@ let populateRecentlyAdded = async() => {
               page++;
         }
 
-        console.log(recentlyAdded);
+        let dub_page = 1;
+        while(dub_page < 5) {
+            let url = `${animet_stream_api}api/v2/recentlyadded/?type=true&page=${dub_page}`;
+            console.log(url);
+            rs(url, (err, resp, html) => {
+                if (!err) {
+                  try {
+                    // parse json to array obj
+                    let result = JSON.parse(resp.body);
+                    result = result.results;
+                    result.forEach(el => {
+                        recentlyAdded_dub.push({
+                            title: el.title,
+                            id: el.id,
+                            episodeNumber:  Number(el.episodenumber),
+                            img_url: el.image
+                        });
+                    });
+                   
+                  } catch (e) {
+                    console.log(e);
+                  }
+                }
+              }); 
+
+              await delay(3000);
+              dub_page++;
+        }
+
         const newRecentlyAdded = new RecentlyAdded({
-            gogoanime: recentlyAdded
-        });
-        
+            SUB: recentlyAdded_sub,
+            DUB: recentlyAdded_dub
+        }); 
+
         newRecentlyAdded.save();
         console.log('RecentlyAdded saved');
 
