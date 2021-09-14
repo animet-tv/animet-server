@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const os = require('os');
+const sources = require('../../public/external_sources.json');
 
 router.get('/', async(req,res) => {
     try {
@@ -43,5 +44,14 @@ router.get('/', async(req,res) => {
         res.sendStatus(500);
     }
 });
+
+router.get('/working-sources', async(req ,res) => {
+    try {
+        res.json(sources);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+})
 
 module.exports = router;

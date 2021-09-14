@@ -136,7 +136,7 @@ router.get(
          } catch (error) {
              console.log(error);
          }
-     })
+     });
 
 
 module.exports = router;
