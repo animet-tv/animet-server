@@ -32,13 +32,6 @@ const AnimettvIndex = module.exports = mongoose.model('AnimettvIndex', AnimettvI
 
 module.exports.getAnimettvIndex = async (callback) => {
     try {
-        AnimettvIndex.find({},{_id: 0})
-        .then(
-            _result => {
-                callback(null, _result);
-            }
-        )
-
         redis.get('AnimettvIndex', (err, result) => {
             if (result) {
                 const resultJSON = JSON.parse(result);
