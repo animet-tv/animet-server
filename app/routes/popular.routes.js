@@ -12,11 +12,13 @@ const Movie = require('../models/movies.model');
 const PreparedTitle = require('../models/prepared-title.model');
 const RecentlyAdded = require('../models/recently-added.model');
 const Spotlight = require('../models/spotlight.model');
+const preparedTitleJson = require('../../preparedtitles.json');
+const AnimettvIndex = require('../../app/services/animettv-index');
 
 const rateLimit = require("express-rate-limit");
 const searchLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minutes
-    max: 1000
+    max: 1200
 });
 
 const seasonLimiter = rateLimit({
@@ -78,7 +80,17 @@ router.get(
     searchLimiter,
     async (req, res) => {
     try {
-        const term = req.query.word;
+        
+        let searchTerm = req.query.word;
+        AnimettvIndex.searchTitle(searchTerm, (err, result) => {
+            if (err) {
+                res.sendStatus(500);
+            }
+            res.json(result);
+
+        });
+
+        /* const term = req.query.word;
         const nsfw = req.query.NSFW;
         const RESULT = [];
         const param = {
@@ -103,9 +115,8 @@ router.get(
             });
             
             RESULT.push(newResult);
-        });
+        }); */
 
-        res.json(RESULT);
     } catch (error) {
         console.log(error);
     }

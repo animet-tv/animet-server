@@ -18,9 +18,11 @@ const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
 const recentlyadded = require('./app/services/cron_tasks/get_recently_added');
 const spotlight = require('./app/services/cron_tasks/get_spotlight');
 const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
+const seasonBuilder = require('./app/services/cron_tasks/add_new_anime_season');
+const buildAnimettvIndex = require('./app/services/animettv-index');
 
 app.use(cors());
-app.use(logger('dev'));
+app.use(logger('short'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
@@ -86,6 +88,9 @@ recentlyadded.populateRecentlyAdded() */
 })
 
 a(); */
+
+/* buildAnimettvIndex.buildAnimettvIndex(); */
+
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
