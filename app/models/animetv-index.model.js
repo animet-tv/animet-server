@@ -37,7 +37,7 @@ module.exports.getAnimettvIndex = async (callback) => {
                 const resultJSON = JSON.parse(result);
                 callback(null, resultJSON);
             } else {
-                PreparedTitle.find({},{_id: 0})
+                AnimettvIndex.find({},{_id: 0})
                     .then(
                         _result => {
                             redis.setex('AnimettvIndex', 50400, JSON.stringify(_result));
