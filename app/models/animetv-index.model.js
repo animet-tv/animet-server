@@ -38,6 +38,22 @@ module.exports.getAnimettvIndex = async (callback) => {
                 callback(null, _result);
             }
         )
+
+        redis.get('AnimettvIndex', (err, result) => {
+            if (result) {
+                const resultJSON = JSON.parse(result);
+                callback(null, resultJSON);
+            } else {
+                AnimettvIndex.find({},{_id: 0})
+                    .then(
+                        _result => {
+                            redis.setex('AnimettvIndex', 50400, JSON.stringify(_result));
+                            callback(null, _result);
+                        }
+                    )
+            }
+        })
+        
     } catch (error) {
         console.log(error);
         callback(null, false);
