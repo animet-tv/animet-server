@@ -10,6 +10,7 @@ const beautifyUnique = require('mongoose-beautiful-unique-validation');
 } */
 
 if (process.env.REDIS_URL) {
+    console.log('NOGGERS!!!!');
     const redis = require("redis");
     const fs = require("fs");
 
