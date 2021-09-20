@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const beautifyUnique = require('mongoose-beautiful-unique-validation');
-
+/* 
 if (process.env.REDISTOGO_URL) {
     // TODO: redistogo connection
     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
@@ -8,6 +8,20 @@ if (process.env.REDISTOGO_URL) {
     redis.auth(rtg.auth.split(":")[1]);
 } else {
     var redis = require("redis").createClient();
+} */
+
+if (process.env.REDIS_URL) {
+    const redis = require("redis");
+    const fs = require("fs");
+
+    const client = redis.createClient(process.env.REDIS_URL, {
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+} else {
+    var client = require("redis").createClient();
 }
 
 
@@ -26,7 +40,7 @@ const Movie = module.exports = mongoose.model('Movie', MovieSchema);
 
 module.exports.getMovies = async (callback) => {
     try {
-        redis.get('Movie', (err, result) => {
+        client.get('Movie', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -34,7 +48,7 @@ module.exports.getMovies = async (callback) => {
                     Movie.find({},{_id: 0})
                         .then(
                             _result => {
-                                redis.setex('Movie', 50400, JSON.stringify(_result));
+                                client.setex('Movie', 50400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )

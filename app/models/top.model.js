@@ -1,14 +1,27 @@
 const mongoose = require('mongoose');
 const beautifyUnique = require('mongoose-beautiful-unique-validation');
-if (process.env.REDISTOGO_URL) {
+/* if (process.env.REDISTOGO_URL) {
     // TODO: redistogo connection
     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
     var redis = require("redis").createClient(rtg.port, rtg.hostname);
     redis.auth(rtg.auth.split(":")[1]);
 } else {
     var redis = require("redis").createClient();
-}
+} */
 
+if (process.env.REDIS_URL) {
+    const redis = require("redis");
+    const fs = require("fs");
+
+    const client = redis.createClient(process.env.REDIS_URL, {
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+} else {
+    var client = require("redis").createClient();
+}
 
 const Anime = mongoose.Schema({
     mal_id: { type: Number },
@@ -32,7 +45,7 @@ const Top = module.exports = mongoose.model('Top', TopSchema);
 
 module.exports.getTrending = async (callback) => {
     try {
-        redis.get('TRENDING', (err, result) => {
+        client.get('TRENDING', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -40,7 +53,7 @@ module.exports.getTrending = async (callback) => {
                     Top.find({},{'TRENDING': 1})
                         .then(
                             _result => {
-                                redis.setex('TRENDING', 21600, JSON.stringify(_result));
+                                client.setex('TRENDING', 10800, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -54,7 +67,7 @@ module.exports.getTrending = async (callback) => {
 
 module.exports.getPopular = async (callback) => {
     try {
-        redis.get('ALL_TIME_POPULAR', (err, result) => {
+        client.get('ALL_TIME_POPULAR', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -62,7 +75,7 @@ module.exports.getPopular = async (callback) => {
                     Top.find({},{'ALL_TIME_POPULAR': 1})
                         .then(
                             _result => {
-                                redis.setex('ALL_TIME_POPULAR', 21600, JSON.stringify(_result));
+                                client.setex('ALL_TIME_POPULAR', 10800, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -76,7 +89,7 @@ module.exports.getPopular = async (callback) => {
 
 module.exports.getUpcoming = async (callback) => {
     try {
-        redis.get('UPCOMING', (err, result) => {
+        client.get('UPCOMING', (err, result) => {
                 if (result) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -84,7 +97,7 @@ module.exports.getUpcoming = async (callback) => {
                     Top.find({},{'UPCOMING': 1})
                         .then(
                             _result => {
-                                redis.setex('UPCOMING', 21600, JSON.stringify(_result));
+                                client.setex('UPCOMING', 10800, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
