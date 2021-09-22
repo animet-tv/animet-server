@@ -36,14 +36,12 @@ const RatingHistory = mongoose.Schema({
 })
 const UserProfileSchema = mongoose.Schema({
     accountID: { type: String, required: true },
-
     ratingHistory: [RatingHistory],
     tracked_anime: [TrackedListItemSchema],
     plan_to_watch: [AnimetListItemSchema],
     completed: [AnimetListItemSchema],
     tracked_anime_continue_watching: [TrackedListItemSchema],
     continue_watching: [ ContinueWatching ]
-    
 });
 UserProfileSchema.plugin(beautifyUnique);
 
@@ -254,9 +252,9 @@ module.exports.addItemToContinueWatching = async (addItemRequest, callback) => {
         const _title = addItemRequest.title;
         var _type;
         
-        if (addItemRequest.type === 'true') {
+        if (addItemRequest.type) {
             _type = true;
-        } else if (addItemRequest.type === 'false') {
+        } else if (!addItemRequest.type) {
             _type = false;
         } else {
             _type = false;

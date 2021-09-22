@@ -481,6 +481,8 @@ router.put(
             totalEpisode: req.body.totalEpisode,
             type: req.body.type,
         }
+
+        console.log(addItemRequest);
         
         const trackedItemReq = {
             accountID:req.user.accountID,
@@ -502,7 +504,7 @@ router.put(
 
                 UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
                     if (err) {
-                        res.json({ success: false, message: 'Sorry for the inconveniences but we could not add the last anime you were watching to continue watching list' });
+                        res.json({ success: false, message: 'Sorry we could not add the last anime you were watching to continue watching list' });
                         throw err;
                     }
                     
@@ -512,7 +514,7 @@ router.put(
             } else {   /* if does not exists just append  */
                 UserProfile.addItemToContinueWatching(addItemRequest, (err,callback) => {
                     if (err) {
-                        res.json({ success: false, message: 'Sorry for the inconveniences but we could not add the last anime you were watching to continue watching list' });
+                        res.json({ success: false, message: 'Sorry we could not add the last anime you were watching to continue watching list' });
                         throw err;
                     }
                     
