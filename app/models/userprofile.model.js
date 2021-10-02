@@ -11,7 +11,7 @@ const AnimetListItemSchema = mongoose.Schema({
         title: { type: String },
         nsfw: { type: Boolean },
         dateCreated: { type: Number, default: Date.now() },
-}, { _id : false });
+}, { _id : false }, { timestamps: true });
 
 const TrackedListItemSchema = mongoose.Schema({
     title: { type: String, unique: true, },

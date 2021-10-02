@@ -43,28 +43,30 @@ module.exports.getTopSeason = async (request) => {
       }
     }
 
-
-    /* extract every anime from array */
-    result[0].animeList.anime.forEach(anime => {
-      const animeItem = ({
-        title: anime.title,
-        img_url: anime.image_url,
-        mal_id: anime.mal_id,
-        score: getScore(anime.score),
-        genre: getAllGenres(anime.genres),
-        synopsis: anime.synopsis,
-        members: anime.members,
+    console.log(result);
+    if (result[0]) {
+      /* extract every anime from array */
+      result[0].animeList.anime.forEach(anime => {
+        const animeItem = ({
+          title: anime.title,
+          img_url: anime.image_url,
+          mal_id: anime.mal_id,
+          score: getScore(anime.score),
+          genre: getAllGenres(anime.genres),
+          synopsis: anime.synopsis,
+          members: anime.members,
+        });
+        SORTED_RESULT.push(animeItem);
       });
-      SORTED_RESULT.push(animeItem);
-    });
+      /* Sort SORTED_RESULT by members val in acending order */
+      SORTED_RESULT.sort((a,b) => {
+        return b.members - a.members;
+      });
+  
+      /* Return only first N amount */
+      return SORTED_RESULT.slice(0,AMOUNT);
+    }
 
-    /* Sort SORTED_RESULT by members val in acending order */
-    SORTED_RESULT.sort((a,b) => {
-      return b.members - a.members;
-    });
-
-    /* Return only first N amount */
-    return SORTED_RESULT.slice(0,AMOUNT);
   } catch (error) {
     console.log(error);
   }

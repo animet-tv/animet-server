@@ -9,7 +9,9 @@ const UserSchema = mongoose.Schema({
     accountID: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true},
-    isProfilePublic: { type: Boolean, default: false }
+    isProfilePublic: { type: Boolean, default: false },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 UserSchema.plugin(beautifyUnique);
 
@@ -50,6 +52,27 @@ module.exports.registerUser = (newUser) => {
     });
 
 };
+
+module.exports.hashPassword = async (password, callback) => {
+    try {
+        bcrypt.genSalt(saltRounds, (err, salt) => {
+            if (err) {
+                throw err;
+            }
+
+            bcrypt.hash(password, salt, (err, hash) => {
+                if (err) {
+                    throw err;
+                }
+
+                callback(null ,hash);
+            })
+        })
+    } catch (error) {
+        console.log(error);
+        callback(null, false);
+    }
+}
 
 module.exports.comparePassword = function (candidatePassword, hash, callback) {
     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {

@@ -7,6 +7,10 @@ const UserProfile = require('../models/userprofile.model');
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
+const crypto = require('crypto');
+const AnimetTV_Email = require('../mail/email');
+const async = require("async");
+const request = require('request');
 
 router.post(
     '/verify-token',
@@ -20,51 +24,67 @@ router.post(
     '/register', 
     body('email').isEmail(),
     body('password').isLength({ min: 5 }),
-    (req,res) => {
-       
+    body('token').isString(),
+    async(req,res) => {
         try {
             const errors = validationResult(req);
             if(!errors.isEmpty()) {
                 res.status(400).json({ errors: errors.array() });
             }
 
-            /* before registering user check if email and avatar does not exist */
-            User.countDocuments({ email: req.body.email }, (err, count) => {
+            // verify reCAPTCHA
+            verifyCAPTCHA(req.body.token, req.socket.remoteAddress, (err, status) => {
                 if (err) {
-                    res.sendStatus(500);
-                    throw(err);
+                    throw err;
                 }
-
-                if (count > 0) {
-                    res.json({success: false, message: 'user by that email or avatar name already exist try different one'});
-                } else {
-                    const accountId = nanoid();
-                    const newUser = {
-                        accountID: accountId,
-                        email: req.body.email,
-                        password: req.body.password,
-                    };
-                    
-                    User.registerUser(newUser, (err, callback) => {
-                        if (err) {
-                            res.sendStatus(500);
-                            throw err;
-                        } 
+                if (status) {
+                    /* before registering user check if email and avatar does not exist */
+                User.countDocuments({ email: req.body.email }, (err, count) => {
+                    if (err) {
+                        res.sendStatus(500);
+                        throw(err);
+                    }
+    
+                    if (count > 0) {
+                        res.status(422).send({
+                            success: false,
+                            msg: 'user by that email already exist try different one'
+                        });
+                    } else {
+                        const accountId = nanoid();
+                        const newUser = {
+                            accountID: accountId,
+                            email: req.body.email,
+                            password: req.body.password,
+                        };
                         
-
-                    });
-                    
-                    /* user successfully created */
-                    res.json({
-                        success: true,
-                        msg: `account email: ${newUser.email} successfully created`
-                    });
-                    
-                    
-                    
-                }
-            })
-
+                        User.registerUser(newUser, (err, callback) => {
+                            if (err) {
+                                res.sendStatus(500);
+                                throw err;
+                            } 
+                            
+    
+                        });
+                        
+                        /* user successfully created */
+                        res.json({
+                            success: true,
+                            msg: `account email: ${newUser.email} successfully created`
+                        });
+                        
+                        
+                        
+                    }
+                })
+            } else {  
+                res.status(401).send({
+                    success: false,
+                    msg: `reCAPTCHA failed, too many attempts. Try again later`
+                });
+            }
+            
+            });
         } catch (error) {
             console.log(error);
         }
@@ -74,6 +94,7 @@ router.post(
     '/login',
     body('email').isEmail(),
     body('password').isLength({ min: 3 }),
+    body('token').isString(),
     (req, res) => {
         try {
             const errors = validationResult(req);
@@ -81,45 +102,60 @@ router.post(
                 res.status(400).json({ errors: errors.array() });
             }
 
-            User.countDocuments({ email: req.body.email }, (err, count) => {
+            verifyCAPTCHA(req.body.token, req.socket.remoteAddress, (err, status) => {
                 if (err) {
-                    res.sendStatus(500);
                     throw err;
                 }
-
-
-               if (count < 1) {
-                   res.sendStatus(400);
-               } else {
-                   User.getUserByEmail(req.body.email, (err, user) => {
+                if (status === true) {
+                    User.countDocuments({ email: req.body.email }, (err, count) => {
                         if (err) {
                             res.sendStatus(500);
                             throw err;
-                        }
-
-                        User.comparePassword(req.body.password, user.password, (err, isMatch) => {
-                            if (err) throw err;
-
-                            if (isMatch) {
-                                const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET, {
-                                    // WILL EXPIRE IN  2d
-                                    expiresIn: '1d'
-                                });
-
-                                // user auth correct 
-                                res.json({
-                                    success: true,
-                                    token: 'JWT ' + token,
-                                    user: {
-                                        email: user.email      
+                        } 
+        
+        
+                       if (count < 1) {
+                           res.sendStatus(400).send({
+                               success: false,
+                               msg: 'wrong password or email address'
+                           });
+                       } else {
+                           User.getUserByEmail(req.body.email, (err, user) => {
+                                if (err) {
+                                    res.sendStatus(500);
+                                    throw err;
+                                }
+        
+                                User.comparePassword(req.body.password, user.password, (err, isMatch) => {
+                                    if (err) throw err;
+        
+                                    if (isMatch) {
+                                        const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET, {
+                                            // WILL EXPIRE IN  2d
+                                            expiresIn: '1d'
+                                        });
+        
+                                        // user auth correct 
+                                        res.json({
+                                            success: true,
+                                            token: 'JWT ' + token,
+                                            user: {
+                                                email: user.email      
+                                            }
+                                        });
+                                    } else {
+                                        res.sendStatus(400);
                                     }
                                 });
-                            } else {
-                                res.sendStatus(400);
-                            }
-                        });
-                   });
-               }
+                           });
+                       }
+                    });
+                } else {  
+                    res.status(401).send({
+                        success: false,
+                        msg: `reCAPTCHA failed, too many attempts. Try again later`
+                    });
+                } 
             });
 
         } catch (error) {
@@ -127,6 +163,171 @@ router.post(
             res.sendStatus(500);
         }
 });
+
+let verifyCAPTCHA = (_response, _remoteAddress, callback) => {
+    try {
+        let _secret = process.env.CAPTCHA_SECRET;
+        var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + _secret + "&response=" + _response + "&remoteip=" + _remoteAddress;
+        
+        request(verificationUrl,function(error,response,body) {
+            let _body = JSON.parse(body);
+            callback(null, _body.success);
+        });
+        
+        } catch (error) {
+            console.log(error);
+            callback(null, false);
+        }
+}
+
+
+router.post(
+    '/forgot',
+    (req, res) => {
+        verifyCAPTCHA(req.body.token, req.socket.remoteAddress, (err, status) => {
+            if (err) {
+                throw err;
+            }
+
+            if (status === true) {
+                async.waterfall([
+                    function(done) {
+                        crypto.randomBytes(20, function(err, buff) {
+                            var token = buff.toString('hex');
+                            done(err, token);
+                        });
+                    },
+        
+                    function(token, done) {
+                        User.findOne({ email: req.body.email }, function(err, user) {
+                            if (!user) {
+                                return res.status(404).send({
+                                    success: false,
+                                    msg: `No account with that email address exists.`
+                                });
+                              }
+                              
+                              user.resetPasswordToken = token;
+                              user.resetPasswordExpires = Date.now() + 7200000; // 2 hour expires
+        
+                              user.save(function(err) {
+                                  done(err, token, user);
+                              });
+                        });
+                    },
+        
+                    function(token, user, done) {
+                        AnimetTV_Email.sendPasswordRestEmail(user.email, `http://localhost:4200/forgot-password/${token}`, (err, callback) => {
+                            if (err) {
+                                console.log(err);
+                            } 
+                            if (callback) {
+                                res.status(200).send({
+                                    success: true,
+                                    msg: 'Check your email for instructions'
+                                });
+                            }
+                            done(err,'done'); 
+                        });
+                    }
+                ], function(err) {
+                    if (err) {
+                        res.status(500).send({
+                            success: false,
+                            msg: 'Something went wronge please contact admin@animet.tv or our discord server for further information.'
+                        });
+                    }
+                });
+            } else {  
+                res.status(401).send({
+                    success: false,
+                    msg: `reCAPTCHA failed, too many attempts. Try again later`
+                });
+            } 
+        });
+    }
+);
+
+router.get(
+    '/reset/:token',
+    (req, res) => {
+        User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+            if (!user) {
+                res.status(404).send({
+                    success: false,
+                    msg :'error Password rest URL is invalid or has expired.' 
+                });
+            } else {
+                res.json({
+                    success: true,
+                    email: user.email
+                });
+            }
+        });
+    }
+);
+
+router.post(
+    '/reset/:token',
+    (req ,res) => {
+        async.waterfall([
+            function(done) {
+                User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+                    if (!user) {
+                        res.status(400).send({
+                            success: false,
+                            msg: 'Password reset token is invalid or has expired.'
+                        });
+                    } else {
+                        User.hashPassword(req.body.password, (err, newPasswordHash) => {
+                            if (err) {
+                                console.log(err);
+                                res.send(500).send({
+                                    sucess: false,
+                                    msg: 'Password change failed.'
+                                });
+                            } else {
+                                console.log('hello');
+                                user.password = `${newPasswordHash}`;
+                                user.resetPasswordToken = undefined;
+                                user.resetPasswordExpires = undefined;
+
+                                user.save( function (err) {
+                                    if (err) {
+                                        console.log(err);
+                                    }
+                                    done(err, 'done');
+                                });
+                            }                      
+                        });
+                    }
+                    
+                });
+            },
+            
+            /* function(user, done) {
+                AnimetTV_Email.sendPasswordChangedEmail(user.email, (err, callback) => {
+                    if (callback) {
+                        done(err,'done'); 
+                    }
+                });
+            } */
+        ], function(err) {
+            if (err) {
+                res.status(500).send({
+                    success: false,
+                    msg: 'server error on set change password'
+                });
+            } else {
+                res.status(200).send({
+                    success: true,
+                    msg: 'success fully changed password'
+                });
+
+            }
+        });
+    }
+)
 
 router.get(
     '/profile',
@@ -388,7 +589,6 @@ router.put(
                 setListStatus: req.body.isListPublic,
             }
 
-            console.log(setListStatusRequest);
             User.setListStatus(setListStatusRequest, (err, callback) => {
                 if (err) {
                     req.json({success: false, message: 'error while changing list status'});
@@ -414,7 +614,6 @@ router.get(
     async (req, res) => { 
         try {
             const accountID = req.params.accountID;
-            console.log(req);
             /* check if user list public if it is return user list */
             User.findOne({ 'accountID': accountID }, {'isProfilePublic': 1}, (err, doc) => {
                 if (err) {
@@ -482,7 +681,6 @@ router.put(
             type: req.body.type,
         }
 
-        console.log(addItemRequest);
         
         const trackedItemReq = {
             accountID:req.user.accountID,
@@ -535,7 +733,6 @@ router.put(
     '/remove-item-from-continue-watching',
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
-        console.log(req.body);
         try {
             const removeItemRequest = {
                 accountID: req.user.accountID,

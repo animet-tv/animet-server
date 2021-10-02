@@ -9,6 +9,7 @@ const dbConfig = require('./app/config/mongodb.config');
 const passport = require('passport');
 const cron = require('cron').CronJob;
 const compression = require('compression');
+const session = require('express-session')
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
@@ -25,6 +26,10 @@ app.use(cors());
 app.use(logger('short'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ 
+    secret: `${process.env.SESSION_SECRET}`,  resave: true,
+    saveUninitialized: true }));
+app.use(require('flash')());
 app.use(compression());
 // Passport Middleware 
 app.use(passport.initialize());
@@ -112,7 +117,7 @@ const weekly_db_workers = new cron("5 8 * * 6", async() => {
 const hourly_workers = new cron("*/30 * * * *", async() => {
     console.log('going maintenance mode updating server json files . . .');
    /*  await mediafire.initMediaFire(); */
-    console.log('done updating server')
+    console.log('done updating server');
 });
 
 hourly_workers.start();
