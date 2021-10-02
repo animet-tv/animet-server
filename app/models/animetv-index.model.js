@@ -1,30 +1,14 @@
 const mongoose = require("mongoose");
 const beautifyUnique = require("mongoose-beautiful-unique-validation");
 
-/* if (process.env.REDISTOGO_URL) {
+if (process.env.REDISTOGO_URL) {
     // TODO: redistogo connection
     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-    var redis = require("redis").createClient(rtg.port, rtg.hostname);
-    redis.auth(rtg.auth.split(":")[1]);
+    var client = require("redis").createClient(rtg.port, rtg.hostname);
+    client.auth(rtg.auth.split(":")[1]);
 } else {
-    var redis = require("redis").createClient();
-} */
-
-const redis = require("redis");
-const client = redis.createClient(process.env.REDIS_URL);
-
-/* if (process.env.REDIS_URL) {
-  const redis = require("redis");
-  const fs = require("fs");
-
-  const client = redis.createClient(process.env.REDIS_URL, {
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
-} else {
-  var client = require("redis").createClient();
-} */
+    var client = require("redis").createClient();
+}
 
 const Anime = mongoose.Schema(
   {
