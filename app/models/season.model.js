@@ -43,7 +43,6 @@ module.exports.getTopSeason = async (request) => {
       }
     }
 
-    console.log(result);
     if (result[0]) {
       /* extract every anime from array */
       result[0].animeList.anime.forEach(anime => {

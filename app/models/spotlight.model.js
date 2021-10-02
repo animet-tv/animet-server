@@ -11,7 +11,10 @@ const beautifyUnique = require('mongoose-beautiful-unique-validation');
 }
  */
 
-if (process.env.REDIS_URL) {
+const redis = require("redis");
+const client = redis.createClient(process.env.REDIS_URL);
+
+/* if (process.env.REDIS_URL) {
     const redis = require("redis");
     const fs = require("fs");
 
@@ -23,7 +26,7 @@ if (process.env.REDIS_URL) {
 
 } else {
     var client = require("redis").createClient();
-}
+} */
 
 const Anime = mongoose.Schema({
     title: {type: String},
