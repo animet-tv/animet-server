@@ -26,7 +26,7 @@ const PreparedTitle = module.exports = mongoose.model('PreparedTitle', PreparedT
 module.exports.getPreparedTitle = async (callback) => {
     try {
         client.get('PreparedTitle', (err, result) => {
-                if (result) {
+                if (result && result['gogoanime'] !== undefined) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {

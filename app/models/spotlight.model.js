@@ -27,8 +27,8 @@ const Spotlight = module.exports = mongoose.model('Spotlight', SpotlightSchema);
 
 module.exports.getSpotlight = async (callback) => {
     try {
-        client.get('spotlight', (err, result) => {
-                if (result) {
+        client.get('spotlight', (err, result) => {  
+            if (result && result['spotlight'] !== undefined) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
                 } else {
