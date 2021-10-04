@@ -19,17 +19,17 @@ const AnimettvIndex = require("../../app/models/animetv-index.model");
 const rateLimit = require("express-rate-limit");
 const searchLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minutes
-  max: 1200,
+  max: 1000,
 });
 
 const seasonLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 5 minutes
-  max: 1000,
+  max: 500,
 });
 
 const defaultLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 5 minutes
-  max: 1800,
+  max: 1000,
 });
 
 router.get("/get-current-top-season", seasonLimiter, async (req, res) => {

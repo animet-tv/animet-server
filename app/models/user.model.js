@@ -13,6 +13,7 @@ const UserSchema = mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });
+
 UserSchema.plugin(beautifyUnique);
 
 const User = module.exports = mongoose.model('User', UserSchema);

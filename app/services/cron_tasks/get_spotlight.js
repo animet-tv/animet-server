@@ -71,17 +71,17 @@ let spotlight_data = [
     {
         title: `Selection Project`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/17sa0fb05e24c59bad47a18ffedecf1d.jpg`,
-        synposis: `Held every summer, the national show "Selection Project" is the biggest gateway for girls who strive to be idols, and the place where the legendary idol Akari Amazawa was born. Suzune Miyama is also one who has longed for such a dream stage. Having been sick since childhood, she listened to the song of the light many times in her bed in the hospital room. Akari's singing voice gave her a lot of smiles and courage, inspiring Suzune to follow in her footsteps.`
+        synopsis: `Held every summer, the national show "Selection Project" is the biggest gateway for girls who strive to be idols, and the place where the legendary idol Akari Amazawa was born. Suzune Miyama is also one who has longed for such a dream stage. Having been sick since childhood, she listened to the song of the light many times in her bed in the hospital room. Akari's singing voice gave her a lot of smiles and courage, inspiring Suzune to follow in her footsteps.`
     },
     {
         title: `Nanatsu no Taizai Movie 2: Hikari ni Norowareshi Mono-tachi`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/d05a48850837dca6558c2520e9f75bad.jpg`,
-        synposis: `With the help of the "Dragon Sin of Wrath" Meliodas and the worst rebels in history, the Seven Deadly Sins, the "Holy War", in which four races, including Humans, Goddesses, Fairies and Giants fought against the Demons, is finally over. At the cost of the "Lion Sin of Pride" Escanor's life, the Demon King was defeated and the world regained peace. After that, each of the Sins take their own path; the first being the "Boar Sin of Gluttony" Merlin, who works together with King Arthur aiming to create a new kingdom.`
+        synopsis: `With the help of the "Dragon Sin of Wrath" Meliodas and the worst rebels in history, the Seven Deadly Sins, the "Holy War", in which four races, including Humans, Goddesses, Fairies and Giants fought against the Demons, is finally over. At the cost of the "Lion Sin of Pride" Escanor's life, the Demon King was defeated and the world regained peace. After that, each of the Sins take their own path; the first being the "Boar Sin of Gluttony" Merlin, who works together with King Arthur aiming to create a new kingdom.`
     },
     {
         title: `Jahy-sama wa Kujikenai!`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/75ab4bc4b9dcd30296b593bbc77502b1.jpg`,
-        synposis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.  Although she survives, Jahy has lost almost all of her powers and finds herself stranded in the human world with a childlike appearance. In order to gather more mystic gems so that she can permanently restore both her original form and the Demon Realm`
+        synopsis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.  Although she survives, Jahy has lost almost all of her powers and finds herself stranded in the human world with a childlike appearance. In order to gather more mystic gems so that she can permanently restore both her original form and the Demon Realm`
     },
 ];
 
