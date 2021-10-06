@@ -70,12 +70,19 @@ router.post('/kofi-donation', async(req, res) => {
         .setColor(`#85bb65`)
         .setDescription(`${data.message}`);
 
-        hook.send(embed);
+        hook.send(embed).then(() => {
+            res.status(200).json({
+                statusCode:200,
+                body: JSON.stringify({ message: 'Successfully sent message to discord server'})
+            });
 
-        res.status(200).json({
-            statusCode:200,
-            body: JSON.stringify({ message: 'Successfully sent message to discord server'})
-        })
+        }).catch(
+            (err) => {
+                console.log(err);
+                res.sendStatus(500);
+            }
+        );
+
     } catch (error) {
         console.log(error);
         req.statusCode(500);     
