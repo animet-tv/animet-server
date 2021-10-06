@@ -58,7 +58,7 @@ router.get('/working-sources', async(req ,res) => {
 
 router.post('/kofi-donation', async(req, res) => {
     try {
-        WebHook_URl = `https://discord.com/api/webhooks/895087581677641769/Vk6tFDTHgwaCm3BdsS14zDPUJQHr80yVyndY07oRjMmcgMq2jMgefWXrcbhIojVN54IG`;
+        const WebHook_URl = `https://discord.com/api/webhooks/895087581677641769/Vk6tFDTHgwaCm3BdsS14zDPUJQHr80yVyndY07oRjMmcgMq2jMgefWXrcbhIojVN54IG`;
         //const WebHook_URl = `https://discord.com/api/webhooks/895076181681004554/yFnbKmRp1l4bx1WmBv_jF0hua4513hQEa513JnOEe-6upIAzUNEE65GBObp6hhV_7V3k`;
         let data = queryString.parse(req.body);
         data = data['data'];
