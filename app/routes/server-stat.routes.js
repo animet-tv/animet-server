@@ -72,10 +72,10 @@ router.post('/kofi-donation', async(req, res) => {
 
         hook.send(embed);
 
-        return {
+        res.status(200).json({
             statusCode:200,
             body: JSON.stringify({ message: 'Successfully sent message to discord server'})
-        }
+        })
     } catch (error) {
         console.log(error);
         req.statusCode(500);     
