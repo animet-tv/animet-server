@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const os = require('os');
 const sources = require('../../public/external_sources.json');
-const { Webhook, MessageBuilder } = require('discord-webhook-node');
-const queryString = require('query-string');
 
 router.get('/', async(req,res) => {
     try {
@@ -53,39 +51,6 @@ router.get('/working-sources', async(req ,res) => {
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
-    }
-});
-
-router.post('/kofi-donation', async(req, res) => {
-    try {
-        const WebHook_URl = `https://discord.com/api/webhooks/895087581677641769/Vk6tFDTHgwaCm3BdsS14zDPUJQHr80yVyndY07oRjMmcgMq2jMgefWXrcbhIojVN54IG`;
-        //const WebHook_URl = `https://discord.com/api/webhooks/895076181681004554/yFnbKmRp1l4bx1WmBv_jF0hua4513hQEa513JnOEe-6upIAzUNEE65GBObp6hhV_7V3k`;
-        let data = queryString.parse(req.body);
-        data = data['data'];
-        data = JSON.parse(data);
-        const hook = new Webhook(`${WebHook_URl}`);
-        const embed = new MessageBuilder()
-        .setTitle(`From: ${data.from_name}`)
-        .setAuthor(`${data.currency} ${data.amount}`)
-        .setColor(`#85bb65`)
-        .setDescription(`${data.message}`);
-
-        hook.send(embed).then(() => {
-            res.status(200).json({
-                statusCode:200,
-                body: JSON.stringify({ message: 'Successfully sent message to discord server'})
-            });
-
-        }).catch(
-            (err) => {
-                console.log(err);
-                res.sendStatus(500);
-            }
-        );
-
-    } catch (error) {
-        console.log(error);
-        req.statusCode(500);     
     }
 });
 
