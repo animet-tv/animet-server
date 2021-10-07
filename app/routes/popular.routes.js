@@ -98,7 +98,7 @@ router.get("/trending", defaultLimiter, async (req, res) => {
       }
     });
   } catch (error) {
-    res.json({ success: false });
+    res.status(404).json({ success: false });
     console.log(error);
   }
 });

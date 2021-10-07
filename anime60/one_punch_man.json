@@ -19,6 +19,16 @@
         "src": "https://www.dailymotion.com/embed/video/x84ns7u?autoplay=1",
         "iframe": true,
         "episode_number": 4
+      },
+      {
+        "src": "https://www.dailymotion.com/embed/video/x84p6zq?autoplay=1",
+        "iframe": true,
+        "episode_number": 5
+      },
+      {
+        "src": "https://www.dailymotion.com/embed/video/x84p6zp?autoplay=1",
+        "iframe": true,
+        "episode_number": 6
       }
     ]
   }

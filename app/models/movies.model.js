@@ -26,7 +26,13 @@ const Movie = module.exports = mongoose.model('Movie', MovieSchema);
 
 module.exports.getMovies = async (callback) => {
     try {
-        client.get('Movie', (err, result) => {
+        Movie.find({},{_id: 0})
+        .then(
+            _result => {
+                callback(null, _result);
+            }
+        )
+        /* client.get('Movie', (err, result) => {
                 if (result && result['Movies'] !== undefined) {
                     const resultJSON = JSON.parse(result);
                     callback(null, resultJSON);
@@ -39,7 +45,7 @@ module.exports.getMovies = async (callback) => {
                             }
                         )
                 }
-            })
+            }); */
     } catch (error) {
         console.log(error);
         callback(null, false);
