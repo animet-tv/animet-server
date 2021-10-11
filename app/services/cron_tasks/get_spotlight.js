@@ -13,11 +13,11 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/05171cb6e3b56485f32f633cd8f56b95.webp',
         synopsis: ` Cursed by a witch as a child, a young duke gained the unwanted power to kill every living thing he touches. Forced to move away from his family and into a large mansion deep in the woods, the duke is treated as if he does not exist and is continually shunned by his peers. However, he is not entirely alone. Rob and Alice, his butler and maid, are always by his side. Alice loves to tease him, and as their relationship grows, the duke makes it his goal to break free from his deadly curse. Of course, he is going to need some help, and who better to do this than the various inhabitants of the supernatural?`,
     }, */
-    {
+   /*  {
         title: 'Meikyuu Black Company',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/17aa0fb05e24c59bad47a18ffedecf1d.webp',
         synopsis: `Kinji, who lacks any kind of work ethic, is a layabout in his modern life. One day, he finds himself transported to another world—but not in a grand fantasy of a hero welcomed with open arms. He's immediately shoved into a terrible job! Now enslaved by an evil mining company in a fantasy world, Kinji's about to really learn the meaning of hard work!`,
-    },
+    }, */
     {
         title: 'Uramichi Oniisan',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/bfaedd8affad50546f1cb2e86b02380a.webp',
@@ -43,11 +43,11 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/0ad77ea20b599f4d0170b4eda1855288.webp',
         synopsis: `After a string of mysterious disappearances begin to plague a train, the Demon Slayer Corps' multiple attempts to remedy the problem prove fruitless. To prevent further casualties, the flame pillar, Kyoujurou Rengoku, takes it upon himself to eliminate the threat. Accompanying him are some of the Corps' most promising new blood: Tanjirou Kamado, Zenitsu Agatsuma, and Inosuke Hashibira, who all hope to witness the fiery feats of this model demon slayer firsthand. Unbeknownst to them, the demonic forces responsible for the disappearances have already put their sinister plan in motion. Under this demonic presence, the group must muster every ounce of their willpower and draw their swords to save all two hundred passengers onboard. Kimetsu no Yaiba Movie: Mugen Ressha-hen delves into the deepest corners of Tanjirou's mind, putting his resolve and commitment to duty to the test.`,
     },
-    {
+    /* {
         title: 'Jujutsu Kaisen (TV)',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/9a26a75d7478628160cbe024fedc5992.webp',
         synopsis: `Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity—after swallowing the said item, revealed to be a finger belonging to the demon Sukuna Ryoumen, the "King of Curses." Yuuji experiences first-hand the threat these Curses pose to society as he discovers his own newfound powers. Introduced to the Tokyo Metropolitan Jujutsu Technical High School, he begins to walk down a path from which he cannot return—the path of a Jujutsu sorcerer.`,
-    },
+    }, */
     /* {
         title: 'Black Clover (TV)',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/c865150c08989d7ea1b75f19fbb1ea83.webp',
@@ -83,6 +83,21 @@ let spotlight_data = [
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/75ab4bc4b9dcd30296b593bbc77502b1.webp`,
         synopsis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.  Although she survives, Jahy has lost almost all of her powers and finds herself stranded in the human world with a childlike appearance. In order to gather more mystic gems so that she can permanently restore both her original form and the Demon Realm`
     },
+    {
+        title: `Blue Period`,
+        img: `https://frosty-snyder-1df076.netlify.app/spotlight/2292820f1793b077ce597157f1757478.webp`,
+        synopsis: `Second-year high school student Yatora Yaguchi is bored with his normal life. He studies well and plays around with his friends, but in truth, he does not enjoy either of those activities. Bound by norms, he secretly envies those who do things differently.`,
+    },
+    {
+        title: `Visual Prison`,
+        img: `https://frosty-snyder-1df076.netlify.app/spotlight/e0662e265d3a6bb0628a31dfbe1a4e74.webp`,
+        synopsis: `Ange Yuki—a boy who wrestles with deep-seated loneliness and can't fit in. With nobody to call family, he leaves his hometown. Longing to see an artist he admires perform, he heads for Harajuku, where he encounters a live battle between visual kei units ECLIPSE and LOS † EDEN. Overwhelmed by the energetic performance, he is suddenly struck by an intense pain`,
+    },
+    {
+        title: `Tesla Note`,
+        img: `https://frosty-snyder-1df076.netlify.app/spotlight/dc5c04d12a8e361645d54cd363b69b75.webp`,
+        synopsis: `Mission T is a secret operation to save the world from destruction. Trained as a ninja from a young age, Botan Negoro, raised to become the ultimate spy, teams up with another excellent spy, Kuruma. Their aim is to recover the legacy of the genius inventor Nikola Tesla, the "Shards of Tesla." Can the two outwit the agents of other countries who are also pursuing these fragments? A super-original spy thriller begins. `,
+    }
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT
