@@ -36,7 +36,7 @@ let populateRecentlyAdded = async() => {
                 }
               }); 
 
-              await delay(3000);
+              await delay(getRandomInt(2800, 3150));
               page++;
         }
 
@@ -65,7 +65,7 @@ let populateRecentlyAdded = async() => {
                 }
               }); 
 
-              await delay(3000);
+              await delay(getRandomInt(2800, 3150));
               dub_page++;
         }
 
@@ -106,6 +106,12 @@ let cleanRecentlyAdded = async() => {
     } catch (error) {
         console.log(error);
     }
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 module.exports = {

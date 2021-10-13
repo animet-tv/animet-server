@@ -179,7 +179,7 @@ router.get("/movies", defaultLimiter, async (req, res) => {
   });
 });
 
-router.get("/prepared-title", defaultLimiter, async (req, res) => {
+router.get("/prepared-title", async (req, res) => {
   try {
     PreparedTitle.getPreparedTitle((err, result) => {
       if (err) {

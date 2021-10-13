@@ -16,7 +16,8 @@ if (process.env.REDISCLOUD_URL) {
 
 const Anime = mongoose.Schema({
     title: { type: String },
-    img_url: { type: String }
+    img_url: { type: String },
+    score: { type: Number }
 },{ _id : false });
 
 

@@ -195,14 +195,15 @@ const populateMovies = async () => {
                             if (!list_movies[i].title.includes('(Dub)')) {
                                 let movie = ({
                                     title: list_movies[i].title,
-                                    img_url: list_movies[i].picture
+                                    img_url: list_movies[i].picture,
+                                    score: list_movies[i].score,
                                 });
                                 _MOVIES.push(movie);
                             }
                         }
 
                         // fetch next set of data
-                        await delay(500);
+                        await delay(getRandomInt(450, 850));
                         data = await fetchAnimixplay_movie(last);
                         console.log(`last done: ${last}`);
                     }
@@ -238,6 +239,13 @@ const populateMovies = async () => {
         console.log(error);
     }
 }
+
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
 module.exports = {
     populatePreparedTitle,

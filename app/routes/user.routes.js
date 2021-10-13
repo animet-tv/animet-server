@@ -71,10 +71,7 @@ router.post(
                         res.json({
                             success: true,
                             msg: `account email: ${newUser.email} successfully created`
-                        });
-                        
-                        
-                        
+                        });   
                     }
                 })
             } else {  
