@@ -15,22 +15,23 @@ const Spotlight = require("../models/spotlight.model");
 const preparedTitleJson = require("../../preparedtitles.json");
 const AnimettvIndexService = require("../../app/services/animettv-index");
 const AnimettvIndex = require("../../app/models/animetv-index.model");
-
 const rateLimit = require("express-rate-limit");
+
 const searchLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minutes
-  max: 1000,
+  max: 200,
 });
 
 const seasonLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 5 minutes
-  max: 500,
+  max: 250,
 });
 
 const defaultLimiter = rateLimit({
-  windowMs: 2 * 60 * 1000, // 5 minutes
-  max: 1000,
+  windowMs: 2 * 60 * 1000, // 2 minutes
+  max: 300,
 });
+
 
 router.get("/get-current-top-season", seasonLimiter, async (req, res) => {
   try {

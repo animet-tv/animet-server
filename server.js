@@ -34,7 +34,6 @@ app.use(compression());
 // Passport Middleware 
 app.use(passport.initialize());
 app.use(passport.session());
-
 require('./app/config/passport')(passport);
 
 
