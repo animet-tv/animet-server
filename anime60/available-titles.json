@@ -1,28 +1,42 @@
 [
   {
+    "title":"Jujutsu Kaisen Season 1",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113415-979nF8TZP2xC.jpg",
+    "isDub": false,
+    "isSub": false,
+    "quality": "hd"
+  },
+  {
+    "title":"Demon Slayer Season 1",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg",
+    "isDub": false,
+    "isSub": false,
+    "quality": "hd"
+  },
+  {
     "title": "One Punch Man",
-    "cover_img": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-8WpMBeqsSVx8.png",
     "isDub": false,
     "isSub": true,
     "quality": "hd"
   },
   {
     "title": "Demon Slayer Mugen Train",
-    "cover_img": "https://gogocdn.net/cover/kimetsu-no-yaiba-movie-mugen-ressha-hen-camrip.png",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112151-1qlQwPB1RrJe.png",
     "isDub": false,
     "isSub": true,
     "quality": "hd"
   },
   {
     "title": "Violet Evergarden",
-    "cover_img": "https://cdn.myanimelist.net/images/anime/1795/95088l.webp",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx21827-10F6m50H4GJK.png",
     "isDub": true,
     "isSub": false,
     "quality": "hd"
   },
   {
-    "title": "Shingeki no Kyojin: The Final Season",
-    "cover_img": "https://cdn.myanimelist.net/images/anime/1773/109409l.webp",
+    "title": "Shingeki no Kyojin: The Final Season Part 1",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx110277-qDRIhu50PXzz.jpg",
     "isDub": true,
     "isSub": false,
     "quality": "hd"

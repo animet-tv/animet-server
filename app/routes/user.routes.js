@@ -12,16 +12,39 @@ const AnimetTV_Email = require('../mail/email');
 const async = require("async");
 const request = require('request');
 
+const rateLimit = require("express-rate-limit");
+const defaultLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: 10,
+});
+
+const tokenCheckLimiter = rateLimit({
+    windowMs: 2 * 60 * 1000, // 2 minutes
+    max: 100,
+  });
+
+const profileLimiter = rateLimit({
+    windowMs: 5 * 60 * 1000, // 5 minutes
+    max: 200,
+});
+
+const listMutationLimiter = rateLimit({
+    windowMs: 2 * 60 * 1000, // 2 minutes
+    max: 150,
+});
+   
+
 router.post(
     '/verify-token',
+    tokenCheckLimiter,
     passport.authenticate(['regular-login'], { session: false }),  
     (req, res) => {
        res.json({ success: true});
-
 });
 
 router.post(
-    '/register', 
+    '/register',
+    defaultLimiter, 
     body('email').isEmail(),
     body('password').isLength({ min: 5 }),
     body('token').isString(),
@@ -89,6 +112,7 @@ router.post(
 
 router.post(
     '/login',
+    defaultLimiter,
     body('email').isEmail(),
     body('password').isLength({ min: 3 }),
     body('token').isString(),
@@ -97,63 +121,67 @@ router.post(
             const errors = validationResult(req);
             if(!errors.isEmpty()) {
                 res.status(400).json({ errors: errors.array() });
+            } else {
+                verifyCAPTCHA(req.body.token, req.socket.remoteAddress, (err, status) => {
+                    if (err) {
+                        throw err;
+                    }
+                    if (status === true) {
+                        User.countDocuments({ email: req.body.email }, (err, count) => {
+                            if (err) {
+                                res.sendStatus(500);
+                                throw err;
+                            } 
+            
+            
+                           if (count < 1) {
+                               res.status(400).send({
+                                   success: false,
+                                   msg: 'no account found, please register'
+                               });
+                           } else {
+                               User.getUserByEmail(req.body.email, (err, user) => {
+                                    if (err) {
+                                        res.sendStatus(500);
+                                        throw err;
+                                    }
+            
+                                    User.comparePassword(req.body.password, user.password, (err, isMatch) => {
+                                        if (err) throw err;
+            
+                                        if (isMatch) {
+                                            const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET, {
+                                                // WILL EXPIRE IN  1d
+                                                expiresIn: '1d'
+                                            });
+            
+                                            // user auth correct 
+                                            res.json({
+                                                success: true,
+                                                token: 'JWT ' + token,
+                                                user: {
+                                                    email: user.email      
+                                                }
+                                            });
+                                        } else {
+                                            res.status(400).send({
+                                                success: false,
+                                                msg: 'wronge password or email address'
+                                            });
+                                        }
+                                    });
+                               });
+                           }
+                        });
+                    } else {  
+                        res.status(401).send({
+                            success: false,
+                            msg: `reCAPTCHA failed, too many attempts. Try again later`
+                        });
+                    } 
+                });
             }
 
-            verifyCAPTCHA(req.body.token, req.socket.remoteAddress, (err, status) => {
-                if (err) {
-                    throw err;
-                }
-                if (status === true) {
-                    User.countDocuments({ email: req.body.email }, (err, count) => {
-                        if (err) {
-                            res.sendStatus(500);
-                            throw err;
-                        } 
-        
-        
-                       if (count < 1) {
-                           res.sendStatus(400).send({
-                               success: false,
-                               msg: 'wrong password or email address'
-                           });
-                       } else {
-                           User.getUserByEmail(req.body.email, (err, user) => {
-                                if (err) {
-                                    res.sendStatus(500);
-                                    throw err;
-                                }
-        
-                                User.comparePassword(req.body.password, user.password, (err, isMatch) => {
-                                    if (err) throw err;
-        
-                                    if (isMatch) {
-                                        const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET, {
-                                            // WILL EXPIRE IN  2d
-                                            expiresIn: '1d'
-                                        });
-        
-                                        // user auth correct 
-                                        res.json({
-                                            success: true,
-                                            token: 'JWT ' + token,
-                                            user: {
-                                                email: user.email      
-                                            }
-                                        });
-                                    } else {
-                                        res.sendStatus(400);
-                                    }
-                                });
-                           });
-                       }
-                    });
-                } else {  
-                    res.status(401).send({
-                        success: false,
-                        msg: `reCAPTCHA failed, too many attempts. Try again later`
-                    });
-                } 
-            });
 
         } catch (error) {
             console.log(error);
@@ -180,6 +208,7 @@ let verifyCAPTCHA = (_response, _remoteAddress, callback) => {
 
 router.post(
     '/forgot',
+    defaultLimiter,
     (req, res) => {
         verifyCAPTCHA(req.body.token, req.socket.remoteAddress, (err, status) => {
             if (err) {
@@ -247,6 +276,7 @@ router.post(
 
 router.get(
     '/reset/:token',
+    tokenCheckLimiter,
     (req, res) => {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
             if (!user) {
@@ -266,6 +296,7 @@ router.get(
 
 router.post(
     '/reset/:token',
+    defaultLimiter,
     (req ,res) => {
         async.waterfall([
             function(done) {
@@ -328,6 +359,7 @@ router.post(
 
 router.get(
     '/profile',
+    profileLimiter,
     passport.authenticate(['regular-login'], { session: false }),  
     async (req, res) => {
         try {
@@ -348,7 +380,8 @@ router.get(
 );
 
 router.get(
-    '/list', 
+    '/list',
+    profileLimiter,
     passport.authenticate(['regular-login'], { session: false }),  
     async (req, res) => {
         try {
@@ -371,6 +404,7 @@ router.get(
 
 router.put(
     '/add-item-to-list',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     (req, res) => {
         try {
@@ -415,6 +449,7 @@ router.put(
 
 router.put(
     '/add-item-to-list-by-title',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
 
@@ -453,6 +488,7 @@ router.put(
 
 router.put(
     '/remove-item-from-list',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
         try {
@@ -490,6 +526,7 @@ router.put(
 
 router.put(
     '/item-completed',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
         try {
@@ -534,6 +571,7 @@ router.put(
 
 router.put(
     '/item-plan-to-watch',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
         try {
@@ -578,6 +616,7 @@ router.put(
 
 router.put(
     '/set-list-status',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req,res) => {
         try {
@@ -608,6 +647,7 @@ router.put(
 
 router.get(
     '/get-public-user-list',
+    listMutationLimiter,
     async (req, res) => { 
         try {
             const accountID = req.params.accountID;
@@ -665,6 +705,7 @@ router.get(
 
 router.put(
     '/add-item-to-continue-watching',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
         
@@ -728,6 +769,7 @@ router.put(
 
 router.put(
     '/remove-item-from-continue-watching',
+    listMutationLimiter,
     passport.authenticate(['regular-login'], { session: false }),
     async (req, res) => {
         try {

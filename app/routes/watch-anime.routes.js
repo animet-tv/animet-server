@@ -4,12 +4,13 @@ const router = express.Router();
 const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
 var rp = require('request-promise');
-const anime60fps_demon_slayer = require('../../anime60/demonslayer_60fps.json');
+const demon_slayer = require('../../anime60/demon_slayer.json');
 const shingeki_no_kyojin_the_final_season = require('../../anime60/shingeki_no_kyojin_the_final_season_60fps.json');
 const violet_evergarden_60fps_dub = require('../../anime60/violet_evergarden_60fps_dub.json');
 const available_titles_60fps = require('../../anime60/available-titles.json');
 const weathering_with_you = require('../../anime60/weathering_with_you.json');
 const one_punch_man = require('../../anime60/one_punch_man.json');
+const jujutsu_kaisen = require('../../anime60/jujutsu_kaisen.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -115,11 +116,11 @@ router.get(
              
              let title = req.query.title;
 
-             if (title === 'Demon Slayer') {
-                 res.json(anime60fps_demon_slayer);
+             if (title === 'Demon Slayer Season 1') {
+                 res.json(demon_slayer);
              } else if (title === 'Weathering with You') {
                 res.json(weathering_with_you);
-            }else if (title === 'Shingeki no Kyojin: The Final Season') {
+            }else if (title === 'Shingeki no Kyojin: The Final Season Part 1') {
                  res.json(shingeki_no_kyojin_the_final_season);
             } else if (title === 'One Punch Man') {
                 res.json(one_punch_man);
@@ -135,6 +136,8 @@ router.get(
                  res.json(tmp);
              } else if (title === 'Violet Evergarden') {
                  res.json(violet_evergarden_60fps_dub);
+             } else if (title === 'Jujutsu Kaisen Season 1') {
+                 res.json(jujutsu_kaisen);
              } 
          } catch (error) {
              console.log(error);
