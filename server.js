@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
@@ -24,8 +25,14 @@ const buildAnimettvIndex = require('./app/services/animettv-index');
 
 app.use(cors());
 app.use(logger('short'));
+// MethodOverride
+app.use(methodOverride('_method'));
+
+// BodyParser Middleware 
+app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(session({ 
     secret: `${process.env.SESSION_SECRET}`,  resave: true,
     saveUninitialized: true }));

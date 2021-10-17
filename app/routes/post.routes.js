@@ -99,8 +99,19 @@ router.get(
                           res.json({success: false, message: 'error while getting user list'});
                           throw err;
                       }
+                      
+                      User.getUserByAccountID(accountID, (err, profile) => {
+                        if (err) {
+                          res.json({success: false, message: 'error while getting user list'});
+                          throw err;
+                        }
 
-                      res.json(list);
+                        res.status(200).send({
+                          list: list,
+                          profile: profile
+                        });
+
+                      })
                   })
               }
             

@@ -10,6 +10,8 @@ const UserSchema = mongoose.Schema({
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true},
     isProfilePublic: { type: Boolean, default: false },
+    avatarFileName: { type: String, default: '1.jpg'},
+    avatarFileID: { type: String, default: '0000'},
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });
@@ -146,3 +148,20 @@ module.exports.setListStatus = async(request, callback) => {
         console.log(error);
     }
 }
+
+
+module.exports.setAvatarFileID = async(request) => {
+    try {
+        const accountID = request.accountID;
+        const fileID = request.fileID;
+        const fileName = request.fileName;
+        
+        console.log(fileID);
+        return await User.findOneAndUpdate({ 'accountID': accountID }, {
+            $set : { 'avatarFileID': fileID, 'avatarFileName': fileName }
+        })
+    } catch (error) {
+        console.log(`Could not set new avatarFileID`, error);
+    }
+} 
+
