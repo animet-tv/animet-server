@@ -949,7 +949,7 @@ router.post(
                 // convert & resize img to webp
                 const filePath = file.path;
                 const newFileName = nanoid();
-                const newFilePath = path.resolve(process.cwd() + `/uploads/tmp-avatar/`);
+                const newFilePath = process.cwd() + `/uploads/tmp-avatar/`;
                 let content = fs.readFileSync(filePath);
 
                 sharp(content)
