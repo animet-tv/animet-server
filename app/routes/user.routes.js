@@ -240,7 +240,9 @@ let verifyCAPTCHA = (_response, _remoteAddress, callback) => {
 
     request(verificationUrl, function (error, response, body) {
       let _body = JSON.parse(body);
-      callback(null, _body.success);
+      if (_body.score > 0.5) {
+        callback(null, true);
+      }
     });
   } catch (error) {
     console.log(error);

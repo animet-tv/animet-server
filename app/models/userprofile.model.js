@@ -1,6 +1,5 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const beautifyUnique = require('mongoose-beautiful-unique-validation');
 const { nanoid } = require('nanoid');
 
 
@@ -14,7 +13,7 @@ const AnimetListItemSchema = mongoose.Schema({
 }, { _id : false }, { timestamps: true });
 
 const TrackedListItemSchema = mongoose.Schema({
-    title: { type: String, unique: true, },
+    title: { type: String },
 }, { _id : false });
 
 
@@ -43,7 +42,7 @@ const UserProfileSchema = mongoose.Schema({
     tracked_anime_continue_watching: [TrackedListItemSchema],
     continue_watching: [ ContinueWatching ]
 });
-UserProfileSchema.plugin(beautifyUnique);
+
 
 const UserProfile = module.exports = mongoose.model('UserProfile', UserProfileSchema);
 

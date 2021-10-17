@@ -59,11 +59,13 @@ module.exports.Delete_File = async (request) => {
         const fileID = request.fileID;
         const fileName = request.fileName;
 
-        await b2.authorize();
-        let result = await b2.deleteFileVersion({
-            fileId: fileID,
-            fileName: fileName
-        });
+        if (fileName !== '1.jpg') {
+            await b2.authorize();
+            let result = await b2.deleteFileVersion({
+                fileId: fileID,
+                fileName: fileName
+            });
+        }
     } catch (error) {
         console.log(error);
     }
