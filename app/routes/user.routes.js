@@ -198,6 +198,7 @@ router.post(
                             token: "JWT " + token,
                             user: {
                               email: user.email,
+                              accountID: user.accountID
                             },
                           });
                         } else {
