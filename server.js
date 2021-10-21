@@ -23,7 +23,29 @@ const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
 const seasonBuilder = require('./app/services/cron_tasks/add_new_anime_season');
 const buildAnimettvIndex = require('./app/services/animettv-index');
 
+
+/* var whiteList = [
+    'http://localhost:4200',
+    'http://localhost:3001',
+    'https://animet-server.herokuapp.com',
+    'https://animet.tv',
+    'https://beta.animet.tv',
+    'https://6162027bc2d4cd00081b5c32--animet.netlify.app',
+  ];
+
+  var corsOptions = {
+    origin: function(origin, callback) {
+      if (whiteList.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS \n messing with the wronge house fool'))
+      }
+    }
+  } */
+  
+
 app.use(cors());
+app.options('*', cors());
 app.use(logger('short'));
 // MethodOverride
 app.use(methodOverride('_method'));
