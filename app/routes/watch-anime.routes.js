@@ -118,9 +118,7 @@ router.get(
 
              if (title === 'Demon Slayer Season 1') {
                  res.json(demon_slayer);
-             } else if (title === 'Weathering with You') {
-                res.json(weathering_with_you);
-            }else if (title === 'Shingeki no Kyojin: The Final Season Part 1') {
+             } else if (title === 'Shingeki no Kyojin: The Final Season Part 1') {
                  res.json(shingeki_no_kyojin_the_final_season);
             } else if (title === 'One Punch Man') {
                 res.json(one_punch_man);
@@ -138,7 +136,17 @@ router.get(
                  res.json(violet_evergarden_60fps_dub);
              } else if (title === 'Jujutsu Kaisen Season 1') {
                  res.json(jujutsu_kaisen);
-             } 
+             } else if (title === 'Weathering with You') {
+                 let tmp = {
+                     anime60fps: [
+                         {
+                             src: 'https://bacchus.fra1.digitaloceanspaces.com/wwy/playlist.m3u8',
+                             episode_number: 1
+                         }
+                     ]
+                 };
+                 res.json(tmp);
+             }
          } catch (error) {
              console.log(error);
          }

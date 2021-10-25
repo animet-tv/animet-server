@@ -7,19 +7,19 @@ const AnimetListItemSchema = mongoose.Schema({
         item_id: { type: String },
         postID: { type: Number },
         img_url: { type: String },
-        title: { type: String },
+        title: { type: String,  unique: true },
         nsfw: { type: Boolean },
         dateCreated: { type: Number, default: Date.now() },
 }, { _id : false }, { timestamps: true });
 
 const TrackedListItemSchema = mongoose.Schema({
-    title: { type: String },
+    title: { type: String, unique: true},
 }, { _id : false });
 
 
 
 const ContinueWatching = mongoose.Schema({
-    animeTitle: { type: String },
+    animeTitle: { type: String,  unique: true },
     episodeNumber: { type: Number },
     totalEpisode: { type: Number },
     img_url: { type: String },
