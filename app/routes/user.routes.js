@@ -15,9 +15,10 @@ const fs = require("fs");
 const sharp = require("sharp");
 const B2_STORAGE = require("../services/b2-storage-bucket");
 const rateLimit = require("express-rate-limit");
+
 const defaultLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 10,
+  max: 8,
 });
 
 const tokenCheckLimiter = rateLimit({
@@ -27,13 +28,14 @@ const tokenCheckLimiter = rateLimit({
 
 const profileLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 200,
+  max: 100,
 });
 
 const listMutationLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
   max: 150,
 });
+
 
 // storage Engine
 const whiteList = ["image/png", "image/jpeg", "image/jpg", "image/webp"];

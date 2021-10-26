@@ -19,17 +19,17 @@ const rateLimit = require("express-rate-limit");
 
 const searchLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minutes
-  max: 200,
+  max: 180,
 });
 
 const seasonLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 5 minutes
-  max: 250,
+  max: 50,
 });
 
 const defaultLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 300,
+  max: 100,
 });
 
 
