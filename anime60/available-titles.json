@@ -1,5 +1,13 @@
 [
   {
+    "title": "Shingeki no Kyojin",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-m5ZMNtFioc7j.png",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": true
+  },
+  {
     "title": "Weathering with You",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx106286-5COcpd0J9VbL.png",
     "isDub": false,
@@ -47,6 +55,8 @@
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg",
     "isDub": false,
     "isSub": false,
-    "quality": "hd"
+    "quality": "hd",
+    "isNew": true
+
   }
 ]

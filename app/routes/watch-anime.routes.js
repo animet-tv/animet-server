@@ -11,7 +11,7 @@ const available_titles_60fps = require('../../anime60/available-titles.json');
 const weathering_with_you = require('../../anime60/weathering_with_you.json');
 const one_punch_man = require('../../anime60/one_punch_man.json');
 const jujutsu_kaisen = require('../../anime60/jujutsu_kaisen.json');
-
+const shingeki_no_kyojin = require('../../anime60/shingeki_no_kyojin_season_one.json');
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
     max: 200
@@ -122,7 +122,9 @@ router.get(
                  res.json(shingeki_no_kyojin_the_final_season);
             } else if (title === 'One Punch Man') {
                 res.json(one_punch_man);
-            }else if (title === 'Demon Slayer Mugen Train') {
+            } else if (title === 'Shingeki no Kyojin') { 
+                res.json(shingeki_no_kyojin);
+            } else if (title === 'Demon Slayer Mugen Train') {
                  let tmp = {
                      anime60fps: [
                          {
