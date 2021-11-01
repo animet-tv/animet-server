@@ -1,11 +1,19 @@
 [
   {
+    "title": "Your Name",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-XIr3PeczUjjF.png",
+    "isDub": true,
+    "isSub": false,
+    "quality": "4k",
+    "isNew": true
+  },
+  {
     "title": "Shingeki no Kyojin",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-m5ZMNtFioc7j.png",
     "isDub": true,
     "isSub": false,
     "quality": "hd",
-    "isNew": true
+    "isNew": false
   },
   {
     "title": "Weathering with You",
