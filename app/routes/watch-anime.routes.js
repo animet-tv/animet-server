@@ -110,6 +110,18 @@ router.get(
             res.sendStatus(404);
         }
     }
+);
+router.get(
+    '/anime60fps-available-titles-count',
+    anime60fps,
+    async(req, res) => {
+        try {
+            res.json(Number(available_titles_60fps.length));
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(404);
+        }
+    }
 )
 router.get(
     '/anime60fps',
@@ -122,11 +134,11 @@ router.get(
 
              if (title === 'Demon Slayer Season 1') {
                  res.json(demon_slayer);
-             } else if (title === 'Shingeki no Kyojin: The Final Season Part 1') {
+             } else if (title === 'Attack on Titan: The Final Season Part 1') {
                  res.json(shingeki_no_kyojin_the_final_season);
             } else if (title === 'One Punch Man') {
                 res.json(one_punch_man);
-            } else if (title === 'Shingeki no Kyojin') { 
+            } else if (title === 'Attack on Titan') { 
                 res.json(shingeki_no_kyojin);
             } else if (title === 'Demon Slayer Mugen Train') {
                 /* https://bacchus.fra1.digitaloceanspaces.com/demon_slayer_mugen_train/playlist.m3u8 */
@@ -140,7 +152,7 @@ router.get(
                  res.json(weathering_with_you);
              } else if (title === 'Your Name') {
                  res.json(your_name);
-             } else if (title === 'Shingeki no Kyojin Season 2') {
+             } else if (title === 'Attack on Titan Season 2') {
                  res.json(shingeki_no_kyojin_season_two);
              }
          } catch (error) {

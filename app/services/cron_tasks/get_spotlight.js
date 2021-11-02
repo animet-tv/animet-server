@@ -97,7 +97,7 @@ let spotlight_data = [
         title: `Tesla Note`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/dc5c04d12a8e361645d54cd363b69b75.webp`,
         synopsis: `Mission T is a secret operation to save the world from destruction. Trained as a ninja from a young age, Botan Negoro, raised to become the ultimate spy, teams up with another excellent spy, Kuruma. Their aim is to recover the legacy of the genius inventor Nikola Tesla, the "Shards of Tesla." Can the two outwit the agents of other countries who are also pursuing these fragments? A super-original spy thriller begins. `,
-    }
+    },
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT
