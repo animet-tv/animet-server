@@ -14,6 +14,7 @@ const jujutsu_kaisen = require('../../anime60/jujutsu_kaisen.json');
 const shingeki_no_kyojin = require('../../anime60/shingeki_no_kyojin_season_one.json');
 const your_name = require('../../anime60/your_name.json');
 const shingeki_no_kyojin_season_two = require('../../anime60/shingeki_no_kyojin_season_2.json');
+const demon_slayer_mugen_train = require('../../anime60/demon_slayer_mugen.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -128,29 +129,15 @@ router.get(
             } else if (title === 'Shingeki no Kyojin') { 
                 res.json(shingeki_no_kyojin);
             } else if (title === 'Demon Slayer Mugen Train') {
-                 let tmp = {
-                     anime60fps: [
-                         {
-                             src: 'https://bacchus.fra1.digitaloceanspaces.com/demon_slayer_mugen_train/playlist.m3u8',
-                             episode_number: 1
-                         }
-                     ]
-                 };
-                 res.json(tmp);
+                /* https://bacchus.fra1.digitaloceanspaces.com/demon_slayer_mugen_train/playlist.m3u8 */
+                 res.json(demon_slayer_mugen_train);
              } else if (title === 'Violet Evergarden') {
                  res.json(violet_evergarden_60fps_dub);
              } else if (title === 'Jujutsu Kaisen Season 1') {
                  res.json(jujutsu_kaisen);
              } else if (title === 'Weathering with You') {
-                 let tmp = {
-                     anime60fps: [
-                         {
-                             src: 'https://bacchus.fra1.digitaloceanspaces.com/wwy/playlist.m3u8',
-                             episode_number: 1
-                         }
-                     ]
-                 };
-                 res.json(tmp);
+                /* https://bacchus.fra1.digitaloceanspaces.com/wwy/playlist.m3u8 */ 
+                 res.json(weathering_with_you);
              } else if (title === 'Your Name') {
                  res.json(your_name);
              } else if (title === 'Shingeki no Kyojin Season 2') {

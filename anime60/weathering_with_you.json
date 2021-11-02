@@ -1,19 +1,9 @@
 {
     "anime60fps": [
       {
-        "src": "https://www.dailymotion.com/embed/video/x8448p2?autoplay=1",
+        "src": "https://ok.ru/videoembed/4090662161040",
         "iframe": true,
         "episode_number": 1
-      },
-      {
-        "src": "https://www.dailymotion.com/embed/video/x8448p3?autoplay=1",
-        "iframe": true,
-        "episode_number": 2
-      },
-      {
-        "src": "https://www.dailymotion.com/embed/video/x8448p4?autoplay=1",
-        "iframe": true,
-        "episode_number": 3
       }
     ]
   }

@@ -1,0 +1,15 @@
+{
+    "anime60fps": [
+      {
+        "src": "https://ok.ru/videoembed/4104114145936",
+        "iframe": true,
+        "episode_number": 1
+      },
+      {
+        "src": "https://ok.ru/videoembed/4102332222096",
+        "iframe": true,
+        "episode_number": 2
+      }
+    ]
+  }
+  
