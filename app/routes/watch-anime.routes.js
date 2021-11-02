@@ -13,6 +13,7 @@ const one_punch_man = require('../../anime60/one_punch_man.json');
 const jujutsu_kaisen = require('../../anime60/jujutsu_kaisen.json');
 const shingeki_no_kyojin = require('../../anime60/shingeki_no_kyojin_season_one.json');
 const your_name = require('../../anime60/your_name.json');
+const shingeki_no_kyojin_season_two = require('../../anime60/shingeki_no_kyojin_season_2.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -152,6 +153,8 @@ router.get(
                  res.json(tmp);
              } else if (title === 'Your Name') {
                  res.json(your_name);
+             } else if (title === 'Shingeki no Kyojin Season 2') {
+                 res.json(shingeki_no_kyojin_season_two);
              }
          } catch (error) {
              console.log(error);
