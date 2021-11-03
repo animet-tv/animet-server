@@ -15,6 +15,7 @@ const shingeki_no_kyojin = require('../../anime60/shingeki_no_kyojin_season_one.
 const your_name = require('../../anime60/your_name.json');
 const shingeki_no_kyojin_season_two = require('../../anime60/shingeki_no_kyojin_season_2.json');
 const demon_slayer_mugen_train = require('../../anime60/demon_slayer_mugen.json');
+const josee_to_tora_to_sakanatachi =require('../../anime60/josee_to_tora_to_sakanatachi.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -154,6 +155,8 @@ router.get(
                  res.json(your_name);
              } else if (title === 'Attack on Titan Season 2') {
                  res.json(shingeki_no_kyojin_season_two);
+             } else if (title === 'Josee to Tora to Sakanatachi') {
+                 res.json(josee_to_tora_to_sakanatachi);
              }
          } catch (error) {
              console.log(error);
