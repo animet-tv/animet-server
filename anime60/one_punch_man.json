@@ -1,64 +1,59 @@
 {
     "anime60fps": [
       {
-        "src": "https://www.dailymotion.com/embed/video/x8472wj?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a03x?autoplay=1",
         "iframe": true,
         "episode_number": 1
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x8472wj?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a03y?autoplay=1",
         "iframe": true,
-        "episode_number": 999
+        "episode_number": 2
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84n4ah?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a03z?autoplay=1",
         "iframe": true,
         "episode_number": 3
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84ns7u?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a09i?autoplay=1",
         "iframe": true,
         "episode_number": 4
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84p6zq?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a0d0?autoplay=1",
         "iframe": true,
         "episode_number": 5
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84p6zp?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a0n9?autoplay=1",
         "iframe": true,
         "episode_number": 6
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84tk3e?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a0n9?autoplay=1",
         "iframe": true,
         "episode_number": 7
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84tk3d?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a0rw?autoplay=1",
         "iframe": true,
         "episode_number": 8
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84tk3c?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a0v5?autoplay=1",
         "iframe": true,
         "episode_number": 9
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84ueod?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a12u?autoplay=1",
         "iframe": true,
         "episode_number": 10
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x84ueoc?autoplay=1",
+        "src": "https://www.dailymotion.com/embed/video/x85a14u?autoplay=1",
         "iframe": true,
         "episode_number": 11
-      },
-      {
-        "src": "https://www.dailymotion.com/embed/video/x84ueob?autoplay=1",
-        "iframe": true,
-        "episode_number": 12
       }
     ]
   }
