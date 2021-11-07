@@ -18,6 +18,7 @@ const demon_slayer_mugen_train = require('../../anime60/demon_slayer_mugen.json'
 const josee_to_tora_to_sakanatachi =require('../../anime60/josee_to_tora_to_sakanatachi.json');
 const cowboy_bepop_remastered = require('../../anime60/cowboy_bebop_remastered.json');
 const you_are_not_alone = require('../../anime60/evangelion_1.0_you_are_not_alone.json');
+const you_can_not_advance = require('../../anime60/evangelion_2.0_you_can_not_advance.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -163,6 +164,8 @@ router.get(
                 res.json(cowboy_bepop_remastered);
              } else if (title === 'Evangelion: 1.0 You Are Not Alone') {
                  res.json(you_are_not_alone);
+             } else if (title === 'Evangelion: 2.0 You Can (Not) Advance') {
+                 res.json(you_can_not_advance);
              }
          } catch (error) {
              console.log(error);
