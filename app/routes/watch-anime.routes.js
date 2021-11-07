@@ -17,6 +17,7 @@ const shingeki_no_kyojin_season_two = require('../../anime60/shingeki_no_kyojin_
 const demon_slayer_mugen_train = require('../../anime60/demon_slayer_mugen.json');
 const josee_to_tora_to_sakanatachi =require('../../anime60/josee_to_tora_to_sakanatachi.json');
 const cowboy_bepop_remastered = require('../../anime60/cowboy_bebop_remastered.json');
+const you_are_not_alone = require('../../anime60/evangelion_1.0_you_are_not_alone.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -160,6 +161,8 @@ router.get(
                  res.json(josee_to_tora_to_sakanatachi);
              } else if (title === 'Cowboy Bebop Remastered') {
                 res.json(cowboy_bepop_remastered);
+             } else if (title === 'Evangelion: 1.0 You Are Not Alone') {
+                 res.json(you_are_not_alone);
              }
          } catch (error) {
              console.log(error);
