@@ -162,7 +162,7 @@ router.get(
                  res.json(josee_to_tora_to_sakanatachi);
              } else if (title === 'Cowboy Bebop Remastered') {
                 res.json(cowboy_bepop_remastered);
-             } else if (title === 'Evangelion: 1.0 You Are Not Alone') {
+             } else if (title === 'Evangelion: 1.0 You Are (Not) Alone') {
                  res.json(you_are_not_alone);
              } else if (title === 'Evangelion: 2.0 You Can (Not) Advance') {
                  res.json(you_can_not_advance);
