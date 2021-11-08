@@ -27,6 +27,15 @@
     "isRemastered": true
   },
   {
+    "title": "Evangelion: 3.0 You Can (Not) Redo",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3785-OG857YhQalvS.png",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isRemastered": true
+  },
+  {
     "title":"Demon Slayer Season 1",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg",
     "isDub": false,

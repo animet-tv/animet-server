@@ -19,6 +19,7 @@ const josee_to_tora_to_sakanatachi =require('../../anime60/josee_to_tora_to_saka
 const cowboy_bepop_remastered = require('../../anime60/cowboy_bebop_remastered.json');
 const you_are_not_alone = require('../../anime60/evangelion_1.0_you_are_not_alone.json');
 const you_can_not_advance = require('../../anime60/evangelion_2.0_you_can_not_advance.json');
+const you_can_not_redo = require('../../anime60/evangelion_3.0_you_can_not_redo.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -166,6 +167,8 @@ router.get(
                  res.json(you_are_not_alone);
              } else if (title === 'Evangelion: 2.0 You Can (Not) Advance') {
                  res.json(you_can_not_advance);
+             } else if (title === 'Evangelion: 3.0 You Can (Not) Redo') {
+                res.json(you_can_not_redo);
              }
          } catch (error) {
              console.log(error);
