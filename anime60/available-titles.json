@@ -1,12 +1,21 @@
 [
   {
+    "title": "Akira Remastered",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-Sjkc8RDBjqwT.jpg",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": true,
+    "isRemastered": true
+  },
+  {
     "title": "Cowboy Bebop Remastered",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1-CXtrrkMpJ8Zq.png",
     "isDub": true,
     "isSub": false,
     "quality": "hd",
     "isNew": true,
-    "isRemastered": true
+    "isRemastered": false
   },
   {
     "title": "Evangelion: 1.0 You Are (Not) Alone",
