@@ -20,6 +20,7 @@ const cowboy_bepop_remastered = require('../../anime60/cowboy_bebop_remastered.j
 const you_are_not_alone = require('../../anime60/evangelion_1.0_you_are_not_alone.json');
 const you_can_not_advance = require('../../anime60/evangelion_2.0_you_can_not_advance.json');
 const you_can_not_redo = require('../../anime60/evangelion_3.0_you_can_not_redo.json');
+const akira_remastered = require('../../anime60/akira_remastered.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -169,6 +170,8 @@ router.get(
                  res.json(you_can_not_advance);
              } else if (title === 'Evangelion: 3.0 You Can (Not) Redo') {
                 res.json(you_can_not_redo);
+             } else if (title === 'Akira Remastered') {
+                 res.json(akira_remastered);
              }
          } catch (error) {
              console.log(error);

@@ -14,8 +14,8 @@
     "isDub": true,
     "isSub": false,
     "quality": "hd",
-    "isNew": true,
-    "isRemastered": false
+    "isNew": false,
+    "isRemastered": true
   },
   {
     "title": "Evangelion: 1.0 You Are (Not) Alone",
