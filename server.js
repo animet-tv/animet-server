@@ -31,6 +31,7 @@ var allowedOrigins = [
     'https://animet.tv',
     'https://beta.animet.tv',
     'https://6162027bc2d4cd00081b5c32--animet.netlify.app',
+    'https://animet-stream-api-4ywcb.ondigitalocean.app'
   ];
 
 
