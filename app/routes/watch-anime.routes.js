@@ -21,6 +21,7 @@ const you_are_not_alone = require('../../anime60/evangelion_1.0_you_are_not_alon
 const you_can_not_advance = require('../../anime60/evangelion_2.0_you_can_not_advance.json');
 const you_can_not_redo = require('../../anime60/evangelion_3.0_you_can_not_redo.json');
 const akira_remastered = require('../../anime60/akira_remastered.json');
+const death_note = require('../../anime60/death_note_remastered.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -172,6 +173,8 @@ router.get(
                 res.json(you_can_not_redo);
              } else if (title === 'Akira Remastered') {
                  res.json(akira_remastered);
+             } else if (title === 'Death Note') {
+                 res.json(death_note);
              }
          } catch (error) {
              console.log(error);
