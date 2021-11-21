@@ -1,14 +1,9 @@
 {
     "anime60fps": [
       {
-        "src": "https://frosty-snyder-1df076.netlify.app/other/encoding_in_progress_small.png.png?https://www.dailymotion.com/embed/video/x85hr7o?autoplay=1",
+        "src": "https://ok.ru/videoembed/4176420145808",
         "iframe": true,
         "episode_number": 1
-      },
-      {
-        "src": "https://frosty-snyder-1df076.netlify.app/other/encoding_in_progress_small.png.png?https://www.dailymotion.com/embed/video/x85hxa5?autoplay=1",
-        "iframe": true,
-        "episode_number": 2
       }
     ]
   }

@@ -84,7 +84,7 @@
     "title": "Demon Slayer Mugen Train",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112151-1qlQwPB1RrJe.png",
     "isDub": true,
-    "isSub": true,
+    "isSub": false,
     "quality": "4k",
     "isNew": false,
     "isRemastered": false
