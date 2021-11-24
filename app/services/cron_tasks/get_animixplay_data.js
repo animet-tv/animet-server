@@ -14,7 +14,6 @@ const populatePreparedTitle = async () => {
         let fetchAnimixplay_data = async(callback) => {
             try {
                 let url = animixplay_data_URL;
-                console.log(url);
                 axios
                     .get(url)
                     .then(res => {
