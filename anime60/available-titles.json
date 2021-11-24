@@ -1,14 +1,5 @@
 [
   {
-    "title": "Death Note",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-lawCwhzhi96X.jpg",
-    "isDub": true,
-    "isSub": false,
-    "quality": "hd",
-    "isNew": false,
-    "isRemastered": true
-  },
-  {
     "title": "Akira Remastered",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-Sjkc8RDBjqwT.jpg",
     "isDub": true,
@@ -63,12 +54,30 @@
     "isRemastered": false
   },
   {
+    "title": "Ghost in the Shell 4K Digital",
+    "cover_img": "https://frosty-snyder-1df076.netlify.app/other/ghost_in_shell_4k_cover-min.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isRemastered": true,
+    "isNew": true
+  },
+  {
+    "title": "Death Note",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-lawCwhzhi96X.jpg",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isRemastered": true
+  },
+  {
     "title": "Josee to Tora to Sakanatachi",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113596-LKA0bYJGjLnB.jpg",
     "isDub": false,
     "isSub": true,
     "quality": "4k",
-    "isNew": true,
+    "isNew": false,
     "isRemastered": false
   },
   {

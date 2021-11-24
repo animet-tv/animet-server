@@ -8,12 +8,14 @@ mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const rs = require("request");
 const gogo_baseURL = "https://www1.gogoanime.ai/";
 const Genre = require('../../models/genres.model');
+const animetrendz = require('../cron_tasks/get_anitrendz');
 
 module.exports.populateDailyTop = async () => {
     try {
         var _TRENDING = [];
         var _ALL_TIME_POPULAR = [];
         var _UPCOMING = [];
+        var _TOP_OF_THE_WEEK = [];
         var tops_list = [_TRENDING, _ALL_TIME_POPULAR, _UPCOMING];
 
         var _Action = [];
@@ -155,67 +157,137 @@ module.exports.populateDailyTop = async () => {
                 });
 
 
-                // create new Top object
-                const newTopData = new Top({
-                    TRENDING: tops_list[0],
-                    ALL_TIME_POPULAR: tops_list[1],
-                    UPCOMING: tops_list[2],
-                });
-                
-                // save new Top object
-                newTopData.save();
-                console.log('Successfully updated DB with new Tops data', new Date());
+                // fetch top of the week
+                animetrendz.buildTopWeek(res => {
+                    _TOP_OF_THE_WEEK =res;
 
-                
-                // create new Genre object
-                const newGenreData = new Genre ({
-                    Action : genres_list[0],
-                    Adventure : genres_list[1],
-                    Cars : genres_list[2],
-                    Comedy : genres_list[3],
-                    Dementia : genres_list[4],
-                    Demons : genres_list[5],
-                    Drama : genres_list[6],
-                    Dub : genres_list[7],
-                    Ecchi : genres_list[8],
-                    Fantasy : genres_list[9],
-                    Game : genres_list[10],
-                    Harem : genres_list[11],
-                    Historical : genres_list[12],
-                    Horror : genres_list[13],
-                    Josei : genres_list[14],
-                    Kids : genres_list[15],
-                    Magic : genres_list[16],
-                    Martial_Arts : genres_list[17],
-                    Mecha : genres_list[18],
-                    Military : genres_list[19],
-                    Music : genres_list[20],
-                    Mystery : genres_list[21],
-                    Parody : genres_list[22],
-                    Police : genres_list[23],
-                    Psychological : genres_list[24],
-                    Romance : genres_list[25],
-                    Samurai : genres_list[26],
-                    School : genres_list[27],
-                    Sci_Fi : genres_list[28],
-                    Seinen : genres_list[29],
-                    Shoujo : genres_list[30],
-                    Shoujo_Ai : genres_list[31],
-                    Shounen : genres_list[32],
-                    Shounen_Ai : genres_list[33],
-                    Slice_of_Life : genres_list[34],
-                    Space : genres_list[35],
-                    Sports : genres_list[36],
-                    Super_Power : genres_list[37],
-                    Supernatural : genres_list[38],
-                    Thriller : genres_list[39],
-                    Vampire : genres_list[40],
-                    Yaoi: genres_list[41],
-                    Yuri: genres_list[42]
-                });
-                newGenreData.save();
-                console.log('Successfully updated DB with new Genre data', ' ', new Date());
-                
+                    // create new Top object
+                    const newTopData = new Top({
+                        TRENDING: tops_list[0],
+                        ALL_TIME_POPULAR: tops_list[1],
+                        UPCOMING: tops_list[2],
+                        TOP_OF_THE_WEEK: _TOP_OF_THE_WEEK,
+                    });
+                    
+                    // save new Top object
+                    newTopData.save();
+                    console.log('Successfully updated DB with new Tops data', new Date());
+
+                    
+                    // create new Genre object
+                    const newGenreData = new Genre ({
+                        Action : genres_list[0],
+                        Adventure : genres_list[1],
+                        Cars : genres_list[2],
+                        Comedy : genres_list[3],
+                        Dementia : genres_list[4],
+                        Demons : genres_list[5],
+                        Drama : genres_list[6],
+                        Dub : genres_list[7],
+                        Ecchi : genres_list[8],
+                        Fantasy : genres_list[9],
+                        Game : genres_list[10],
+                        Harem : genres_list[11],
+                        Historical : genres_list[12],
+                        Horror : genres_list[13],
+                        Josei : genres_list[14],
+                        Kids : genres_list[15],
+                        Magic : genres_list[16],
+                        Martial_Arts : genres_list[17],
+                        Mecha : genres_list[18],
+                        Military : genres_list[19],
+                        Music : genres_list[20],
+                        Mystery : genres_list[21],
+                        Parody : genres_list[22],
+                        Police : genres_list[23],
+                        Psychological : genres_list[24],
+                        Romance : genres_list[25],
+                        Samurai : genres_list[26],
+                        School : genres_list[27],
+                        Sci_Fi : genres_list[28],
+                        Seinen : genres_list[29],
+                        Shoujo : genres_list[30],
+                        Shoujo_Ai : genres_list[31],
+                        Shounen : genres_list[32],
+                        Shounen_Ai : genres_list[33],
+                        Slice_of_Life : genres_list[34],
+                        Space : genres_list[35],
+                        Sports : genres_list[36],
+                        Super_Power : genres_list[37],
+                        Supernatural : genres_list[38],
+                        Thriller : genres_list[39],
+                        Vampire : genres_list[40],
+                        Yaoi: genres_list[41],
+                        Yuri: genres_list[42]
+                    });
+                    newGenreData.save();
+                    console.log('Successfully updated DB with new Genre data', ' ', new Date());
+                    
+                }).catch(e => {
+                    
+                    // create new Top object
+                    const newTopData = new Top({
+                        TRENDING: tops_list[0],
+                        ALL_TIME_POPULAR: tops_list[1],
+                        UPCOMING: tops_list[2],
+                        TOP_OF_THE_WEEK: _TOP_OF_THE_WEEK,
+                    });
+                    
+                    // save new Top object
+                    newTopData.save();
+                    console.log('Successfully updated DB with new Tops data', new Date());
+
+                    
+                    // create new Genre object
+                    const newGenreData = new Genre ({
+                        Action : genres_list[0],
+                        Adventure : genres_list[1],
+                        Cars : genres_list[2],
+                        Comedy : genres_list[3],
+                        Dementia : genres_list[4],
+                        Demons : genres_list[5],
+                        Drama : genres_list[6],
+                        Dub : genres_list[7],
+                        Ecchi : genres_list[8],
+                        Fantasy : genres_list[9],
+                        Game : genres_list[10],
+                        Harem : genres_list[11],
+                        Historical : genres_list[12],
+                        Horror : genres_list[13],
+                        Josei : genres_list[14],
+                        Kids : genres_list[15],
+                        Magic : genres_list[16],
+                        Martial_Arts : genres_list[17],
+                        Mecha : genres_list[18],
+                        Military : genres_list[19],
+                        Music : genres_list[20],
+                        Mystery : genres_list[21],
+                        Parody : genres_list[22],
+                        Police : genres_list[23],
+                        Psychological : genres_list[24],
+                        Romance : genres_list[25],
+                        Samurai : genres_list[26],
+                        School : genres_list[27],
+                        Sci_Fi : genres_list[28],
+                        Seinen : genres_list[29],
+                        Shoujo : genres_list[30],
+                        Shoujo_Ai : genres_list[31],
+                        Shounen : genres_list[32],
+                        Shounen_Ai : genres_list[33],
+                        Slice_of_Life : genres_list[34],
+                        Space : genres_list[35],
+                        Sports : genres_list[36],
+                        Super_Power : genres_list[37],
+                        Supernatural : genres_list[38],
+                        Thriller : genres_list[39],
+                        Vampire : genres_list[40],
+                        Yaoi: genres_list[41],
+                        Yuri: genres_list[42]
+                    });
+                    newGenreData.save();
+                    console.log('Successfully updated DB with new Genre data', ' ', new Date());
+                    
+                })
                 
             
             } catch (error) {

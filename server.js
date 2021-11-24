@@ -23,7 +23,6 @@ const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
 const seasonBuilder = require('./app/services/cron_tasks/add_new_anime_season');
 const buildAnimettvIndex = require('./app/services/animettv-index');
 
-
 var allowedOrigins = [
     'http://localhost:4200',
     'http://localhost:3001',
@@ -130,6 +129,8 @@ recentlyadded.populateRecentlyAdded() */
 a(); */
 
 /* buildAnimettvIndex.buildAnimettvIndex(); */
+
+//animetrendz.buildTopWeek()
 
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {

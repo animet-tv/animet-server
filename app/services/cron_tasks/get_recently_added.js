@@ -14,7 +14,6 @@ let populateRecentlyAdded = async() => {
 
         while(page < 5) {
             let url = `${animet_stream_api}api/v2/recentlyadded/?type=false&page=${page}`;
-            console.log(url);
             rs(url, (err, resp, html) => {
                 if (!err) {
                   try {
@@ -43,7 +42,6 @@ let populateRecentlyAdded = async() => {
         let dub_page = 1;
         while(dub_page < 5) {
             let url = `${animet_stream_api}api/v2/recentlyadded/?type=true&page=${dub_page}`;
-            console.log(url);
             rs(url, (err, resp, html) => {
                 if (!err) {
                   try {

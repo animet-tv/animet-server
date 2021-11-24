@@ -24,12 +24,12 @@ const searchLimiter = rateLimit({
 
 const seasonLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 5 minutes
-  max: 50,
+  max: 35,
 });
 
 const defaultLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 100,
+  max: 70,
 });
 
 
@@ -86,6 +86,21 @@ router.get("/search", searchLimiter, async (req, res) => {
     console.log(error);
   }
 });
+
+router.get('/tops', defaultLimiter, async (req,res) => {
+  try {
+    Top.getAll((err, callback) => {
+      if (err) {
+        res.sendStatus(404);
+      }
+      if (callback) {
+        res.json(callback[0]);
+      }
+    });
+  } catch (error) {
+    res.status(404).json({success: false})
+  }
+})
 
 router.get("/trending", defaultLimiter, async (req, res) => {
   try {

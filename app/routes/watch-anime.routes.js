@@ -22,6 +22,7 @@ const you_can_not_advance = require('../../anime60/evangelion_2.0_you_can_not_ad
 const you_can_not_redo = require('../../anime60/evangelion_3.0_you_can_not_redo.json');
 const akira_remastered = require('../../anime60/akira_remastered.json');
 const death_note = require('../../anime60/death_note_remastered.json');
+const ghost_in_the_shell_4k_digital = require('../../anime60/ghost_in_the_shell_4k_digital.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -175,6 +176,8 @@ router.get(
                  res.json(akira_remastered);
              } else if (title === 'Death Note') {
                  res.json(death_note);
+             } else if (title === 'Ghost in the Shell 4K Digital') {
+                 res.json(ghost_in_the_shell_4k_digital);
              }
          } catch (error) {
              console.log(error);

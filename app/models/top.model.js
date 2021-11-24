@@ -24,6 +24,7 @@ const TopSchema = mongoose.Schema({
     TRENDING: [Anime],
     ALL_TIME_POPULAR: [Anime],
     UPCOMING: [Anime],
+    TOP_OF_THE_WEEK: [Anime],
    
 });
 TopSchema.plugin(beautifyUnique);
@@ -91,6 +92,28 @@ module.exports.getUpcoming = async (callback) => {
                         )
                 }
             })
+    } catch (error) {
+        console.log(error);
+        callback(null, false);
+    }
+}
+
+module.exports.getAll = async (callback) => {
+    try {
+        client.get('TOPS', (err, result) => {
+            if (result && result['TOPS'] !== undefined) {
+                const resultJSON = JSON.parse(result);
+                callback(null, resultJSON);
+            } else {
+                Top.find({},{})
+                .then(
+                    _result => {
+                        client.setex('TOPS', 10800, JSON.stringify(_result));
+                        callback(null, _result);
+                    }
+                );
+            }
+        });
     } catch (error) {
         console.log(error);
         callback(null, false);
