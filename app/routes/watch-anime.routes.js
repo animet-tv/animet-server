@@ -23,6 +23,7 @@ const you_can_not_redo = require('../../anime60/evangelion_3.0_you_can_not_redo.
 const akira_remastered = require('../../anime60/akira_remastered.json');
 const death_note = require('../../anime60/death_note_remastered.json');
 const ghost_in_the_shell_4k_digital = require('../../anime60/ghost_in_the_shell_4k_digital.json');
+const high_school_of_the_dead_complete_collection = require('../../anime60/high_school_of_the_dead_complete_collection.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -178,6 +179,8 @@ router.get(
                  res.json(death_note);
              } else if (title === 'Ghost in the Shell 4K Digital') {
                  res.json(ghost_in_the_shell_4k_digital);
+             } else if (title === 'High School of the Dead: Complete Collection') {
+                 res.json(high_school_of_the_dead_complete_collection);
              }
          } catch (error) {
              console.log(error);
