@@ -24,6 +24,9 @@ const akira_remastered = require('../../anime60/akira_remastered.json');
 const death_note = require('../../anime60/death_note_remastered.json');
 const ghost_in_the_shell_4k_digital = require('../../anime60/ghost_in_the_shell_4k_digital.json');
 const high_school_of_the_dead_complete_collection = require('../../anime60/high_school_of_the_dead_complete_collection.json');
+const tengen_toppa_gurren_lagann_parallel_works_1 = require('../../anime60/parallel_works_1.json');
+const tengen_toppa_gurren_lagann_parallel_works_2 = require('../../anime60/parallel_works_2.json');
+const nausicaa_of_the_valley_of_the_wind = require = require("../../anime60/nausicaa_of_the_valley_of_the_wind.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -91,11 +94,9 @@ router.get(
 /* BACKUP: iframe player links */
 router.get('/gapi/get-episode-stream', async(req, res) => {
     try {
-        console.log(req.query.episodeID);
         let links = [];
         let streamEpisode = req.query.episodeID;
         let apiResult = await Gapi.animeEpisodeHandler(streamEpisode);
-        console.timeEnd('animeEpisodeHandler');
         let link = {
             size: 'High Speed',
             src: `https://${apiResult[0].servers[0].iframe}`
@@ -181,7 +182,13 @@ router.get(
                  res.json(ghost_in_the_shell_4k_digital);
              } else if (title === 'High School of the Dead: Complete Collection') {
                  res.json(high_school_of_the_dead_complete_collection);
-             }
+             } else if (title === 'Tengen Toppa Gurren Lagann: Parallel Works 1') {
+                 res.json(tengen_toppa_gurren_lagann_parallel_works_1);
+             } else if (title === 'Tengen Toppa Gurren Lagann: Parallel Works 2') {
+                res.json(tengen_toppa_gurren_lagann_parallel_works_2);
+            } else if (title === 'Nausicaa of the Valley of the Wind') {
+                res.json(nausicaa_of_the_valley_of_the_wind);
+            }
          } catch (error) {
              console.log(error);
          }
