@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const os = require('os');
 const sources = require('../../public/external_sources.json');
+const MetricaStats = require('../models/metrica-stats.model');
 
 router.get('/', async(req,res) => {
     try {
@@ -48,6 +49,23 @@ router.get('/', async(req,res) => {
 router.get('/working-sources', async(req ,res) => {
     try {
         res.json(sources);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
+router.get('/total-sessions-today', async(req,res) => {
+    try {
+         MetricaStats.getTotalSessionToday((err, result) => {
+            if (err) {
+                console.log(err);
+                res.sendStatus(404);
+            } 
+            if (result) {
+                res.json(result);
+             }
+         })
     } catch (error) {
         console.log(error);
         res.sendStatus(500);

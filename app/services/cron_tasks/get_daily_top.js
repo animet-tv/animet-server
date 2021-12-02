@@ -159,7 +159,7 @@ module.exports.populateDailyTop = async () => {
 
                 // fetch top of the week
                 animetrendz.buildTopWeek(res => {
-                    _TOP_OF_THE_WEEK =res;
+                    _TOP_OF_THE_WEEK = res;
 
                     // create new Top object
                     const newTopData = new Top({

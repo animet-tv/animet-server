@@ -22,6 +22,7 @@ const spotlight = require('./app/services/cron_tasks/get_spotlight');
 const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
 const seasonBuilder = require('./app/services/cron_tasks/add_new_anime_season');
 const buildAnimettvIndex = require('./app/services/animettv-index');
+const metricaStatsService = require("./app/services/cron_tasks/get_metrica_stats");
 
 var allowedOrigins = [
     'http://localhost:4200',
@@ -131,7 +132,6 @@ a(); */
 /* buildAnimettvIndex.buildAnimettvIndex(); */
 
 //animetrendz.buildTopWeek()
-
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
@@ -139,24 +139,18 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
     await animixplay.populatePreparedTitle();
     await recentlyadded.cleanRecentlyAdded();
     await recentlyadded.populateRecentlyAdded();
+    await spotlight.buildWeeklySpotlight();
     
     console.log('done updating database') 
 });
-/* CRON tasks every week on sunday 8:05am */
-const weekly_db_workers = new cron("5 8 * * 6", async() => {
+/* CRON tasks every minute*/
+const minute_db_workers = new cron("* * * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
-    await spotlight.buildWeeklySpotlight();
+    metricaStatsService.fetchTotalUserSession();
     console.log('done updating database')
     
 });
 
-const hourly_workers = new cron("*/30 * * * *", async() => {
-    console.log('going maintenance mode updating server json files . . .');
-   /*  await mediafire.initMediaFire(); */
-    console.log('done updating server');
-});
-
-hourly_workers.start();
 daily_db_workers.start();
-weekly_db_workers.start();
+minute_db_workers.start();
 module.exports = app;
