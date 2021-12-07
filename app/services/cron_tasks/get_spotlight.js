@@ -53,21 +53,21 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/c865150c08989d7ea1b75f19fbb1ea83.webp',
         synopsis: `Asta and Yuno were abandoned at the same church on the same day. Raised together as children, they came to know of the "Wizard King"— a title given to the strongest mage in the kingdom—and promised that they would compete against each other for the position of the next Wizard King.`
     }, */
-    {
+    /* {
         title: 'Shiroi Suna no Aquatope',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/ef09177ea11196e9e42f4e11263c588c.webp',
         synopsis: `Kukuru Misakino, an 18-year-old high school girl working in an aquarium, meets Fuuka Miyazawa, a former idol who lost her place in Tokyo and escaped. Fuuka will spend her days in the aquarium with her own thoughts in mind. However, the crisis of closing is approaching for the aquarium, as the girls explore their dreams and reality, loneliness and friends, bonds and conflicts.`
-    },
+    }, */
     /* {
         title: 'Kingdom 3rd Season',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/f50cc89750b46b724e96cba5f9fe17b3.webp',
         synopsis: `Following the successful Sanyou campaign, the Qin army, including 1,000-Man Commander Li Xin, inches ever closer to fulfilling King Ying Zheng's dream of unifying China. With a major geographical foothold in the state of Wei now under its control, Qin sets its sights eastward toward the remaining warring states. Meanwhile Li Mu—an unparalleled strategist and the newly appointed prime minister of the state of Zhao—has taken advantage of Zhao's temporary truce with Qin to negotiate with the other states without interruption. `
     }, */
-    {
+    /* {
         title: 'Nakitai Watashi wa Neko wo Kaburu',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/729e35621113cf0dd5c68a9ec6014756.webp',
         synopsis: `Miyo Sasaki is an energetic high school girl who comes from a broken family consisting of her unconfident father and an overly invested stepmother, whose attempts at connecting with Miyo come across as bothersome. Seeing Kento Hinode as a refuge from all her personal issues, she can't help herself from forcing her unorthodox demonstrations of love onto her crush.<br><br>While Miyo is unable to get Kento's attention as herself, she manages to succeed by interacting with him in the form of a white cat, affectionately nicknamed "Tarou" by Kento. But Miyo soon realizes that she can't help Kento with the various problems she overhears in her cat form and is now caught between two tough choices. Will she continue her relationship with him as a cat, or will she reveal her identity and risk what they have, in order to help him as her human self?`
-    }, 
+    },  */
     {
         title: `Selection Project`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/17sa0fb05e24c59bad47a18ffedecf1d.webp`,
@@ -93,11 +93,11 @@ let spotlight_data = [
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/e0662e265d3a6bb0628a31dfbe1a4e74.webp`,
         synopsis: `Ange Yuki—a boy who wrestles with deep-seated loneliness and can't fit in. With nobody to call family, he leaves his hometown. Longing to see an artist he admires perform, he heads for Harajuku, where he encounters a live battle between visual kei units ECLIPSE and LOS † EDEN. Overwhelmed by the energetic performance, he is suddenly struck by an intense pain`,
     }, */
-    {
+   /*  {
         title: `Tesla Note`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/dc5c04d12a8e361645d54cd363b69b75.webp`,
         synopsis: `Mission T is a secret operation to save the world from destruction. Trained as a ninja from a young age, Botan Negoro, raised to become the ultimate spy, teams up with another excellent spy, Kuruma. Their aim is to recover the legacy of the genius inventor Nikola Tesla, the "Shards of Tesla." Can the two outwit the agents of other countries who are also pursuing these fragments? A super-original spy thriller begins. `,
-    },
+    }, */
     {
         title: `Jahy-sama wa Kujikenai!`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/caa98eb5a8b1c58293a5b6c1acda1bc4.webp`,
@@ -107,6 +107,21 @@ let spotlight_data = [
         title: `Xian Wang de Richang Shenghuo 2nd Season`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/779b17401e27633587cb1685b388039a.webp`,
         synopsis: `Wang Ling, the major Protagonist of the anime, has enormous uncontrollable power wants to live a low-key life. He wants to get rid of these powers. Sometimes, he just hides his powers from other kids just to look normal. He avoids contact and connections with others just to hide his powers.`,
+    },
+    {
+        title: `JoJo no Kimyou na Bouken Part 6: Stone Ocean`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/53c87a67e5e03cbe93ff9125b9d66237.jpg`,
+        synopsis: `In Florida, 2011, Jolyne Kuujou sits in a jail cell like her father Joutarou once did; yet this situation is not of her own choice. Framed for a crime she didn’t commit, and manipulated into serving a longer sentence, Jolyne is ready to resign to a dire fate as a prisoner of Green Dolphin Street Jail. `
+    }, 
+    {
+        title: `Kyuuketsuki Sugu Shinu`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/ed1535978d64a545b092040b7ae23b77.jpg`,
+        synopsis: `Vampires are said to have many weaknesses such as garlic, crosses, and sunlight. Game-loving vampire lord Draluc just so happens to be weak to... everything. He dies, turning into a pile of ash, at the slightest shock.`
+    },
+    {
+        title: `World Trigger 3rd Season`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/55f892af95650c74810e9a5c640ba1b9.jpg`,
+        synopsis: `Third season of World Trigger.`
     }
 ];
 

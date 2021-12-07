@@ -166,7 +166,7 @@ module.exports.populateDailyTop = async () => {
                         TRENDING: tops_list[0],
                         ALL_TIME_POPULAR: tops_list[1],
                         UPCOMING: tops_list[2],
-                        TOP_OF_THE_WEEK: _TOP_OF_THE_WEEK,
+                        TOP_OF_THE_WEEK: res,
                     });
                     
                     // save new Top object

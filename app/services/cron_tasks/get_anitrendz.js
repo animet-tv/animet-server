@@ -73,6 +73,5 @@ function uniqByKeepLast(data, key) {
 }
 
 module.exports = {
-    buildTopWeek,
-    cleanUpTitles
+    buildTopWeek
 }
