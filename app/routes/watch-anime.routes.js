@@ -29,6 +29,7 @@ const tengen_toppa_gurren_lagann_parallel_works_2 = require('../../anime60/paral
 const solo_levante = require('../../anime60/solo_levante.json');
 const her_blue_sky = require("../../anime60/her_blue_sky.json");
 const nausicaa_of_the_valley_of_the_wind = require("../../anime60/nausicaa_of_the_valley_of_the_wind.json");
+const vinland_saga = require("../../anime60/vinland_saga.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -194,6 +195,8 @@ router.get(
                 res.json(solo_levante);
             } else if (title === 'Her Blue Sky') {
                 res.json(her_blue_sky);
+            } else if (title === 'Vinland Saga') {
+                res.json(vinland_saga);
             }
          } catch (error) {
              console.log(error);

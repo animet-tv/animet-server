@@ -1,5 +1,14 @@
 [
   {
+    "title": "Vinland Saga",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101348-NrnGlz0NsJuG.jpg",
+    "isDub": false,
+    "isSub": true,
+    "quality": "hd",
+    "isNew": false,
+    "isRemastered": false
+  },
+  {
     "title":"Demon Slayer Season 1",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg",
     "isDub": false,
@@ -90,13 +99,13 @@
     "isRemastered": true
   },
   {
-    "title": "Death Note",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-lawCwhzhi96X.jpg",
+    "title": "Attack on Titan Season 2",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20958-HuFJyr54Mmir.jpg",
     "isDub": true,
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": false
   },
   {
     "title": "Attack on Titan Season 2",
