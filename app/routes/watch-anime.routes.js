@@ -26,7 +26,9 @@ const ghost_in_the_shell_4k_digital = require('../../anime60/ghost_in_the_shell_
 const high_school_of_the_dead_complete_collection = require('../../anime60/high_school_of_the_dead_complete_collection.json');
 const tengen_toppa_gurren_lagann_parallel_works_1 = require('../../anime60/parallel_works_1.json');
 const tengen_toppa_gurren_lagann_parallel_works_2 = require('../../anime60/parallel_works_2.json');
-const nausicaa_of_the_valley_of_the_wind = require = require("../../anime60/nausicaa_of_the_valley_of_the_wind.json");
+const solo_levante = require('../../anime60/solo_levante.json');
+const her_blue_sky = require("../../anime60/her_blue_sky.json");
+const nausicaa_of_the_valley_of_the_wind = require("../../anime60/nausicaa_of_the_valley_of_the_wind.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -188,6 +190,10 @@ router.get(
                 res.json(tengen_toppa_gurren_lagann_parallel_works_2);
             } else if (title === 'Nausicaa of the Valley of the Wind') {
                 res.json(nausicaa_of_the_valley_of_the_wind);
+            } else if (title === 'Sol Levante') {
+                res.json(solo_levante);
+            } else if (title === 'Her Blue Sky') {
+                res.json(her_blue_sky);
             }
          } catch (error) {
              console.log(error);

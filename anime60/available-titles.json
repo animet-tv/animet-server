@@ -68,7 +68,7 @@
     "isDub": true,
     "isSub": false,
     "quality": "hd",
-    "isNew": true,
+    "isNew": false,
     "isRemastered": true
   },
   {
@@ -144,13 +144,31 @@
     "isRemastered": false
   },
   {
+    "title": "Her Blue Sky",
+    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/Sora_no_Aosa_o_Shiru_Hito_yo.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isRemastered": false,
+    "isNew": true 
+  },
+  {
+    "title": "Sol Levante",
+    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/solo_levante.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isRemastered": false,
+    "isNew": true
+  },
+  {
     "title": "Ghost in the Shell 4K Digital",
     "cover_img": "https://frosty-snyder-1df076.netlify.app/other/ghost_in_shell_4k_cover-min.png",
     "isDub": false,
     "isSub": true,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": true
+    "isNew": false
   },
   {
     "title": "Josee to Tora to Sakanatachi",
