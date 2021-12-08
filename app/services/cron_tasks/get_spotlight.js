@@ -122,6 +122,11 @@ let spotlight_data = [
         title: `World Trigger 3rd Season`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/55f892af95650c74810e9a5c640ba1b9.jpg`,
         synopsis: `Third season of World Trigger.`
+    },
+    {
+        title: `Kimetsu no Yaiba: Yuukaku-hen`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/c78ee3e41d27d6aba47e52ada1.jpg`,
+        synopsis: `The second season of Kimetsu no Yaiba.`
     }
 ];
 
