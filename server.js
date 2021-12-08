@@ -34,7 +34,6 @@ var allowedOrigins = [
     'https://animet-stream-api-4ywcb.ondigitalocean.app'
   ];
 
-
 app.use(
   cors({
     origin: function (origin, callback) {
