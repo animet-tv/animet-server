@@ -5,13 +5,13 @@ const path = require('path');
 const fs = require('fs');
 
 let buildTopWeek = async(callback) => {
-    let url = `https://anitrendz.net/charts/top-anime/`;
+    let url = `https://www.anime-xpress.com/poll-anime/`;
     let topOfTheWeek = [];
     rs(url, (err, resp, html) => {
         if (!err) {
           try {
             var $ = cheerio.load(html);
-            $('.entry-title').each(function (index, element) {
+            $('.frm_text_label_for_image_inner').each(function (index, element) {
                 let title = $(this).text();
                 title = title.replace(/^[ ]+|[ ]+$/g,'');
                 title = title.replace(/\n/g, '');
@@ -44,7 +44,7 @@ let cleanUpTitles = (topOfTheWeek) => {
         for (let j = 0; j < topOfTheWeek.length; j++) {
           for (let i = 0; i < data.length; i++) {
             data[i].synonyms.forEach(el => {
-              if (el === topOfTheWeek[j].title) {
+              if (el.includes(topOfTheWeek[j].title)) {
                 trueTopWeek.push({
                   mal_id: 0,
                   img_url: data[i].picture,

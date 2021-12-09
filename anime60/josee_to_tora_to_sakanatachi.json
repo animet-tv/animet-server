@@ -1,12 +1,12 @@
 {
     "anime60fps": [
       {
-        "src": "https://www.dailymotion.com/embed/video/x8599ri?autoplay=1",
+        "src": "https://geo.dailymotion.com/player/x6qq2.html?video=x8599ri",
         "iframe": true,
         "episode_number": 1
       },
       {
-        "src": "https://www.dailymotion.com/embed/video/x8599rj?autoplay=1",
+        "src": "https://geo.dailymotion.com/player/x6qq2.html?video=x8599rj",
         "iframe": true,
         "episode_number": 2
       }

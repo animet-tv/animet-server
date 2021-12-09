@@ -132,8 +132,11 @@ a(); */
 
 /* const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
 
-animetrendz.buildTopWeek(); */
-
+animetrendz.buildTopWeek(res => {
+  if (res) {
+    console.log(res);
+  }
+}) */
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
