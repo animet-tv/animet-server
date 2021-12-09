@@ -1,5 +1,14 @@
 [
   {
+    "title": "86",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116589-WSpNedJdAH3L.jpg",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isRemastered": false
+  },
+  {
     "title": "Vinland Saga",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101348-NrnGlz0NsJuG.jpg",
     "isDub": false,

@@ -30,10 +30,11 @@ const solo_levante = require('../../anime60/solo_levante.json');
 const her_blue_sky = require("../../anime60/her_blue_sky.json");
 const nausicaa_of_the_valley_of_the_wind = require("../../anime60/nausicaa_of_the_valley_of_the_wind.json");
 const vinland_saga = require("../../anime60/vinland_saga.json");
+const v86 = require("../../anime60/86.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 150
+    max: 80
 });
 
 const anime60fps = rateLimit({
@@ -197,11 +198,12 @@ router.get(
                 res.json(her_blue_sky);
             } else if (title === 'Vinland Saga') {
                 res.json(vinland_saga);
+            } else if (title === "86") {
+                res.json(v86);
             }
          } catch (error) {
              console.log(error);
          }
      });
-
 
 module.exports = router;
