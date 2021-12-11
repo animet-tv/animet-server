@@ -1,5 +1,14 @@
 [
   {
+    "title": "Sword Art Online",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx11757-Q9P2zjCPICq5.jpg",
+    "isDub": false,
+    "isSub": true,
+    "quality": "hd",
+    "isNew": true,
+    "isRemastered": false
+  },
+  {
     "title": "86",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116589-WSpNedJdAH3L.jpg",
     "isDub": true,
