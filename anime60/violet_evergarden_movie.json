@@ -1,0 +1,30 @@
+{
+    "anime60fps": [
+      {
+        "src": "https://geo.dailymotion.com/player/x6qq2.html?video=x866fe9",
+        "iframe": true,
+        "episode_number":  1
+      },
+      {
+        "src": "https://geo.dailymotion.com/player/x6qq2.html?video=x866tev",
+        "iframe": true,
+        "episode_number": 2
+      },
+      {
+        "src": "https://geo.dailymotion.com/player/x6qq2.html?video=x866uuq",
+        "iframe": true,
+        "episode_number": 3
+      },
+      {
+        "src": "https://ok.ru/videoembed/4331508927120",
+        "iframe": true,
+        "episode_number": 4
+      },
+      {
+        "src": "https://geo.dailymotion.com/player/x6qq2.html?video=x866yt5",
+        "iframe": true,
+        "episode_number": 5
+      }
+    ]
+  }
+  

@@ -153,46 +153,37 @@
     "isRemastered": false
   },
   {
-    "title": "Her Blue Sky",
-    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/Sora_no_Aosa_o_Shiru_Hito_yo.png",
-    "isDub": false,
-    "isSub": true,
+    "title": "Mobile Suit Gundam: Hathaway's Flash",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx105595-HRhmAGp4WPbV.jpg",
+    "isDub": true,
+    "isSub": false,
     "quality": "4k",
     "isRemastered": false,
     "isNew": true 
   },
   {
-    "title": "Sol Levante",
-    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/solo_levante.png",
-    "isDub": false,
-    "isSub": true,
+    "title": "Violet Evergarden Movie",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-LYIbLtN2Rb5T.jpg",
+    "isDub": true,
+    "isSub": false,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": true
-  },
-  {
-    "title": "Ghost in the Shell 4K Digital",
-    "cover_img": "https://frosty-snyder-1df076.netlify.app/other/ghost_in_shell_4k_cover-min.png",
-    "isDub": false,
-    "isSub": true,
-    "quality": "4k",
-    "isRemastered": false,
-    "isNew": false
-  },
-  {
-    "title": "Josee to Tora to Sakanatachi",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113596-LKA0bYJGjLnB.jpg",
-    "isDub": false,
-    "isSub": true,
-    "quality": "4k",
-    "isNew": false,
-    "isRemastered": false
+    "isNew": true 
   },
   {
     "title": "Demon Slayer Mugen Train",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112151-1qlQwPB1RrJe.png",
     "isDub": true,
     "isSub": false,
+    "quality": "4k",
+    "isNew": false,
+    "isRemastered": false
+  },
+  {
+    "title": "Josee to Tora to Sakanatachi",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113596-LKA0bYJGjLnB.jpg",
+    "isDub": false,
+    "isSub": true,
     "quality": "4k",
     "isNew": false,
     "isRemastered": false
@@ -205,6 +196,33 @@
     "quality": "4k",
     "isNew": false,
     "isRemastered": false
+  },
+  {
+    "title": "Her Blue Sky",
+    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/Sora_no_Aosa_o_Shiru_Hito_yo.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isRemastered": false,
+    "isNew": false 
+  },
+  {
+    "title": "Sol Levante",
+    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/solo_levante.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isRemastered": false,
+    "isNew": false
+  },
+  {
+    "title": "Ghost in the Shell 4K Digital",
+    "cover_img": "https://frosty-snyder-1df076.netlify.app/other/ghost_in_shell_4k_cover-min.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isRemastered": false,
+    "isNew": false
   },
   {
     "title": "Weathering with You",
