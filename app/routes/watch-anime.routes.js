@@ -31,6 +31,8 @@ const her_blue_sky = require("../../anime60/her_blue_sky.json");
 const nausicaa_of_the_valley_of_the_wind = require("../../anime60/nausicaa_of_the_valley_of_the_wind.json");
 const vinland_saga = require("../../anime60/vinland_saga.json");
 const v86 = require("../../anime60/86.json");
+const violet_evergarden_movie = require("../../anime60/violet_evergarden_movie.json");
+const mobile_suit_gundam_hathaways_flash = require("../../anime60/mobile_suit_gundam_hathaways_flash.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -200,6 +202,10 @@ router.get(
                 res.json(vinland_saga);
             } else if (title === "86") {
                 res.json(v86);
+            } else if (title === 'Violet Evergarden Movie') {
+                res.json(violet_evergarden_movie);
+            } else if (title === `Mobile Suit Gundam: Hathaway's Flash`) {
+                res.json(mobile_suit_gundam_hathaways_flash);
             }
          } catch (error) {
              console.log(error);
