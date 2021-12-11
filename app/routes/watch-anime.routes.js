@@ -33,6 +33,7 @@ const vinland_saga = require("../../anime60/vinland_saga.json");
 const v86 = require("../../anime60/86.json");
 const violet_evergarden_movie = require("../../anime60/violet_evergarden_movie.json");
 const mobile_suit_gundam_hathaways_flash = require("../../anime60/mobile_suit_gundam_hathaways_flash.json");
+const sao = require("../../anime60/sao.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -206,6 +207,8 @@ router.get(
                 res.json(violet_evergarden_movie);
             } else if (title === `Mobile Suit Gundam: Hathaway's Flash`) {
                 res.json(mobile_suit_gundam_hathaways_flash);
+            } else if (title === 'Sword Art Online') {
+                res.json(sao);
             }
          } catch (error) {
              console.log(error);
