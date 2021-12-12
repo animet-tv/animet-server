@@ -38,11 +38,11 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/819453a2ef81dffe2ac42bee356094fe.webp',
         synopsis: `A youth romantic drama with themes of growing up, the story focuses on college student Tsuneo and dreamer Josee, who lives her life stuck in a wheelchair. Josee—named after the heroine in Françoise Sagan's Wonderful Clouds—spends most of her days reading and painting until by chance she encounters Tsuneo, and decides it's time to face the real world.`,
     },
-    {
+    /* {
         title: 'Kimetsu no Yaiba Movie: Mugen Ressha-hen',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/0ad77ea20b599f4d0170b4eda1855288.webp',
         synopsis: `After a string of mysterious disappearances begin to plague a train, the Demon Slayer Corps' multiple attempts to remedy the problem prove fruitless. To prevent further casualties, the flame pillar, Kyoujurou Rengoku, takes it upon himself to eliminate the threat. Accompanying him are some of the Corps' most promising new blood: Tanjirou Kamado, Zenitsu Agatsuma, and Inosuke Hashibira, who all hope to witness the fiery feats of this model demon slayer firsthand. Unbeknownst to them, the demonic forces responsible for the disappearances have already put their sinister plan in motion. Under this demonic presence, the group must muster every ounce of their willpower and draw their swords to save all two hundred passengers onboard. Kimetsu no Yaiba Movie: Mugen Ressha-hen delves into the deepest corners of Tanjirou's mind, putting his resolve and commitment to duty to the test.`,
-    },
+    }, */
     /* {
         title: 'Jujutsu Kaisen (TV)',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/9a26a75d7478628160cbe024fedc5992.webp',
@@ -68,21 +68,21 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/729e35621113cf0dd5c68a9ec6014756.webp',
         synopsis: `Miyo Sasaki is an energetic high school girl who comes from a broken family consisting of her unconfident father and an overly invested stepmother, whose attempts at connecting with Miyo come across as bothersome. Seeing Kento Hinode as a refuge from all her personal issues, she can't help herself from forcing her unorthodox demonstrations of love onto her crush.<br><br>While Miyo is unable to get Kento's attention as herself, she manages to succeed by interacting with him in the form of a white cat, affectionately nicknamed "Tarou" by Kento. But Miyo soon realizes that she can't help Kento with the various problems she overhears in her cat form and is now caught between two tough choices. Will she continue her relationship with him as a cat, or will she reveal her identity and risk what they have, in order to help him as her human self?`
     },  */
-    {
+    /* {
         title: `Selection Project`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/17sa0fb05e24c59bad47a18ffedecf1d.webp`,
         synopsis: `Held every summer, the national show "Selection Project" is the biggest gateway for girls who strive to be idols, and the place where the legendary idol Akari Amazawa was born. Suzune Miyama is also one who has longed for such a dream stage. Having been sick since childhood, she listened to the song of the light many times in her bed in the hospital room. Akari's singing voice gave her a lot of smiles and courage, inspiring Suzune to follow in her footsteps.`
-    },
+    }, */
     /* {
         title: `Nanatsu no Taizai Movie 2: Hikari ni Norowareshi Mono-tachi`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/d05a48850837dca6558c2520e9f75bad.webp`,
         synopsis: `With the help of the "Dragon Sin of Wrath" Meliodas and the worst rebels in history, the Seven Deadly Sins, the "Holy War", in which four races, including Humans, Goddesses, Fairies and Giants fought against the Demons, is finally over. At the cost of the "Lion Sin of Pride" Escanor's life, the Demon King was defeated and the world regained peace. After that, each of the Sins take their own path; the first being the "Boar Sin of Gluttony" Merlin, who works together with King Arthur aiming to create a new kingdom.`
     }, */
-    {
+    /* {
         title: `Jahy-sama wa Kujikenai!`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/75ab4bc4b9dcd30296b593bbc77502b1.webp`,
         synopsis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.  Although she survives, Jahy has lost almost all of her powers and finds herself stranded in the human world with a childlike appearance. In order to gather more mystic gems so that she can permanently restore both her original form and the Demon Realm`
-    },
+    }, */
     {
         title: `Blue Period`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/2292820f1793b077ce597157f1757478.webp`,
@@ -127,6 +127,11 @@ let spotlight_data = [
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/c78ee3e41d27d6aba47e52ada1.jpg`,
         synopsis: `The second season of Kimetsu no Yaiba.`
+    },
+    {
+        title: `Tokyo Revengers (Uncensored)`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/21be4c9124316be0efaf8e628eb010ac.jpg`,
+        synopsis: `Takemichi Hanagaki's life is at an all-time low. Just when he thought it couldn't get worse, he finds out that Hinata Tachibana, his ex-girlfriend, was murdered by the Tokyo Manji Gang: a group of vicious criminals that has been disturbing society's peace for quite some time.`
     }
 ];
 
