@@ -28,11 +28,11 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/ab54a9be80273749ecf32deec4dac06b.webp',
         synposis: 'The anime will depict the lively everyday lives of the demon brothers through special episodes separate from the game’s main story (Lessons).',
     }, */
-    {
+    /* {
         title: 'Ijiranaide, Nagatoro-san',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/5b6d76cbc853c0081bb7da9377d09836.webp',
         synopsis: `High schooler Hayase Nagatoro loves to spend her free time doing one thing, and that is to bully her Senpai! After Nagatoro and her friends stumble upon the aspiring artist's drawings, they find enjoyment in mercilessly bullying the timid Senpai. Nagatoro resolves to continue her cruel game and visits him daily so that she can force Senpai into doing whatever interests her at the time, especially if it makes him uncomfortable. Slightly aroused by and somewhat fearful of Nagatoro, Senpai is constantly roped into her antics as his interests, hobbies, appearance, and even personality are used against him as she entertains herself at his expense. As time goes on, Senpai realizes that he doesn't dislike Nagatoro's presence, and the two of them develop an uneasy friendship as one patiently puts up with the antics of the other.`,
-    },
+    }, */
     {
         title: 'Josee to Tora to Sakana-tachi',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/819453a2ef81dffe2ac42bee356094fe.webp',
@@ -126,12 +126,17 @@ let spotlight_data = [
     {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/c78ee3e41d27d6aba47e52ada1.jpg`,
-        synopsis: `The second season of Kimetsu no Yaiba.`
+        synopsis: `The second season of Kimetsu no Yaiba.                     `
     },
     {
         title: `Tokyo Revengers (Uncensored)`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/21be4c9124316be0efaf8e628eb010ac.jpg`,
         synopsis: `Takemichi Hanagaki's life is at an all-time low. Just when he thought it couldn't get worse, he finds out that Hinata Tachibana, his ex-girlfriend, was murdered by the Tokyo Manji Gang: a group of vicious criminals that has been disturbing society's peace for quite some time.`
+    },
+    {
+        title: `Dr. Stone: Stone Wars`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bfa13dce55dcab9325c98c3c049a7572.jpg`,
+        synopsis: `Senkuu has made it his goal to bring back two million years of human achievement and revive the entirety of those turned to statues. However, one man stands in his way: Tsukasa Shishiou, who believes that only the fittest of those petrified should be revived.`
     }
 ];
 
