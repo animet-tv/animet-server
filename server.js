@@ -10,7 +10,7 @@ const dbConfig = require('./app/config/mongodb.config');
 const passport = require('passport');
 const cron = require('cron').CronJob;
 const compression = require('compression');
-const session = require('cookie-session')
+const session = require('cookie-session');
 
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
