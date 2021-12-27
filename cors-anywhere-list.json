@@ -1,0 +1,14 @@
+[
+    {
+        "label": "ATHENA",
+        "url": "https://kissasian1988.herokuapp.com/"
+    },
+    {
+        "label": "ZEUS",
+        "url": "https://cors-anywhere-zeus.herokuapp.com/"
+    },
+    {
+        "label": "APOLLO",
+        "url": "https://cors-anywhere-apollo.herokuapp.com/"
+    }
+]
