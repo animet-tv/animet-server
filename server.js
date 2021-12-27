@@ -23,6 +23,7 @@ const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
 const seasonBuilder = require('./app/services/cron_tasks/add_new_anime_season');
 const buildAnimettvIndex = require('./app/services/animettv-index');
 const metricaStatsService = require("./app/services/cron_tasks/get_metrica_stats");
+const corsAnyWhere = require('./app/services/cors-anywhere');
 
 var allowedOrigins = [
     'http://localhost:4200',
@@ -153,9 +154,24 @@ const minute_db_workers = new cron("* * * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     metricaStatsService.fetchTotalUserSession();
     console.log('done updating database')
-    
 });
 
+/* CRON tasks every hour */
+const hourly_worker = new cron("0 * * * *", async() => {
+  console.log('hourly worker tasks initilized');
+  corsAnyWhere.updateCorsAnyWhereNodeStatus((err, result) => {
+    if (err) {
+      console.log('error while updating redis KEY:CorsAnyWhereList');
+    } 
+    if (result) {
+      console.log('redis KEY:CorsAnyWhereList updated');
+    }
+  });
+  console.log('hourly worker tasks completed');
+  
+})
+
 daily_db_workers.start();
+hourly_worker.start();
 minute_db_workers.start();
 module.exports = app;

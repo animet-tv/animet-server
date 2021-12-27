@@ -3,6 +3,16 @@ const router = express.Router();
 const os = require('os');
 const sources = require('../../public/external_sources.json');
 const MetricaStats = require('../models/metrica-stats.model');
+const CorsAnyWhere = require('../services/cors-anywhere');
+
+if (process.env.REDISCLOUD_URL) {
+    // rediscloud connection
+    var redis = require('redis');
+    var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
+  
+  } else {
+    var client = require("redis").createClient();
+}
 
 router.get('/', async(req,res) => {
     try {
@@ -49,6 +59,28 @@ router.get('/', async(req,res) => {
 router.get('/working-sources', async(req ,res) => {
     try {
         res.json(sources);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
+router.get('/cors-anywhere-list', async(req,res) => {
+    try {
+        client.get('CorsAnyWhereList', (err, result) => {
+            if (result) {
+                const resultJSON = JSON.parse(result);
+                res.send(resultJSON);
+            } else {
+                CorsAnyWhere.checkCorsAnyWhereNodes((err, result) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    client.set('CorsAnyWhereList',JSON.stringify(result));
+                    res.json(result);
+                });
+            }
+        })
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
