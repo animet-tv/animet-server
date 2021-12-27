@@ -2,7 +2,7 @@
     "anime60fps": [
       {
         "src": "https://odysee.com/$/embed/86-01-DUB-1080p60/7989e8f9213f053501473b0f55e0ec7d5e587c94?r=2SgWojW73RyWx8F6VzSJeHng1Pqfu1wX",
-        "iframe": false,
+        "iframe": true,
         "episode_number": 1
       },
       {
