@@ -31,6 +31,25 @@ TopSchema.plugin(beautifyUnique);
 
 const Top = module.exports = mongoose.model('Top', TopSchema);
 
+module.exports.update_TOP_OF_THE_WEEK = async(newList, callback) => {
+    try {
+        Top.findOneAndUpdate({},
+            {
+                $set : {
+                    'TOP_OF_THE_WEEK': newList
+                }
+            }, (err, res) => {
+                if (err) {
+                    console.log(err);
+                    callback(null, err);
+                }
+                callback(null, true);
+            }
+        )
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports.getTrending = async (callback) => {
     try {

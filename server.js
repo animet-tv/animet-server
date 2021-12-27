@@ -131,13 +131,16 @@ a(); */
 
 /* buildAnimettvIndex.buildAnimettvIndex(); */
 
-/* const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
-
+const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
 animetrendz.buildTopWeek(res => {
   if (res) {
-    console.log(res);
+    animetrendz.updatedTopWeekly(res, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    });
   }
-}) */
+});
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
@@ -146,6 +149,15 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
     await recentlyadded.cleanRecentlyAdded();
     await recentlyadded.populateRecentlyAdded();
     await spotlight.buildWeeklySpotlight();
+    await animetrendz.buildTopWeek(res => {
+      if (res) {
+        animetrendz.updatedTopWeekly(res, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
+    });
     
     console.log('done updating database') 
 });
