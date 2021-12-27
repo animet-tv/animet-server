@@ -131,7 +131,7 @@ a(); */
 
 /* buildAnimettvIndex.buildAnimettvIndex(); */
 
-const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
+/* const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
 animetrendz.buildTopWeek(res => {
   if (res) {
     animetrendz.updatedTopWeekly(res, (err, result) => {
@@ -140,7 +140,7 @@ animetrendz.buildTopWeek(res => {
       }
     });
   }
-});
+}); */
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
@@ -161,12 +161,14 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
     
     console.log('done updating database') 
 });
+
 /* CRON tasks every minute*/
 const minute_db_workers = new cron("* * * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     metricaStatsService.fetchTotalUserSession();
     console.log('done updating database')
 });
+
 
 
 /* CRON tasks every hour */
