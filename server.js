@@ -168,6 +168,7 @@ const minute_db_workers = new cron("* * * * *", async() => {
     console.log('done updating database')
 });
 
+
 /* CRON tasks every hour */
 const hourly_worker = new cron("0 * * * *", async() => {
   console.log('hourly worker tasks initilized');

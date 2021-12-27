@@ -13,6 +13,7 @@ if (process.env.REDISCLOUD_URL) {
 // Check links if alive 
 let checkCorsAnyWhereNodes = async(callback) => {
     try {
+        console.log('checking cors anywhere urls');
         let result = [];
         // test each url from list for status
         for (let i = 0; i < CorsAnyWhereList.length; i++) {
@@ -20,6 +21,7 @@ let checkCorsAnyWhereNodes = async(callback) => {
             if (linkStatus) {
                 result.push({
                     lable: `${CorsAnyWhereList[i].label}`,
+                    continent: `${CorsAnyWhereList[i].continent}`,
                     url: `${CorsAnyWhereList[i].url}`,
                 });
             }
