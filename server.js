@@ -141,6 +141,14 @@ animetrendz.buildTopWeek(res => {
     });
   }
 }); */
+/* corsAnyWhere.updateCorsAnyWhereNodeStatus((err, result) => {
+  if (err) {
+    console.log('error while updating redis KEY:CorsAnyWhereList');
+  } 
+  if (result) {
+    console.log('redis KEY:CorsAnyWhereList updated');
+  }
+}); */
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
