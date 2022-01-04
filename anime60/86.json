@@ -1,8 +1,8 @@
 {
     "anime60fps": [
       {
-        "src": "https://odysee.com/$/embed/86-01-DUB-1080p60/7989e8f9213f053501473b0f55e0ec7d5e587c94?r=2SgWojW73RyWx8F6VzSJeHng1Pqfu1wX",
-        "iframe": true,
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/86-01-DUB-1080p60/7989e8f9213f053501473b0f55e0ec7d5e587c94/f46602",
+        "iframe": false,
         "episode_number": 1
       },
       {
@@ -51,8 +51,8 @@
         "episode_number": 10
       },
       {
-        "src": "https://odysee.com/$/embed/86-11-DUB-1080p60/86c33a8955d7a46b00c735d61c700c65784b7955?r=2SgWojW73RyWx8F6VzSJeHng1Pqfu1wX",
-        "iframe": true,
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/86-11-DUB-1080p60/86c33a8955d7a46b00c735d61c700c65784b7955/f46602",
+        "iframe": false,
         "episode_number": 11
       }
     ]

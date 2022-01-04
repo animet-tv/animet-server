@@ -1,8 +1,8 @@
 {
     "anime60fps": [
       {
-        "src": "https://odysee.com/$/embed/evangelion_3_33_you_can_not_redo_1080p_dub/6d243a1a7b42a72eb1b146f2dff4c02b32263996?r=2SgWojW73RyWx8F6VzSJeHng1Pqfu1wX",
-        "iframe": true,
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/evangelion_3_33_you_can_not_redo_1080p_dub/6d243a1a7b42a72eb1b146f2dff4c02b32263996/f46602",
+        "iframe": false,
         "episode_number": 1
       }
     ]

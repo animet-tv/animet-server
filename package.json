@@ -14,6 +14,7 @@
     "animet-gogoanime": "1.1.2",
     "animet-jikan-wrapper": "^1.0.0",
     "async": "^3.2.2",
+    "axios": "^0.24.0",
     "backblaze-b2": "^1.7.0",
     "bcrypt": "^5.0.0",
     "bluebird": "^3.7.2",

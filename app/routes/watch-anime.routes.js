@@ -4,6 +4,8 @@ const router = express.Router();
 const Gapi = require('animet-gogoanime');
 const rateLimit = require("express-rate-limit");
 var rp = require('request-promise');
+const { nanoid } = require('nanoid');
+
 const demon_slayer = require('../../anime60/demon_slayer.json');
 const shingeki_no_kyojin_the_final_season = require('../../anime60/shingeki_no_kyojin_the_final_season_60fps.json');
 const violet_evergarden_60fps_dub = require('../../anime60/violet_evergarden_60fps_dub.json');
@@ -137,6 +139,37 @@ router.get(
         } catch (error) {
             console.log(error);
             res.sendStatus(404);
+        }
+    }
+);
+
+router.get(
+    `/server-fetch-m3u8`,
+    anime60fps,
+    async(req, res) => {
+        try {
+            let url = req.query.downloadLink;
+            console.log(url);
+            var options = {
+                'method': 'GET',
+                'url': `${url}`,
+                'headers': { 'Origin':  `*`, 'X-Requested-With': 'null'}
+            };
+            rp(options, function (error, response) {
+                if (error) throw new Error(error);
+                
+                var Result = response.body; 
+                console.log(Result);
+                res.setHeader('Content-disposition', `attachment; filename=${nanoid(10)}.m3u8`)
+                res.setHeader('Content-type', 'text/plain');
+                res.charset ='UTF-8';
+                res.write(Result);
+                res.end();
+            });
+            
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(400);
         }
     }
 )
