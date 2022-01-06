@@ -126,7 +126,7 @@ let spotlight_data = [
     {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/c78ee3e41d27d6aba47e52ada1.jpg`,
-        synopsis: `The second season of Kimetsu no Yaiba.                     `
+        synopsis: `The second season of Kimetsu no Yaiba. Tanjirou, Zenitsu, and Inosuke, aided by the Sound Hashira Tengen Uzui, travel to Yoshiwara red light district to hunt down a demon that has been terrorizing the town.`
     },
     {
         title: `Tokyo Revengers (Uncensored)`,
