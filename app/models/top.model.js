@@ -33,6 +33,7 @@ const Top = module.exports = mongoose.model('Top', TopSchema);
 
 module.exports.update_TOP_OF_THE_WEEK = async(newList, callback) => {
     try {
+        console.log(newList);
         Top.findOneAndUpdate({},
             {
                 $set : {

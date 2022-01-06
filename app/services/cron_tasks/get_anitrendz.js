@@ -6,7 +6,7 @@ const fs = require('fs');
 const stringSimilarity = require("string-similarity");
 const Top = require("../../models/top.model");
 
-let buildTopWeek = async(callback) => {
+/* let buildTopWeek = async(callback) => {
     let url = `https://www.anime-xpress.com/poll-anime/`;
     let topOfTheWeek = [];
     rs(url, (err, resp, html) => {
@@ -31,8 +31,33 @@ let buildTopWeek = async(callback) => {
           }
         }
       }); 
+} */
+
+let buildTopWeek = async(callback) => {
+  let url = `https://kitsu.io/api/edge/trending/anime?limit=50`;
+  let topOfTheWeek = [];
+  rs(url, (err, resp, html) => {
+      if (!err) {
+        try {
+          let data = JSON.parse(resp.body);
+          data.data.forEach(el => {
+            topOfTheWeek.push({
+              mal_id: 0,
+              img_url: el.attributes.posterImage.medium,
+              score: 0,
+              title: el.attributes.titles.en_jp,
+              episodes: el.attributes.episodeCount,
+            });
+          });
+          callback(topOfTheWeek);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }); 
 }
 
+/* try find cover img ulr from animettv index list  */
 let cleanUpTitles = (topOfTheWeek) => {
     let trueTopWeek = [];
     let res = [];
@@ -77,13 +102,14 @@ function uniqByKeepLast(data, key) {
 
 let updatedTopWeekly = async(top_of_the_week, callback) => {
   try {
-    Top.update_TOP_OF_THE_WEEK(top_of_the_week, (err, result) => {
+    console.log(top_of_the_week);
+    await Top.update_TOP_OF_THE_WEEK(top_of_the_week, (err, result) => {
       if (err) {
         console.log(err);
       }
       if (result) {
         console.log('successfully updated TOP_OF_THE_WEEK');
-        callback(null, true);
+        callback(null, result);
       }
     })
   } catch (error) {
