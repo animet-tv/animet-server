@@ -131,8 +131,8 @@ a(); */
 
 /* buildAnimettvIndex.buildAnimettvIndex(); */
 
-/* const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
-animetrendz.buildTopWeek(res => {
+const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
+/* animetrendz.buildTopWeek(res => {
   if (res) {
     animetrendz.updatedTopWeekly(res, (err, result) => {
       if (err) {
@@ -149,6 +149,9 @@ animetrendz.buildTopWeek(res => {
     console.log('redis KEY:CorsAnyWhereList updated');
   }
 }); */
+
+
+/* seasonBuilder.bulkBuildSeasons(2022, 2023); */
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
