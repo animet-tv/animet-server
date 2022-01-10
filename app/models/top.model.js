@@ -62,7 +62,7 @@ module.exports.getTrending = async (callback) => {
                     Top.find({},{'TRENDING': 1})
                         .then(
                             _result => {
-                                client.setex('TRENDING', 10800, JSON.stringify(_result));
+                                client.setex('TRENDING', 5400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -84,7 +84,7 @@ module.exports.getPopular = async (callback) => {
                     Top.find({},{'ALL_TIME_POPULAR': 1})
                         .then(
                             _result => {
-                                client.setex('ALL_TIME_POPULAR', 10800, JSON.stringify(_result));
+                                client.setex('ALL_TIME_POPULAR', 5400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -106,7 +106,7 @@ module.exports.getUpcoming = async (callback) => {
                     Top.find({},{'UPCOMING': 1})
                         .then(
                             _result => {
-                                client.setex('UPCOMING', 10800, JSON.stringify(_result));
+                                client.setex('UPCOMING', 5400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
@@ -128,7 +128,7 @@ module.exports.getAll = async (callback) => {
                 Top.find({},{})
                 .then(
                     _result => {
-                        client.setex('TOPS', 10800, JSON.stringify(_result));
+                        client.setex('TOPS', 5400, JSON.stringify(_result));
                         callback(null, _result);
                     }
                 );
