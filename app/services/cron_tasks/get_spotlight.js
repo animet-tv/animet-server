@@ -33,11 +33,11 @@ let spotlight_data = [
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/5b6d76cbc853c0081bb7da9377d09836.webp',
         synopsis: `High schooler Hayase Nagatoro loves to spend her free time doing one thing, and that is to bully her Senpai! After Nagatoro and her friends stumble upon the aspiring artist's drawings, they find enjoyment in mercilessly bullying the timid Senpai. Nagatoro resolves to continue her cruel game and visits him daily so that she can force Senpai into doing whatever interests her at the time, especially if it makes him uncomfortable. Slightly aroused by and somewhat fearful of Nagatoro, Senpai is constantly roped into her antics as his interests, hobbies, appearance, and even personality are used against him as she entertains herself at his expense. As time goes on, Senpai realizes that he doesn't dislike Nagatoro's presence, and the two of them develop an uneasy friendship as one patiently puts up with the antics of the other.`,
     }, */
-    {
+    /* {
         title: 'Josee to Tora to Sakana-tachi',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/819453a2ef81dffe2ac42bee356094fe.webp',
         synopsis: `A youth romantic drama with themes of growing up, the story focuses on college student Tsuneo and dreamer Josee, who lives her life stuck in a wheelchair. Josee—named after the heroine in Françoise Sagan's Wonderful Clouds—spends most of her days reading and painting until by chance she encounters Tsuneo, and decides it's time to face the real world.`,
-    },
+    }, */
     /* {
         title: 'Kimetsu no Yaiba Movie: Mugen Ressha-hen',
         img: 'https://frosty-snyder-1df076.netlify.app/spotlight/0ad77ea20b599f4d0170b4eda1855288.webp',
@@ -121,7 +121,7 @@ let spotlight_data = [
     {
         title: `World Trigger 3rd Season`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/55f892af95650c74810e9a5c640ba1b9.jpg`,
-        synopsis: `Third season of World Trigger.`
+        synopsis: `Third season of World Trigger. With Hyuse joining the Tamakoma Squad, the rank wars are continuing and the Tamakoma squad are striving to get selected for the Away Missions.`
     },
     {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
@@ -137,6 +137,11 @@ let spotlight_data = [
         title: `Dr. Stone: Stone Wars`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bfa13dce55dcab9325c98c3c049a7572.jpg`,
         synopsis: `Senkuu has made it his goal to bring back two million years of human achievement and revive the entirety of those turned to statues. However, one man stands in his way: Tsukasa Shishiou, who believes that only the fittest of those petrified should be revived.`
+    },
+    {
+        title: `Shingeki no Kyojin: The Final Season Part 2`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/New%20Project%20(4).jpg`,
+        synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`
     }
 ];
 
