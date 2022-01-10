@@ -15,7 +15,7 @@ const session = require('cookie-session');
 // const { database_population, database_clean } = require('./deploy/database_setup');
 // const { sortEachAnimeSeason } = require('./app/services/cron_tasks/sort_each_anime_season');
 // const { populateNewSeason } = require('./app/services/cron_tasks/add_new_anime_season');
-const { populateDailyTop } = require('./app/services/cron_tasks/get_daily_top'); 
+const { populateDailyTop, populateNewGenre } = require('./app/services/cron_tasks/get_daily_top'); 
 const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
 const recentlyadded = require('./app/services/cron_tasks/get_recently_added');
 const spotlight = require('./app/services/cron_tasks/get_spotlight');
@@ -114,6 +114,7 @@ connectDB();
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 /* populateDailyTop(); */
+/* populateNewGenre(); */
 /* animixplay.populatePreparedTitle(); */
 /* animixplay.populateMovies(); */
 
@@ -156,6 +157,7 @@ const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
     await populateDailyTop();
+    await populateNewGenre();
     await animixplay.populatePreparedTitle();
     await recentlyadded.cleanRecentlyAdded();
     await recentlyadded.populateRecentlyAdded();
