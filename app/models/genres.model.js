@@ -89,7 +89,7 @@ module.exports.getAnimeGenres = async (callback) => {
                     Genre.find({},{_id: 0})
                         .then(
                             _result => {
-                                client.setex('GENRES', 43200, JSON.stringify(_result));
+                                client.setex('GENRES', 21600, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
