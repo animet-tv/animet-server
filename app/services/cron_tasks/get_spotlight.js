@@ -121,7 +121,7 @@ let spotlight_data = [
     {
         title: `World Trigger 3rd Season`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/55f892af95650c74810e9a5c640ba1b9.jpg`,
-        synopsis: `Third season of World Trigger.`
+        synopsis: `Third season of World Trigger. With Hyuse joining the Tamakoma Squad, the rank wars are continuing and the Tamakoma squad are striving to get selected for the Away Missions.`
     },
     {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
@@ -137,6 +137,11 @@ let spotlight_data = [
         title: `Dr. Stone: Stone Wars`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bfa13dce55dcab9325c98c3c049a7572.jpg`,
         synopsis: `Senkuu has made it his goal to bring back two million years of human achievement and revive the entirety of those turned to statues. However, one man stands in his way: Tsukasa Shishiou, who believes that only the fittest of those petrified should be revived.`
+    },
+    {
+        title: `Shingeki no Kyojin: The Final Season Part 2`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/New%20Project%20(4).jpg`,
+        synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`
     }
 ];
 
