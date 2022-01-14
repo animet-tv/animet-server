@@ -172,7 +172,9 @@ router.get(
             res.sendStatus(400);
         }
     }
-)
+);
+
+
 router.get(
     '/anime60fps',
      anime60fps,
