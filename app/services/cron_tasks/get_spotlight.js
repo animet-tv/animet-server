@@ -98,11 +98,11 @@ let spotlight_data = [
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/dc5c04d12a8e361645d54cd363b69b75.webp`,
         synopsis: `Mission T is a secret operation to save the world from destruction. Trained as a ninja from a young age, Botan Negoro, raised to become the ultimate spy, teams up with another excellent spy, Kuruma. Their aim is to recover the legacy of the genius inventor Nikola Tesla, the "Shards of Tesla." Can the two outwit the agents of other countries who are also pursuing these fragments? A super-original spy thriller begins. `,
     }, */
-    {
+    /* {
         title: `Jahy-sama wa Kujikenai!`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/caa98eb5a8b1c58293a5b6c1acda1bc4.webp`,
         synopsis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.`,
-    },
+    }, */
     {
         title: `Xian Wang de Richang Shenghuo 2nd Season`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/779b17401e27633587cb1685b388039a.webp`,
