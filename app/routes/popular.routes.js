@@ -29,8 +29,13 @@ const seasonLimiter = rateLimit({
 
 const defaultLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 70,
+  max: 60,
 });
+
+const hardLimiter = rateLimit({
+  windowMs: 2 * 60 * 1000,
+  max: 20
+})
 
 
 router.get("/get-current-top-season", seasonLimiter, async (req, res) => {
@@ -195,7 +200,7 @@ router.get("/movies", defaultLimiter, async (req, res) => {
   });
 });
 
-router.get("/prepared-title", async (req, res) => {
+router.get("/prepared-title", hardLimiter, async (req, res) => {
   try {
     PreparedTitle.getPreparedTitle((err, result) => {
       if (err) {
@@ -205,6 +210,24 @@ router.get("/prepared-title", async (req, res) => {
 
       if (result) {
         res.json(result);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+router.get("/prepared-title-all", hardLimiter, async (req, res) => {
+  try {
+    PreparedTitle.getPreparedTitle((err, result) => {
+      if (err) {
+        res.sendStatus(404);
+        throw err;
+      }
+
+      if (result) {
+        res.json(result[0].gogoanime);
       }
     });
   } catch (error) {

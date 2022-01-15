@@ -68,7 +68,7 @@ router.get('/working-sources', async(req ,res) => {
 router.get('/cors-anywhere-list', async(req,res) => {
     try {
         client.get('CorsAnyWhereList', (err, result) => {
-            if (result) {
+            if (result.length > 2) {
                 const resultJSON = JSON.parse(result);
                 res.send(resultJSON);
             } else {
