@@ -4,8 +4,7 @@ const CorsAnyWhereList = require('../../cors-anywhere-list.json');
 if (process.env.REDISTOGO_URL) {
     // rediscloud connection
     var redis = require('redis');
-    var client = redis.createClient(process.env.REDISTOGO_URL);
-  
+    var client = redis.createClient(process.env.REDISTOGO_URL );
   } else {
     var client = require("redis").createClient();
 }
