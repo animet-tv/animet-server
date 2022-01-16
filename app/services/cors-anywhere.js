@@ -1,10 +1,10 @@
 const isReachable = require('is-reachable');
 const CorsAnyWhereList = require('../../cors-anywhere-list.json');
 
-if (process.env.REDISCLOUD_URL) {
+if (process.env.REDISTOGO_URL) {
     // rediscloud connection
     var redis = require('redis');
-    var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
+    var client = redis.createClient(process.env.REDISTOGO_URL);
   
   } else {
     var client = require("redis").createClient();
