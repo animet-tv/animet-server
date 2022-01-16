@@ -2,7 +2,7 @@
     {
         "label": "ZEUS",
         "continent": "NA",
-        "url": "https://cors-anywhere-zeus.herokuapp.com/"
+        "url": "https://cors-anywhere-zeuz-na.herokuapp.com/"
     },
     {
         "label": "APOLLO",
@@ -17,6 +17,6 @@
     {
         "label": "HADES",
         "continent": "EU",
-        "url": "https://cors-anywhere-hades-eu.herokuapp.com/"
+        "url": "https://cors-anywhere-hades-v2-eu.herokuapp.com/"
     }
 ]

@@ -151,6 +151,10 @@ const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
   }
 }); */
 
+/* const comicDataCollection = require('./app/services/tmp/data-collection-comics');
+
+comicDataCollection.fetchAvailableTitles(1,5); */
+/* comicDataCollection.downloadAllCovers(4); */
 
 /* seasonBuilder.bulkBuildSeasons(2022, 2023); */
 /* CRON tasks every day hours */
