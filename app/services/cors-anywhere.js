@@ -24,6 +24,12 @@ let checkCorsAnyWhereNodes = async(callback) => {
                     continent: `${CorsAnyWhereList[i].continent}`,
                     url: `${CorsAnyWhereList[i].url}`,
                 });
+            } else { // if fails add it anyways
+                result.push({
+                    lable: `${CorsAnyWhereList[i].label}`,
+                    continent: `${CorsAnyWhereList[i].continent}`,
+                    url: `${CorsAnyWhereList[i].url}`,
+                });
             }
         }
         callback(null, result);
