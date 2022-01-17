@@ -6,13 +6,13 @@
         "episode_number": 1
       },
       {
-        "src": "https://ok.ru/videoembed/4222968072848",
-        "iframe": true,
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/demon_slayer_mugen_4k_sub_part_2-AnimetTV/aa4ac6af41b5f6c4ad83703ffa161af4477e2bb3/abb673",
+        "iframe": false,
         "episode_number": 2
       },
       {
-        "src": "https://ok.ru/videoembed/4229615520400",
-        "iframe": true,
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/demon_slayer_mugen_4k_sub_part_3-AnimetTV/885af23e27488a304320fe691e6faeb3ff3e1ef6/b61f0c",
+        "iframe": false,
         "episode_number": 3
       },
       {
