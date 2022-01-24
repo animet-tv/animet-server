@@ -150,7 +150,6 @@ const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
     console.log('redis KEY:CorsAnyWhereList updated');
   }
 }); */
-
 /* const comicDataCollection = require('./app/services/tmp/data-collection-comics');
 
 comicDataCollection.fetchAvailableTitles(1,5); */
