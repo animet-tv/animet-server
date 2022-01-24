@@ -25,10 +25,11 @@ let checkCorsAnyWhereNodes = async(callback) => {
                     url: `${CorsAnyWhereList[i].url}`,
                 });
             } else { // if fails add it anyways
-                result.push({
+                console.log({
                     lable: `${CorsAnyWhereList[i].label}`,
                     continent: `${CorsAnyWhereList[i].continent}`,
                     url: `${CorsAnyWhereList[i].url}`,
+                    msg: `error this node did not repsonse and not added to list`
                 });
             }
         }

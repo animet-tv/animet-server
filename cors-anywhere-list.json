@@ -8,11 +8,16 @@
         "label": "APOLLO",
         "continent": "NA",
         "url": "https://cors-anywhere-apollo.herokuapp.com/"
+    },  
+    {
+        "label": "ODIN",
+        "continent": "NA",
+        "url": "https://cors-anywhere-odin-na.herokuapp.com/"
     },
     {
         "label": "ARES",
         "continent": "EU",
-        "url": "https://cors-anywhere-ares-eu.herokuapp.com/"
+        "url": "https://cors-anywhere-ares-v2-eu.herokuapp.com/"
     },
     {
         "label": "HADES",
