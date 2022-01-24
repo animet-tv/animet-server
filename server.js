@@ -142,14 +142,14 @@ const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
     });
   }
 }); */
-corsAnyWhere.updateCorsAnyWhereNodeStatus((err, result) => {
+/* corsAnyWhere.updateCorsAnyWhereNodeStatus((err, result) => {
   if (err) {
     console.log('error while updating redis KEY:CorsAnyWhereList');
   } 
   if (result) {
     console.log('redis KEY:CorsAnyWhereList updated');
   }
-});
+}); */
 /* const comicDataCollection = require('./app/services/tmp/data-collection-comics');
 
 comicDataCollection.fetchAvailableTitles(1,5); */
