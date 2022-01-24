@@ -125,7 +125,7 @@ let spotlight_data = [
     },
     {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
-        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/c78ee3e41d27d6aba47e52ada1.jpg`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/Kimetsu no Yaiba: Yuukaku-hen-spotlight-hr.jpg`,
         synopsis: `The second season of Kimetsu no Yaiba. Tanjirou, Zenitsu, and Inosuke, aided by the Sound Hashira Tengen Uzui, travel to Yoshiwara red light district to hunt down a demon that has been terrorizing the town.`
     },
     {
@@ -140,7 +140,7 @@ let spotlight_data = [
     },
     {
         title: `Shingeki no Kyojin: The Final Season Part 2`,
-        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/New%20Project%20(4).jpg`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/Attack on Titan Final Season Part 2-spotlight.jpg`,
         synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`
     }
 ];
