@@ -15,25 +15,26 @@ const fs = require("fs");
 const sharp = require("sharp");
 const B2_STORAGE = require("../services/b2-storage-bucket");
 const rateLimit = require("express-rate-limit");
+const whiteListEmails = require("../../whitelist_email.json");
 
 const defaultLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 8,
+  max: 10,
 });
 
 const tokenCheckLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 100,
+  max: 20,
 });
 
 const profileLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 100,
+  max: 70,
 });
 
 const listMutationLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 150,
+  max: 40,
 });
 
 
@@ -93,40 +94,48 @@ router.post(
           throw err;
         }
         if (status) {
-          /* before registering user check if email and avatar does not exist */
-          User.countDocuments({ email: req.body.email }, (err, count) => {
-            if (err) {
-              res.sendStatus(500);
-              throw err;
-            }
-
-            if (count > 0) {
-              res.status(422).send({
-                success: false,
-                msg: "user by that email already exist try different one",
-              });
-            } else {
-              const accountId = nanoid();
-              const newUser = {
-                accountID: accountId,
-                email: req.body.email,
-                password: req.body.password,
-              };
-
-              User.registerUser(newUser, (err, callback) => {
-                if (err) {
-                  res.sendStatus(500);
-                  throw err;
-                }
-              });
-
-              /* user successfully created */
-              res.json({
-                success: true,
-                msg: `account email: ${newUser.email} successfully created`,
-              });
-            }
-          });
+          // tmp check if email whitelisted
+          if (checkWhiteListEmails(req.body.email)) {
+            /* before registering user check if email and avatar does not exist */
+            User.countDocuments({ email: req.body.email }, (err, count) => {
+              if (err) {
+                res.sendStatus(500);
+                throw err;
+              }
+  
+              if (count > 0) {
+                res.status(422).send({
+                  success: false,
+                  msg: "user by that email already exist try different one",
+                });
+              } else {
+                const accountId = nanoid();
+                const newUser = {
+                  accountID: accountId,
+                  email: req.body.email,
+                  password: req.body.password,
+                };
+  
+                User.registerUser(newUser, (err, callback) => {
+                  if (err) {
+                    res.sendStatus(500);
+                    throw err;
+                  }
+                });
+  
+                /* user successfully created */
+                res.json({
+                  success: true,
+                  msg: `account email: ${newUser.email} successfully created`,
+                });
+              }
+            });
+          } else {
+            res.status(403).send({
+              success: false,
+              msg: `this email not whitelisted. Registration are invite only.`
+            });
+          }
         } else {
           res.status(401).send({
             success: false,
@@ -1004,5 +1013,17 @@ router.post(
     }
   }
 );
+
+
+let checkWhiteListEmails = (email) => {
+  let status = false;
+  let list = whiteListEmails;
+  list.forEach(el => {
+    if (el.email === email) {
+      status = true;
+    }
+  });
+  return status;
+}
 
 module.exports = router;
