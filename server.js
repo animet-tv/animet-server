@@ -81,10 +81,12 @@ const popular = require('./app/routes/popular.routes');
 const user = require('./app/routes/user.routes');
 const watchAnime = require('./app/routes/watch-anime.routes');
 const serverStat = require('./app/routes/server-stat.routes');
+const adminUser = require('./app/routes/admin-user.routes');
 
 app.use('/api/post', post);
 app.use('/api/popular', popular);
 app.use('/api/user', user);
+app.use('/api/admin-user', adminUser);
 app.use('/api/watch-anime', watchAnime);
 app.use('/server-stat', serverStat);
 
