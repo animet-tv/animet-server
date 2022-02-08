@@ -117,7 +117,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 
 /* populateDailyTop(); */
 /* populateNewGenre(); */
-/* animixplay.populatePreparedTitle(); */
+animixplay.populatePreparedTitle();
 /* animixplay.populateMovies(); */
 
 // Devlopment
