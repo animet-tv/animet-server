@@ -299,7 +299,7 @@ router.post("/forgot", defaultLimiter, (req, res) => {
           function (token, user, done) {
             AnimetTV_Email.sendPasswordRestEmail(
               user.email,
-              `http://localhost:4200/forgot-password/${token}`,
+              `https://animet.tv/forgot-password/${token}`,
               (err, callback) => {
                 if (err) {
                   console.log(err);

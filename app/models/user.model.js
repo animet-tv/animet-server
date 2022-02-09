@@ -42,13 +42,13 @@ module.exports.registerUser = (newUser) => {
                 if (err) {
                     console.log(err);
                 }
+                /* create empty UserProfile for new user */
+                UserList.createUserProfile(newUser.accountID, (err) => {
+                    if (err) throw err;
+                    
+                });
             });
 
-            /* create empty UserProfile for new user */
-            UserList.createUserProfile(newUser.accountID, (err) => {
-                if (err) throw err;
-                
-            });
             
         });
 

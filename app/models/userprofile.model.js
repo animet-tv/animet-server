@@ -19,7 +19,7 @@ const TrackedListItemSchema = mongoose.Schema({
 
 
 const ContinueWatching = mongoose.Schema({
-    animeTitle: { type: String,  unique: true },
+    animeTitle: { type: String },
     episodeNumber: { type: Number },
     totalEpisode: { type: Number },
     img_url: { type: String },
@@ -57,6 +57,7 @@ module.exports.createUserProfile =  async (newUserID) => {
             if (err) {
                 console.log(err);
             }
+            console.log('new UserProfile created');
         });
         
     } catch (error) {
