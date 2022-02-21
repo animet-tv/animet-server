@@ -159,9 +159,9 @@ comicDataCollection.fetchAvailableTitles(1,5); */
 /* comicDataCollection.downloadAllCovers(4); */
 
 /* seasonBuilder.bulkBuildSeasons(2022, 2023); */
-funimation.buildFunimationIndex((res) => {
+/* funimation.buildFunimationIndex((res) => {
   console.log(res);
-})
+}) */
 
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
