@@ -199,7 +199,7 @@ router.post(
                             process.env.PASSPORT_SECRET,
                             {
                               // WILL EXPIRE IN  1d
-                              expiresIn: "1d",
+                              expiresIn: "30d",
                             }
                           );
 

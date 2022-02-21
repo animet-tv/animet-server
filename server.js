@@ -117,7 +117,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 
 /* populateDailyTop(); */
 /* populateNewGenre(); */
-//animixplay.populatePreparedTitle();
+// animixplay.populatePreparedTitle();
 /* animixplay.populateMovies(); */
 
 // Devlopment
@@ -135,6 +135,7 @@ a(); */
 /* buildAnimettvIndex.buildAnimettvIndex(); */
 
 const animetrendz = require("./app/services/cron_tasks/get_anitrendz");
+const funimation = require('./app/services/cron_tasks/get_funimation');
 /* animetrendz.buildTopWeek(res => {
   if (res) {
     animetrendz.updatedTopWeekly(res, (err, result) => {
@@ -158,6 +159,10 @@ comicDataCollection.fetchAvailableTitles(1,5); */
 /* comicDataCollection.downloadAllCovers(4); */
 
 /* seasonBuilder.bulkBuildSeasons(2022, 2023); */
+funimation.buildFunimationIndex((res) => {
+  console.log(res);
+})
+
 /* CRON tasks every day hours */
 const daily_db_workers = new cron("0 6 * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
