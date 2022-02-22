@@ -36,6 +36,7 @@ const v86 = require("../../anime60/86.json");
 const violet_evergarden_movie = require("../../anime60/violet_evergarden_movie.json");
 const mobile_suit_gundam_hathaways_flash = require("../../anime60/mobile_suit_gundam_hathaways_flash.json");
 const sao = require("../../anime60/sao.json");
+const bns5 = require("../../anime60/bns5.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -244,6 +245,8 @@ router.get(
                 res.json(mobile_suit_gundam_hathaways_flash);
             } else if (title === 'Sword Art Online') {
                 res.json(sao);
+            } else if (title === `Boku no Hero Academia 5`) {
+                res.json(bns5);
             }
          } catch (error) {
              console.log(error);
