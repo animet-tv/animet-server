@@ -107,42 +107,56 @@ let spotlight_data = [
         title: `Xian Wang de Richang Shenghuo 2nd Season`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/779b17401e27633587cb1685b388039a.webp`,
         synopsis: `Wang Ling, the major Protagonist of the anime, has enormous uncontrollable power wants to live a low-key life. He wants to get rid of these powers. Sometimes, he just hides his powers from other kids just to look normal. He avoids contact and connections with others just to hide his powers.`,
+        isAIContent: false
     },
     {
         title: `JoJo no Kimyou na Bouken Part 6: Stone Ocean`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/53c87a67e5e03cbe93ff9125b9d66237.jpg`,
-        synopsis: `In Florida, 2011, Jolyne Kuujou sits in a jail cell like her father Joutarou once did; yet this situation is not of her own choice. Framed for a crime she didn’t commit, and manipulated into serving a longer sentence, Jolyne is ready to resign to a dire fate as a prisoner of Green Dolphin Street Jail. `
+        synopsis: `In Florida, 2011, Jolyne Kuujou sits in a jail cell like her father Joutarou once did; yet this situation is not of her own choice. Framed for a crime she didn’t commit, and manipulated into serving a longer sentence, Jolyne is ready to resign to a dire fate as a prisoner of Green Dolphin Street Jail. `,
+        isAIContent: false
     }, 
     {
         title: `Kyuuketsuki Sugu Shinu`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/ed1535978d64a545b092040b7ae23b77.jpg`,
-        synopsis: `Vampires are said to have many weaknesses such as garlic, crosses, and sunlight. Game-loving vampire lord Draluc just so happens to be weak to... everything. He dies, turning into a pile of ash, at the slightest shock.`
+        synopsis: `Vampires are said to have many weaknesses such as garlic, crosses, and sunlight. Game-loving vampire lord Draluc just so happens to be weak to... everything. He dies, turning into a pile of ash, at the slightest shock.`,
+        isAIContent: false
     },
     {
         title: `World Trigger 3rd Season`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/55f892af95650c74810e9a5c640ba1b9.jpg`,
-        synopsis: `Third season of World Trigger. With Hyuse joining the Tamakoma Squad, the rank wars are continuing and the Tamakoma squad are striving to get selected for the Away Missions.`
+        synopsis: `Third season of World Trigger. With Hyuse joining the Tamakoma Squad, the rank wars are continuing and the Tamakoma squad are striving to get selected for the Away Missions.`,
+        isAIContent: false
     },
     {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/Kimetsu no Yaiba: Yuukaku-hen-spotlight-hr.jpg`,
-        synopsis: `The second season of Kimetsu no Yaiba. Tanjirou, Zenitsu, and Inosuke, aided by the Sound Hashira Tengen Uzui, travel to Yoshiwara red light district to hunt down a demon that has been terrorizing the town.`
+        synopsis: `The second season of Kimetsu no Yaiba. Tanjirou, Zenitsu, and Inosuke, aided by the Sound Hashira Tengen Uzui, travel to Yoshiwara red light district to hunt down a demon that has been terrorizing the town.`,
+        isAIContent: false
     },
     {
         title: `Tokyo Revengers (Uncensored)`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/21be4c9124316be0efaf8e628eb010ac.jpg`,
-        synopsis: `Takemichi Hanagaki's life is at an all-time low. Just when he thought it couldn't get worse, he finds out that Hinata Tachibana, his ex-girlfriend, was murdered by the Tokyo Manji Gang: a group of vicious criminals that has been disturbing society's peace for quite some time.`
+        synopsis: `Takemichi Hanagaki's life is at an all-time low. Just when he thought it couldn't .`,
+        isAIContent: false
     },
     {
         title: `Dr. Stone: Stone Wars`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bfa13dce55dcab9325c98c3c049a7572.jpg`,
-        synopsis: `Senkuu has made it his goal to bring back two million years of human achievement and revive the entirety of those turned to statues. However, one man stands in his way: Tsukasa Shishiou, who believes that only the fittest of those petrified should be revived.`
+        synopsis: `Senkuu has made it his goal to bring back two million years of human achievement and revive the entirety of those turned to statues. However, one man stands in his way: Tsukasa Shishiou, who believes that only the fittest of those petrified should be revived.`,
+        isAIContent: false
     },
     {
         title: `Shingeki no Kyojin: The Final Season Part 2`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/Attack on Titan Final Season Part 2-spotlight.jpg`,
-        synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`
-    }
+        synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`,
+        isAIContent: false
+    },
+    {
+        title: `Boku no Hero Academia 5`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bns5-60fps.jpg`,
+        synopsis: `AnimetTV exclusive BNHA season 5 in 60FPS.                                                                                                                                                                     `,
+        isAIContent: true
+    },
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT

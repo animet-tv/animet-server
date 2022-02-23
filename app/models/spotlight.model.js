@@ -28,6 +28,7 @@ const Anime = mongoose.Schema({
     title: {type: String},
     img: {type: String},
     synopsis: {type: String},
+    isAIContent: {type: Boolean, default: false }
   
 },{ _id : false });
 
