@@ -157,6 +157,12 @@ let spotlight_data = [
         synopsis: `AnimetTV exclusive BNHA season 5 in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
     },
+    {
+        title: `Yasuke`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/spotlighttt.jpg`,
+        synopsis: `AnimetTV exclusive Yasuke DUB in 60FPS.                                                                                                                                                                     `,
+        isAIContent: true
+    },
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT

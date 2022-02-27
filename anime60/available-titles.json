@@ -1,12 +1,33 @@
 [
   {
+    "title": "Yasuke",
+    "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/yasuke-cover.png",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isRemastered": false,
+    "isDownload": true
+  },
+  {
+    "title": "Mushoku Tensei: Jobless Reincarnation",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx108465-A0eKcuisIPjm.png",
+    "isDub": false,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isRemastered": false,
+    "isDownload": true
+  },
+  {
     "title": "Boku no Hero Academia 5",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx117193-yZUKig9K220H.jpg",
     "isDub": false,
     "isSub": true,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": true
   },
   {
     "title": "Sword Art Online",
@@ -15,7 +36,8 @@
     "isSub": true,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": true
   },
   {
     "title": "86",
@@ -24,7 +46,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Vinland Saga",
@@ -33,7 +56,8 @@
     "isSub": true,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Cowboy Bebop Remastered",
@@ -42,7 +66,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Evangelion: 1.0 You Are (Not) Alone",
@@ -51,7 +76,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Evangelion: 2.0 You Can (Not) Advance",
@@ -60,7 +86,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Evangelion: 3.0 You Can (Not) Redo",
@@ -69,7 +96,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Akira Remastered",
@@ -78,7 +106,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "High School of the Dead: Complete Collection",
@@ -87,7 +116,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Tengen Toppa Gurren Lagann: Parallel Works 1",
@@ -96,7 +126,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Tengen Toppa Gurren Lagann: Parallel Works 2",
@@ -105,7 +136,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": true
+    "isRemastered": true,
+    "isDownload": false
   },
   {
     "title": "Attack on Titan Season 2",
@@ -132,7 +164,8 @@
     "isSub": true,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Violet Evergarden",
@@ -141,7 +174,8 @@
     "isSub": false,
     "quality": "hd",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Demon Slayer Mugen Train",
@@ -150,7 +184,8 @@
     "isSub": false,
     "quality": "4k",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Josee to Tora to Sakanatachi",
@@ -159,7 +194,8 @@
     "isSub": true,
     "quality": "4k",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Your Name",
@@ -168,7 +204,8 @@
     "isSub": false,
     "quality": "4k",
     "isNew": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false
   },
   {
     "title": "Sol Levante",
@@ -177,7 +214,8 @@
     "isSub": true,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": false
+    "isNew": false,
+    "isDownload": false
   },
   {
     "title": "Her Blue Sky",
@@ -186,7 +224,8 @@
     "isSub": true,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": false 
+    "isNew": false ,
+    "isDownload": false
   },
   {
     "title": "Ghost in the Shell 4K Digital",
@@ -195,7 +234,8 @@
     "isSub": true,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": false
+    "isNew": false,
+    "isDownload": false
   },
   {
     "title": "Mobile Suit Gundam: Hathaway's Flash",
@@ -213,7 +253,8 @@
     "isSub": false,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": false 
+    "isNew": false ,
+    "isDownload": false
   },
   {
     "title": "Weathering with You",
@@ -222,6 +263,7 @@
     "isSub": false,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": false
+    "isNew": false,
+    "isDownload": false
   }
 ]
