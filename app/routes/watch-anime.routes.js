@@ -37,6 +37,8 @@ const violet_evergarden_movie = require("../../anime60/violet_evergarden_movie.j
 const mobile_suit_gundam_hathaways_flash = require("../../anime60/mobile_suit_gundam_hathaways_flash.json");
 const sao = require("../../anime60/sao.json");
 const bns5 = require("../../anime60/bns5.json");
+const mushoku_tensei_jobless_reincarnation = require("../../anime60/mushoku-tensei-jobless-reincarnation.json");
+const yasuke = require("../../anime60/yasuke.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -247,6 +249,10 @@ router.get(
                 res.json(sao);
             } else if (title === `Boku no Hero Academia 5`) {
                 res.json(bns5);
+            } else if (title === `Mushoku Tensei: Jobless Reincarnation`) {
+                res.json(mushoku_tensei_jobless_reincarnation);
+            } else if (title === `Yasuke`) {
+                res.json(yasuke);
             }
          } catch (error) {
              console.log(error);
