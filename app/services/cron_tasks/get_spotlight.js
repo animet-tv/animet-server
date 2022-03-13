@@ -164,6 +164,12 @@ let spotlight_data = [
         isAIContent: true
     },
     {
+        title: `Fate/Zero`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/spotlight.jpg`,
+        synopsis: `AnimetTV exclusive Fate/Zero SUB in 60FPS.                                                                                                                                                                     `,
+        isAIContent: true
+    },
+    {
         title: `Sono Bisque Doll wa Koi wo Suru`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/dd513b18feb0cd0aa5806d1a99b0141c.jpg`,
         synopsis: `Traumatized by a childhood incident with a friend who took exception to his love of traditional dolls, doll-artisan hopeful Wakana Gojou passes his days as a loner, finding solace in the home ec room at his high school. To Wakana, people like beautiful Marin Kitagawa, a trendy girl who's always surrounded by a throng of friends, is practically an alien from another world.`,
