@@ -39,6 +39,7 @@ const sao = require("../../anime60/sao.json");
 const bns5 = require("../../anime60/bns5.json");
 const mushoku_tensei_jobless_reincarnation = require("../../anime60/mushoku-tensei-jobless-reincarnation.json");
 const yasuke = require("../../anime60/yasuke.json");
+const fate_zero = require("../../anime60/fate-zero.json");
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -253,6 +254,8 @@ router.get(
                 res.json(mushoku_tensei_jobless_reincarnation);
             } else if (title === `Yasuke`) {
                 res.json(yasuke);
+            } else if (title === `Fate/Zero`) {
+                res.json(fate_zero);
             }
          } catch (error) {
              console.log(error);

@@ -1,5 +1,15 @@
 [
   {
+    "title": "Fate/Zero",
+    "cover_img": "https://derf9v1xhwwx1.cloudfront.net/image/upload/w_350,q_60,c_fill/oth/FunimationStoreFront/2061873/Latvian/2061873_Latvian_ShowKeyart_48e34c2c-f2e3-ea11-82a8-dd291e252010.jpg",
+    "isDub": false,
+    "isSub": true,
+    "quality": "hd",
+    "isNew": true,
+    "isRemastered": false,
+    "isDownload": true
+  },
+  {
     "title": "Demon Slayer Season 1",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg",
     "isDub": false,
