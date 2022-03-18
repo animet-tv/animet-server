@@ -34,7 +34,7 @@ const Top = require("../../models/top.model");
 } */
 
 let buildTopWeek = async(callback) => {
-  let url = `https://kitsu.io/api/edge/trending/anime?limit=50`;
+  let url = `https://kitsu.io/api/edge/trending/anime?limit=80`;
   let topOfTheWeek = [];
   rs(url, (err, resp, html) => {
       if (!err) {
@@ -49,7 +49,7 @@ let buildTopWeek = async(callback) => {
               episodes: el.attributes.episodeCount,
             });
           });
-          callback(topOfTheWeek);
+          callback(topOfTheWeek.shuffle());
         } catch (e) {
           console.log(e);
         }
@@ -115,6 +115,15 @@ let updatedTopWeekly = async(top_of_the_week, callback) => {
   } catch (error) {
     console.log(error);
   }
+}
+
+Array.prototype.shuffle = function() {
+  let m = this.length, i;
+  while (m) {
+    i = (Math.random() * m--) >>> 0;
+    [this[m], this[i]] = [this[i], this[m]]
+  }
+  return this;
 }
 
 module.exports = {
