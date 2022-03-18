@@ -40,6 +40,7 @@ const bns5 = require("../../anime60/bns5.json");
 const mushoku_tensei_jobless_reincarnation = require("../../anime60/mushoku-tensei-jobless-reincarnation.json");
 const yasuke = require("../../anime60/yasuke.json");
 const fate_zero = require("../../anime60/fate-zero.json");
+const fate_stay_night_movie_2 = require('../../anime60/fate-stay-night-movie-2.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -256,6 +257,8 @@ router.get(
                 res.json(yasuke);
             } else if (title === `Fate/Zero`) {
                 res.json(fate_zero);
+            } else if (title === `Fate/stay night: Heaven's Feel II`) {
+                res.json(fate_stay_night_movie_2);
             }
          } catch (error) {
              console.log(error);
