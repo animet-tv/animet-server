@@ -59,6 +59,24 @@
         "download": "https://ouo.io/7s2v1n",
         "iframe": false,
         "episode_number": 10
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/FZS1-11-1080p60-SUB/d27ba01b8aa127c32769f41876ab223342fa94bb/545909",
+        "download": "https://ouo.io/g83u1",
+        "iframe": false,
+        "episode_number": 11
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/FZS1-12-1080p60-SUB/3d18ccacbe5ed831b43e9ee98fc478ca877ef3ca/0adcd2",
+        "download": "https://ouo.io/QJhwju",
+        "iframe": false,
+        "episode_number": 12
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/FZS1-13-1080p60-SUB/efee23ac4e8f2054e39c13e8f0e0c93d14eebf1e/f2b65a",
+        "download": "https://ouo.io/vMvgLV",
+        "iframe": false,
+        "episode_number": 12
       }
     ]
   }
