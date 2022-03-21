@@ -41,6 +41,7 @@ const mushoku_tensei_jobless_reincarnation = require("../../anime60/mushoku-tens
 const yasuke = require("../../anime60/yasuke.json");
 const fate_zero = require("../../anime60/fate-zero.json");
 const fate_stay_night_movie_2 = require('../../anime60/fate-stay-night-movie-2.json');
+const overflow = require('../../anime60/overflow.json');
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -259,6 +260,8 @@ router.get(
                 res.json(fate_zero);
             } else if (title === `Fate/stay night: Heaven's Feel II`) {
                 res.json(fate_stay_night_movie_2);
+            } else if (title === `Overflow`) {
+                res.json(overflow);
             }
          } catch (error) {
              console.log(error);
