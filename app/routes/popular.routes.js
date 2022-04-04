@@ -215,7 +215,7 @@ router.get("/prepared-title", hardLimiter, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
-  }
+  }/*  */
 });
 
 router.get("/prepared-title-all", hardLimiter, async (req, res) => {

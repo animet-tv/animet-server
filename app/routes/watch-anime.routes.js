@@ -180,6 +180,40 @@ router.get(
     }
 );
 
+// fetch comment count from disqus
+router.get(
+    `/comment-count`,
+    animeLimiter,
+    async(req, res) => {
+        try {
+            let url = `https://prodanimettv.disqus.com/count-data.js?1=${req.query.slug}`;
+            console.log(url);
+            var options = {
+                'method': 'GET',
+                'url': `${url}`,
+                'headers': { 'Origin':  `*`, 'X-Requested-With': 'null'}
+            };
+            rp(options, function (error, response) {
+                if (error){ 
+                    res.statusCode(400);
+                }
+                
+                var Result = response.body; 
+                if (Result.length > 211) {
+                    let tmp = Result.split(`,"comments":`)[2];
+                    tmp = tmp.split("}")[0];
+                    res.json({ "comment": tmp});
+                } else {
+                    res.json({ "comment": "0"});
+                }
+            });
+            
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+    }
+)
 
 router.get(
     '/anime60fps',

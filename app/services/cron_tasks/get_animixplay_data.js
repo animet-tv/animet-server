@@ -8,6 +8,7 @@ const FormData = require('form-data');
 const { delay, reject, resolve } = require('bluebird');
 const path = require("path");
 const fs =require("fs");
+const CR_prepared_titles = require('../../../anime_cr_list.json');
 
 const populatePreparedTitle = async () => {
     try {
@@ -118,10 +119,11 @@ const populatePreparedTitle = async () => {
                                 
                                     console.log('old PreparedTitle dropped ', new Date());
                                 });
-
+                                console.log(CR_prepared_titles);
                                 // save new PreparedTitle
                                 let newPreparedTitle = new PreparedTitle ({
                                     gogoanime: result_gogoanime,
+                                    crunchyroll: CR_prepared_titles
                                 });
 
                                 newPreparedTitle.save();

@@ -24,24 +24,25 @@ const defaultLimiter = rateLimit({
 
 const tokenCheckLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 20,
+  max: 25,
 });
 
 const profileLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 70,
+  max: 1000,
 });
 
 const listMutationLimiter = rateLimit({
-  windowMs: 2 * 60 * 1000, // 2 minutes
+  windowMs: 1 * 60 * 1000, // 1 minutes
   max: 40,
 });
 
-
 // storage Engine
-const whiteList = ["image/png", "image/jpeg", "image/jpg", "image/webp"];
+const whiteList_IMG = ["image/png", "image/jpeg", "image/jpg", "image/webp"];
+const whiteList_MEDIA = ["video/mp4", "video/ogg", "audio/mpeg"]
 const multer = require("multer");
-const storage = multer.diskStorage({
+// for IMGs 
+const storage_IMG = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./uploads/");
   },
@@ -50,21 +51,49 @@ const storage = multer.diskStorage({
   },
 });
 
-const fileFilter = (req, file, cb) => {
+const fileFilterImg = (req, file, cb) => {
   // only accepts allowed type
-  if (!whiteList.includes(file.mimetype)) {
+  if (!whiteList_IMG.includes(file.mimetype)) {
     return cb(new Error("file is not allowed"));
   }
   cb(null, true);
 };
 
 const uploadIMG = multer({
-  storage: storage,
+  storage: storage_IMG,
   limits: {
     fileSize: 4000000, // 4mb
   },
-  fileFilter: fileFilter,
+  fileFilter: fileFilterImg,
 });
+
+// for VIDEOs
+const storage_MEDIA = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/media/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${nanoid()}_${file.originalname}`);
+  },
+});
+
+const fileFilterMedia = (req, file, cb) => {
+  // only accepts allowed type
+  if (!whiteList_MEDIA.includes(file.mimetype)) {
+    return cb(new Error("file is not allowed"));
+  }
+  cb(null, true);
+};
+
+const uploadMEDIA = multer({
+  storage: storage_MEDIA,
+  limits: {
+    fileSize: 50000000, // 50mb
+  },
+  fileFilter: fileFilterMedia,
+});
+
+
 
 router.post(
   "/verify-token",
@@ -102,7 +131,7 @@ router.post(
                 res.sendStatus(500);
                 throw err;
               }
-  
+
               if (count > 0) {
                 res.status(422).send({
                   success: false,
@@ -115,14 +144,14 @@ router.post(
                   email: req.body.email,
                   password: req.body.password,
                 };
-  
+
                 User.registerUser(newUser, (err, callback) => {
                   if (err) {
                     res.sendStatus(500);
                     throw err;
                   }
                 });
-  
+
                 /* user successfully created */
                 res.json({
                   success: true,
@@ -133,7 +162,7 @@ router.post(
           } else {
             res.status(403).send({
               success: false,
-              msg: `this email not whitelisted. Registration are invite only.`
+              msg: `this email not whitelisted. Registration are invite only.`,
             });
           }
         } else {
@@ -209,7 +238,7 @@ router.post(
                             token: "JWT " + token,
                             user: {
                               email: user.email,
-                              accountID: user.accountID
+                              accountID: user.accountID,
                             },
                           });
                         } else {
@@ -1014,16 +1043,100 @@ router.post(
   }
 );
 
+router.post(
+  "/upload-media",
+  defaultLimiter,
+  passport.authenticate(["regular-login"], { session: false }),
+  uploadMEDIA.single("video"),
+  async (req, res) => {
+    try {
+      const file = req.file;
+      if (!file) {
+        res
+          .status(422)
+          .send({ success: false, msg: "Please upload correct file type" });
+      } else {
+        // CREATE USER UPLOADED CONTENT LIST
+        User.getUserByAccountID(req.user.accountID, (err, accountProfile) => {
+          if (err) {
+            console.log(err);
+          }
+
+          if (accountProfile) {
+            const request = {
+              fileName: accountProfile.avatarFileName,
+              fileID: accountProfile.avatarFileID,
+            };
+
+            B2_STORAGE.Delete_File(request)
+              .then(() => {
+                // convert & resize img to webp
+                const filePath = file.path;
+                const newFileName = nanoid();
+                const newFilePath = process.cwd() + `/uploads/tmp-avatar/`;
+                let content = fs.readFileSync(filePath);
+
+                sharp(content)
+                  .resize(200, 200)
+                  .toFile(`${newFilePath}${newFileName}.webp`, (err, info) => {
+                    if (!err) {
+                      const request = {
+                        accountID: req.user.accountID,
+                        fileName: `${newFileName}.webp`,
+                      };
+                      // upload to b2 bucket
+                      B2_STORAGE.Upload_User_Avatar(request)
+                        .then(() => {
+                          // remove tmp file
+                          if (fs.existsSync(filePath)) {
+                            fs.unlinkSync(filePath, (err) => {
+                              if (err) {
+                                console.log("error deleting file ", error);
+                              }
+                              console.log("tmp avatar file deleted");
+                            });
+                          }
+
+                          res.status(200).send({
+                            success: true,
+                            msg: "avatar img uploaded but old img not deleted",
+                          });
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                          res.status(500).send({
+                            success: false,
+                            msg: `${err}`,
+                          });
+                        });
+                    }
+                  });
+              })
+              .catch(() => {});
+          }
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        msg: "could not upload avatar img",
+      });
+    }
+  }
+);
+
+
 
 let checkWhiteListEmails = (email) => {
   let status = false;
   let list = whiteListEmails;
-  list.forEach(el => {
+  list.forEach((el) => {
     if (el.email === email) {
       status = true;
     }
   });
   return status;
-}
+};
 
 module.exports = router;

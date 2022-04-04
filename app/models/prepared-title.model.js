@@ -22,6 +22,7 @@ const Anime = mongoose.Schema({
 
 const PreparedTitleSchema = mongoose.Schema({
     gogoanime: [Anime],
+    crunchyroll: [Anime]
 });
 PreparedTitleSchema.plugin(beautifyUnique);
 
