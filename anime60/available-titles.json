@@ -1,5 +1,16 @@
 [
   {
+    "title": "Re:ZERO - Starting Life in Another World S2",
+    "cover_img": "https://media.kitsu.io/anime/poster_images/43247/large.jpg",
+    "isDub": false,
+    "isSub": true,
+    "quality": "hd",
+    "isNew": true,
+    "isNSFW": false,
+    "isRemastered": false,
+    "isDownload": true
+  },
+  {
     "title": "Overflow",
     "cover_img": "https://media.kitsu.io/anime/poster_images/42766/large.jpg",
     "isDub": false,
@@ -121,6 +132,28 @@
     "isDownload": false
   },
   {
+    "title": "Akira Remastered",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-Sjkc8RDBjqwT.jpg",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isNSFW": false,
+    "isRemastered": true,
+    "isDownload": false
+  },
+  {
+    "title": "High School of the Dead: Complete Collection",
+    "cover_img": "https://img.animet.site/file/animettv-avatars/other/HighSchoolOfTheDead_cover_art_remastered-min.jpg",
+    "isDub": true,
+    "isSub": false,
+    "quality": "hd",
+    "isNew": false,
+    "isNSFW": false,
+    "isRemastered": true,
+    "isDownload": false
+  },
+  {
     "title": "Evangelion: 1.0 You Are (Not) Alone",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2759-z07kq8Pnw5B1.jpg",
     "isDub": true,
@@ -152,50 +185,6 @@
     "isNSFW": false,
     "isRemastered": true,
     "isDownload": true
-  },
-  {
-    "title": "Akira Remastered",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-Sjkc8RDBjqwT.jpg",
-    "isDub": true,
-    "isSub": false,
-    "quality": "hd",
-    "isNew": false,
-    "isNSFW": false,
-    "isRemastered": true,
-    "isDownload": false
-  },
-  {
-    "title": "High School of the Dead: Complete Collection",
-    "cover_img": "https://img.animet.site/file/animettv-avatars/other/HighSchoolOfTheDead_cover_art_remastered-min.jpg",
-    "isDub": true,
-    "isSub": false,
-    "quality": "hd",
-    "isNew": false,
-    "isNSFW": false,
-    "isRemastered": true,
-    "isDownload": false
-  },
-  {
-    "title": "Tengen Toppa Gurren Lagann: Parallel Works 1",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/4705.jpg",
-    "isDub": false,
-    "isSub": false,
-    "quality": "hd",
-    "isNew": false,
-    "isNSFW": false,
-    "isRemastered": true,
-    "isDownload": false
-  },
-  {
-    "title": "Tengen Toppa Gurren Lagann: Parallel Works 2",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/8348.jpg",
-    "isDub": false,
-    "isSub": false,
-    "quality": "hd",
-    "isNew": false,
-    "isNSFW": false,
-    "isRemastered": true,
-    "isDownload": false
   },
   {
     "title": "Attack on Titan Season 2",
@@ -288,8 +277,8 @@
     "cover_img": "https://img.animet.site/file/animettv-avatars/other/covers/Sora_no_Aosa_o_Shiru_Hito_yo.png",
     "isDub": false,
     "isSub": true,
-    "quality": "4k",
-    "isRemastered": false,
+    "quality": "hd",
+    "isRemastered": true,
     "isNew": false,
     "isDownload": false
   },

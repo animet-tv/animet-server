@@ -23,5 +23,15 @@
         "label": "HADES",
         "continent": "EU",
         "url": "https://cors-anywhere-hades-v2-eu.herokuapp.com/"
+    },
+    {
+        "label": "limited",
+        "continent": "EU",
+        "url": "https://cors-anywhere-hermes.noreply5262.workers.dev/?"
+    },
+    {
+        "label": "limited",
+        "continent": "NA",
+        "url": "https://cors-anywhere-hermes.noreply5262.workers.dev/?"
     }
 ]

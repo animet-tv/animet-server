@@ -42,6 +42,7 @@ const yasuke = require("../../anime60/yasuke.json");
 const fate_zero = require("../../anime60/fate-zero.json");
 const fate_stay_night_movie_2 = require('../../anime60/fate-stay-night-movie-2.json');
 const overflow = require('../../anime60/overflow.json');
+const rezeros2 = require(`../../anime60/rezero-s2.json`);
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -296,6 +297,8 @@ router.get(
                 res.json(fate_stay_night_movie_2);
             } else if (title === `Overflow`) {
                 res.json(overflow);
+            } else if (title === `Re:ZERO - Starting Life in Another World S2`) {
+                res.json(rezeros2);
             }
          } catch (error) {
              console.log(error);

@@ -1,0 +1,23 @@
+{
+    "anime60fps": [
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-01-1080p60-SUB/5abaa2c8c02cdd95b42f154debe19ade3aaa2562/da938b",
+        "download": "https://ouo.io/476Hi1",
+        "iframe": false,
+        "episode_number": 1
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-02-1080p60-SUB/67f766edb232760fffa4c3210bea586a40102d0e/8dd8bb",
+        "download": "https://ouo.io/m9u8vl",
+        "iframe": false,
+        "episode_number": 2
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-03-1080p60-SUB/e54dd5c2872c4e04d3366b34562b1eeefbdb49e4/971deb",
+        "download": "https://ouo.io/800lk8",
+        "iframe": false,
+        "episode_number": 3
+      }
+    ]
+  }
+   
