@@ -43,6 +43,7 @@ const fate_zero = require("../../anime60/fate-zero.json");
 const fate_stay_night_movie_2 = require('../../anime60/fate-stay-night-movie-2.json');
 const overflow = require('../../anime60/overflow.json');
 const rezeros2 = require(`../../anime60/rezero-s2.json`);
+const tamako_love_story = require(`../../anime60/tamako_love_story.json`);
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -187,7 +188,8 @@ router.get(
     animeLimiter,
     async(req, res) => {
         try {
-            let url = `https://prodanimettv.disqus.com/count-data.js?1=${req.query.slug}`;
+            res.json({ "comment": "0"})
+           /*  let url = `https://prodanimettv.disqus.com/count-data.js?1=${req.query.slug}`;
             console.log(url);
             var options = {
                 'method': 'GET',
@@ -207,7 +209,7 @@ router.get(
                 } else {
                     res.json({ "comment": "0"});
                 }
-            });
+            }); */
             
         } catch (error) {
             console.log(error);
@@ -299,6 +301,8 @@ router.get(
                 res.json(overflow);
             } else if (title === `Re:ZERO - Starting Life in Another World S2`) {
                 res.json(rezeros2);
+            } else if (title === `Tamako Love Story`) {
+                res.json(tamako_love_story);
             }
          } catch (error) {
              console.log(error);

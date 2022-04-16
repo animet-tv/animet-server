@@ -229,10 +229,10 @@
     "isDownload": false
   },
   {
-    "title": "Demon Slayer Mugen Train",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112151-1qlQwPB1RrJe.png",
-    "isDub": true,
-    "isSub": false,
+    "title": "Tamako Love Story",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20519-YdNUizVJJIWI.png",
+    "isDub": false,
+    "isSub": true,
     "quality": "4k",
     "isNew": false,
     "isNSFW": false,
@@ -240,8 +240,8 @@
     "isDownload": false
   },
   {
-    "title": "Josee to Tora to Sakanatachi",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113596-LKA0bYJGjLnB.jpg",
+    "title": "Demon Slayer Mugen Train",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112151-1qlQwPB1RrJe.png",
     "isDub": false,
     "isSub": true,
     "quality": "4k",
@@ -255,6 +255,17 @@
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-XIr3PeczUjjF.png",
     "isDub": true,
     "isSub": false,
+    "quality": "4k",
+    "isNew": false,
+    "isNSFW": false,
+    "isRemastered": false,
+    "isDownload": false
+  },
+  {
+    "title": "Josee to Tora to Sakanatachi",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113596-LKA0bYJGjLnB.jpg",
+    "isDub": false,
+    "isSub": true,
     "quality": "4k",
     "isNew": false,
     "isNSFW": false,
@@ -296,8 +307,8 @@
   {
     "title": "Mobile Suit Gundam: Hathaway's Flash",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx105595-HRhmAGp4WPbV.jpg",
-    "isDub": true,
-    "isSub": false,
+    "isDub": false,
+    "isSub": true,
     "quality": "4k",
     "isRemastered": false,
     "isNew": false

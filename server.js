@@ -188,7 +188,7 @@ const daily_db_workers = new cron("0 6 * * *", async() => {
 /* CRON tasks every minute*/
 const minute_db_workers = new cron("* * * * *", async() => {
     console.log('going maintenance mode updating Database . . .');
-    metricaStatsService.fetchTotalUserSession();
+    //metricaStatsService.fetchTotalUserSession();
     console.log('done updating database')
 });
 
@@ -205,6 +205,8 @@ const hourly_worker = new cron("0 * * * *", async() => {
       console.log('redis KEY:CorsAnyWhereList updated');
     }
   });
+  metricaStatsService.fetchTotalUserSession();
+
   console.log('hourly worker tasks completed');
   
 })
