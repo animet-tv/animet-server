@@ -70,7 +70,7 @@ router.get('/cors-anywhere-list', async(req,res) => {
         client.get('CorsAnyWhereList', (err, result) => {
             if (result !== null && result.length > 2) {
                 const resultJSON = JSON.parse(result);
-                res.send(resultJSON);
+                res.json(resultJSON);
             } else {
                 CorsAnyWhere.checkCorsAnyWhereNodes((err, result) => {
                     if (err) {
