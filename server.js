@@ -213,5 +213,5 @@ const hourly_worker = new cron("0 * * * *", async() => {
 
 daily_db_workers.start();
 hourly_worker.start();
-minute_db_workers.start();
+//minute_db_workers.start();
 module.exports = app;
