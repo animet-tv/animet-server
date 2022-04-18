@@ -151,12 +151,12 @@ let spotlight_data = [
         synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`,
         isAIContent: false
     },
-    {
+    /* {
         title: `Boku no Hero Academia 5`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bns5-60fps.jpg`,
         synopsis: `AnimetTV exclusive BNHA season 5 in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
-    },
+    }, */
    /*  {
         title: `Yasuke`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/spotlighttt.jpg`,
