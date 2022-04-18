@@ -61,6 +61,7 @@
   { "title": "Another", "id": "G11111" },
   { "title": "Ansatsu Kyoushitsu", "id": "G24833" },
   { "title": "Ansatsu Kyoushitsu 2nd Season", "id": "G30654" },
+  { "title": "Ao Ashi", "id": "G49052" },
   { "title": "Ao Haru Ride", "id": "G21995" },
   { "title": "Ao no 6-gou", "id": "G1051" },
   { "title": "Ao no Exorcist", "id": "G9919" },
@@ -77,6 +78,10 @@
   { "title": "Asobi Asobase", "id": "G37171" },
   { "title": "Assassins Pride", "id": "G38572" },
   { "title": "Astarotte no Omocha!", "id": "G9736" },
+  {
+    "title": "Atasha Kawajiri Kodama Da yo: Dangerous Lifehacker no Tadareta Seikatsu",
+    "id": "G49780"
+  },
   { "title": "Ayashi no Ceres", "id": "G104" },
   { "title": "Azur Lane", "id": "G38328" },
   { "title": "Azur Lane: Bisoku Zenshin!", "id": "G40930" },
@@ -85,6 +90,7 @@
   { "title": "Bakemonogatari", "id": "G5081" },
   { "title": "Bakumatsu", "id": "G37584" },
   { "title": "Bakuten!!", "id": "G43756" },
+  { "title": "Baraou no Souretsu", "id": "G42892" },
   { "title": "Basilisk: Kouga Ninpou Chou", "id": "G67" },
   { "title": "Basilisk: Ouka Ninpouchou", "id": "G35964" },
   { "title": "Beelzebub", "id": "G9513" },
@@ -94,10 +100,11 @@
   { "title": "Big Order (TV)", "id": "G31904" },
   { "title": "Binan Koukou Chikyuu Boueibu LOVE!", "id": "G27727" },
   { "title": "Binan Koukou Chikyuu Boueibu LOVE! LOVE!", "id": "G31417" },
+  { "title": "Birdie Wing: Golf Girls' Story", "id": "G50248" },
   { "title": "Bishoujo Yuugi Unit Crane Game Girls", "id": "G32906" },
   { "title": "Black Clover", "id": "G34572" },
   { "title": "Black Fox", "id": "G37498" },
-  { "title": "Blade & Soul", "id": "G22547" },
+  { "title": "Blade &amp; Soul", "id": "G22547" },
   { "title": "Blade Runner: Black Lotus", "id": "G38749" },
   { "title": "Blassreiter", "id": "G3407" },
   { "title": "Bleach", "id": "G269" },
@@ -188,6 +195,7 @@
   { "title": "D_Cide Traumerei the Animation", "id": "G48470" },
   { "title": "Dagashi Kashi 2", "id": "G36049" },
   { "title": "Dakaretai Otoko 1-i ni Odosarete Imasu.", "id": "G37597" },
+  { "title": "Dance Dance Danseur", "id": "G48702" },
   { "title": "Danchigai", "id": "G30127" },
   {
     "title": "Danganronpa 3: The End of Kibougamine Gakuen - Kibou-hen",
@@ -216,7 +224,9 @@
   { "title": "Date A Live", "id": "G15583" },
   { "title": "Date A Live II", "id": "G19163" },
   { "title": "Date A Live III", "id": "G36633" },
+  { "title": "Date A Live IV", "id": "G41461" },
   { "title": "Days (TV)", "id": "G32494" },
+  { "title": "Deaimon", "id": "G48779" },
   { "title": "DearS", "id": "G63" },
   { "title": "Death March kara Hajimaru Isekai Kyousoukyoku", "id": "G34497" },
   { "title": "Death Note", "id": "G1535" },
@@ -238,7 +248,7 @@
   { "title": "Dokyuu Hentai HxEros", "id": "G40623" },
   { "title": "Domestic na Kanojo", "id": "G37982" },
   { "title": "Dororon Enma-kun Meeramera", "id": "G9493" },
-  { "title": "Double Decker! Doug & Kirill", "id": "G37496" },
+  { "title": "Double Decker! Doug &amp; Kirill", "id": "G37496" },
   { "title": "Doukyonin wa Hiza, Tokidoki, Atama no Ue.", "id": "G38145" },
   { "title": "Dr. Stone", "id": "G38691" },
   { "title": "Dr. Stone: Stone Wars", "id": "G40852" },
@@ -324,6 +334,10 @@
   { "title": "Fuuun Ishin Dai☆Shogun", "id": "G21821" },
   { "title": "GJ-bu", "id": "G14811" },
   { "title": "Gabriel DropOut", "id": "G33731" },
+  {
+    "title": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu",
+    "id": "G48760"
+  },
   { "title": "Gakkou no Kaidan", "id": "G1281" },
   { "title": "Gakuen Alice", "id": "G74" },
   { "title": "Gakuen Babysitters", "id": "G35222" },
@@ -440,8 +454,13 @@
   { "title": "Hataraku Saibou!!", "id": "G39586" },
   { "title": "Hayate no Gotoku! Can't Take My Eyes Off You", "id": "G14653" },
   { "title": "Hayate no Gotoku! Cuties", "id": "G16982" },
+  { "title": "Healer Girl", "id": "G48857" },
   { "title": "Heion Sedai no Idaten-tachi", "id": "G42625" },
   { "title": "Hells", "id": "G4983" },
+  {
+    "title": "Heroine Tarumono! Kiraware Heroine to Naisho no Oshigoto",
+    "id": "G49692"
+  },
   { "title": "Heya Camp△", "id": "G38476" },
   { "title": "Hibike! Euphonium", "id": "G27989" },
   { "title": "Hibike! Euphonium 2", "id": "G31988" },
@@ -453,7 +472,7 @@
   { "title": "Hikaru no Go", "id": "G135" },
   { "title": "Hime Chen! Otogi Chikku Idol Lilpri", "id": "G8206" },
   { "title": "Himegoto", "id": "G22835" },
-  { "title": "Hina Logi: From Luck & Logic", "id": "G34834" },
+  { "title": "Hina Logi: From Luck &amp; Logic", "id": "G34834" },
   { "title": "Hinako Note", "id": "G33948" },
   { "title": "Hinamatsuri (TV)", "id": "G36296" },
   { "title": "Hinomaruzumou", "id": "G37007" },
@@ -469,6 +488,10 @@
   {
     "title": "Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen 2nd Season",
     "id": "G40815"
+  },
+  {
+    "title": "Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen 3rd Season",
+    "id": "G42429"
   },
   { "title": "Horimiya", "id": "G42897" },
   { "title": "Hortensia Saga (TV)", "id": "G40961" },
@@ -549,10 +572,12 @@
   { "title": "K: Missing Kings", "id": "G16904" },
   { "title": "K: Seven Stories Movie 1 - R:B - Blaze", "id": "G33248" },
   { "title": "Kaginado", "id": "G48775" },
+  { "title": "Kaginado Season 2", "id": "G50685" },
   {
     "title": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen",
     "id": "G37999"
   },
+  { "title": "Kaguya-sama wa Kokurasetai: Ultra Romantic", "id": "G43608" },
   {
     "title": "Kaguya-sama wa Kokurasetai? Tensai-tachi no Renai Zunousen",
     "id": "G40591"
@@ -586,11 +611,12 @@
   { "title": "Karakai Jouzu no Takagi-san", "id": "G35860" },
   { "title": "Katekyo Hitman Reborn!", "id": "G1604" },
   { "title": "Katsugeki/Touken Ranbu", "id": "G33018" },
+  { "title": "Kawaii dake ja Nai Shikimori-san", "id": "G45613" },
   { "title": "Kaze ga Tsuyoku Fuiteiru", "id": "G37965" },
   { "title": "Kaze no Na wa Amnesia", "id": "G1793" },
   { "title": "Keijo!!!!!!!!", "id": "G32686" },
   { "title": "Kekkai Sensen", "id": "G24439" },
-  { "title": "Kekkai Sensen & Beyond", "id": "G34451" },
+  { "title": "Kekkai Sensen &amp; Beyond", "id": "G34451" },
   { "title": "Kekkaishi (TV)", "id": "G1606" },
   { "title": "Kemono Jihen", "id": "G40908" },
   { "title": "Kenja no Mago", "id": "G36407" },
@@ -618,6 +644,7 @@
   { "title": "Kingdom", "id": "G12031" },
   { "title": "Kingdom 2nd Season", "id": "G17389" },
   { "title": "Kingdom 3rd Season", "id": "G40682" },
+  { "title": "Kingdom 4th Season", "id": "G50160" },
   {
     "title": "Kino no Tabi: The Beautiful World - The Animated Series",
     "id": "G35079"
@@ -633,8 +660,10 @@
   { "title": "Koi Koi 7", "id": "G668" },
   { "title": "Koi to Producer: EVOL×LOVE", "id": "G40075" },
   { "title": "Koi to Yobu ni wa Kimochi Warui", "id": "G41103" },
+  { "title": "Koi wa Sekai Seifuku no Ato de", "id": "G48643" },
   { "title": "Koisuru Asteroid", "id": "G39388" },
   { "title": "Kono Bijutsubu ni wa Mondai ga Aru!", "id": "G31952" },
+  { "title": "Kono Healer, Mendokusai", "id": "G48742" },
   { "title": "Kono Subarashii Sekai ni Shukufuku wo!", "id": "G30831" },
   { "title": "Kono Subarashii Sekai ni Shukufuku wo! 2", "id": "G32937" },
   {
@@ -647,12 +676,15 @@
   { "title": "Kuma Kuma Kuma Bear", "id": "G40974" },
   { "title": "Kumo Desu ga, Nani ka?", "id": "G37984" },
   { "title": "Kumo no You ni Kaze no You ni", "id": "G1032" },
+  { "title": "Kunoichi Tsubaki no Mune no Uchi", "id": "G50338" },
   { "title": "Kuroko no Basket", "id": "G11771" },
   { "title": "Kuroko no Basket 2nd Season", "id": "G16894" },
   { "title": "Kuroko no Basket 3rd Season", "id": "G24415" },
   { "title": "Kuroko no Basket Movie 4: Last Game", "id": "G31658" },
   { "title": "Kuusen Madoushi Kouhosei no Kyoukan", "id": "G25283" },
   { "title": "Kyoto Teramachi Sanjou no Holmes", "id": "G37458" },
+  { "title": "Kyoukai Senki", "id": "G48466" },
+  { "title": "Kyoukai Senki Part 2", "id": "G50678" },
   { "title": "Kyousou Giga (TV)", "id": "G19703" },
   {
     "title": "Kyuukyoku Shinka shita Full Dive RPG ga Genjitsu yori mo Kusoge Dattara",
@@ -700,6 +732,10 @@
     "title": "Magia Record: Mahou Shoujo Madoka☆Magica Gaiden (TV) 2nd Season - Kakusei Zenya",
     "id": "G41530"
   },
+  {
+    "title": "Magia Record: Mahou Shoujo Madoka☆Magica Gaiden (TV) Final Season - Asaki Yume no Akatsuki",
+    "id": "G49291"
+  },
   { "title": "Magic Kaito 1412", "id": "G25517" },
   { "title": "Magic-Kyun! Renaissance", "id": "G33299" },
   { "title": "Mahou Shoujo Ikusei Keikaku", "id": "G33003" },
@@ -710,6 +746,7 @@
   { "title": "Mahouka Koukou no Rettousei: Raihousha-hen", "id": "G40497" },
   { "title": "Mahouka Koukou no Rettousei: Tsuioku-hen", "id": "G48375" },
   { "title": "Mahouka Koukou no Yuutousei", "id": "G45572" },
+  { "title": "Mahoutsukai Reimeiki", "id": "G48842" },
   { "title": "Mahoutsukai no Yome", "id": "G35062" },
   { "title": "Mahoutsukai no Yome: Hoshi Matsu Hito", "id": "G32902" },
   { "title": "Maiko-san Chi no Makanai-san", "id": "G41556" },
@@ -871,6 +908,7 @@
     "title": "Oshiete! Galko-chan: Natsuyasumitte Hontou Desu ka?",
     "id": "G33949"
   },
+  { "title": "Otome Game Sekai wa Mob ni Kibishii Sekai desu", "id": "G50461" },
   {
     "title": "Otome Game no Hametsu Flag shika Nai Akuyaku Reijou ni Tensei shiteshimatta...",
     "id": "G38555"
@@ -908,6 +946,7 @@
   { "title": "Project Scard: Praeter no Kizu", "id": "G42825" },
   { "title": "Qualidea Code", "id": "G32360" },
   { "title": "R-15", "id": "G10611" },
+  { "title": "RPG Fudousan", "id": "G48363" },
   { "title": "Radiant", "id": "G37202" },
   { "title": "Radiant 2nd Season", "id": "G39355" },
   { "title": "Rail Romanesque", "id": "G40958" },
@@ -1009,6 +1048,7 @@
   { "title": "Servant x Service", "id": "G18119" },
   { "title": "Seven Knights Revolution: Eiyuu no Keishousha", "id": "G47391" },
   { "title": "Sewayaki Kitsune no Senko-san", "id": "G38759" },
+  { "title": "Shachiku-san wa Youjo Yuurei ni Iyasaretai.", "id": "G49160" },
   { "title": "Shadows House", "id": "G43439" },
   { "title": "Shadowverse (TV)", "id": "G40506" },
   { "title": "Shadowverse Flame", "id": "G50060" },
@@ -1016,6 +1056,10 @@
   { "title": "Shakunetsu no Takkyuu Musume", "id": "G33031" },
   { "title": "Shenmue the Animation", "id": "G42808" },
   { "title": "Shigatsu wa Kimi no Uso", "id": "G23273" },
+  {
+    "title": "Shijou Saikyou no Daimaou, Murabito A ni Tensei suru",
+    "id": "G48415"
+  },
   { "title": "Shijou Saikyou no Deshi Kenichi", "id": "G1559" },
   { "title": "Shikkakumon no Saikyou Kenja", "id": "G47161" },
   { "title": "Shin Tennis no Ouji-sama", "id": "G11371" },
@@ -1090,6 +1134,7 @@
   { "title": "Soredemo Sekai wa Utsukushii", "id": "G22101" },
   { "title": "Sounan Desu ka?", "id": "G39456" },
   { "title": "Sousei no Onmyouji", "id": "G32105" },
+  { "title": "Spy x Family", "id": "G50265" },
   { "title": "Starmyu 2nd Season", "id": "G33362" },
   { "title": "Starmyu 3rd Season", "id": "G36536" },
   { "title": "Steins;Gate", "id": "G9253" },
@@ -1130,6 +1175,7 @@
   { "title": "Tales of Zestiria the Cross 2nd Season", "id": "G34086" },
   { "title": "Tantei wa Mou, Shindeiru.", "id": "G46471" },
   { "title": "Tate no Yuusha no Nariagari", "id": "G35790" },
+  { "title": "Tate no Yuusha no Nariagari Season 2", "id": "G40356" },
   {
     "title": "Tatoeba Last Dungeon Mae no Mura no Shounen ga Joban no Machi de Kurasu Youna Monogatari",
     "id": "G40594"
@@ -1174,6 +1220,7 @@
   { "title": "Tokyo Ghoul:re", "id": "G36511" },
   { "title": "Tokyo Ghoul:re 2nd Season", "id": "G37799" },
   { "title": "Tokyo Revengers", "id": "G42249" },
+  { "title": "Tomodachi Game", "id": "G50273" },
   { "title": "Tonari no Kaibutsu-kun", "id": "G14227" },
   { "title": "Tong Ling Fei", "id": "G38917" },
   { "title": "Tonikaku Kawaii", "id": "G41389" },
@@ -1223,7 +1270,7 @@
   { "title": "Urasekai Picnic", "id": "G41392" },
   { "title": "Usagi Drop", "id": "G10162" },
   { "title": "Uzaki-chan wa Asobitai!", "id": "G41226" },
-  { "title": "VS Knight Lamune & 40 Fire", "id": "G2087" },
+  { "title": "VS Knight Lamune &amp; 40 Fire", "id": "G2087" },
   { "title": "Vampire Knight", "id": "G3457" },
   { "title": "Vampire Knight: Guilty", "id": "G4752" },
   { "title": "Vanitas no Karte", "id": "G48580" },
@@ -1260,6 +1307,7 @@
   { "title": "Yama no Susume", "id": "G14355" },
   { "title": "Yamada-kun to 7-nin no Majo (TV)", "id": "G28677" },
   { "title": "Yami Shibai 10", "id": "G50599" },
+  { "title": "Yatogame-chan Kansatsu Nikki 4th Season", "id": "G50438" },
   { "title": "Yes ka No ka Hanbun ka", "id": "G40646" },
   { "title": "Yesterday wo Utatte", "id": "G39710" },
   {

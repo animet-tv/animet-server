@@ -109,12 +109,12 @@ let spotlight_data = [
         synopsis: `Wang Ling, the major Protagonist of the anime, has enormous uncontrollable power wants to live a low-key life. He wants to get rid of these powers. Sometimes, he just hides his powers from other kids just to look normal. He avoids contact and connections with others just to hide his powers.`,
         isAIContent: false
     },
-    {
+  /*   {
         title: `JoJo no Kimyou na Bouken Part 6: Stone Ocean`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/53c87a67e5e03cbe93ff9125b9d66237.jpg`,
         synopsis: `In Florida, 2011, Jolyne Kuujou sits in a jail cell like her father Joutarou once did; yet this situation is not of her own choice. Framed for a crime she didn’t commit, and manipulated into serving a longer sentence, Jolyne is ready to resign to a dire fate as a prisoner of Green Dolphin Street Jail. `,
         isAIContent: false
-    }, 
+    }, */ 
     {
         title: `Kyuuketsuki Sugu Shinu`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/ed1535978d64a545b092040b7ae23b77.jpg`,
@@ -157,18 +157,30 @@ let spotlight_data = [
         synopsis: `AnimetTV exclusive BNHA season 5 in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
     },
-    {
+   /*  {
         title: `Yasuke`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/spotlighttt.jpg`,
         synopsis: `AnimetTV exclusive Yasuke DUB in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
-    },
+    }, */
     {
         title: `Fate/Zero`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/spotlight.jpg`,
         synopsis: `AnimetTV exclusive Fate/Zero SUB in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
     },
+    {
+        title: `Spy x Family`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/7eaa9756161dffe3f656c77f8f720e4f.jpg`,
+        synopsis: `For the agent known as "Twilight," no order is too tall if it is for the sake of peace. Operating as Westalis' master spy, Twilight works tirelessly to prevent extremists from sparking a war with neighboring country Ostania. For his latest mission, he must investigate Ostanian politician Donovan Desmond by infiltrating his son's school: the prestigious Eden Academy. Thus, the agent faces the most difficult task of his career: get married, have a child, and play family. `,
+        isAIContent: false
+    },
+    {
+        title: `Ao Ashi`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/86cc66b63194e95a891a3e6624fffa9b.jpg`,
+        synopsis: `Ashito Aoi is a young, aspiring soccer player from a backwater town in Japan. His hopes of getting into a high school with a good soccer club are dashed when he causes an incident during a critical match for his team, which results in their loss and elimination from the tournament. Nevertheless, he catches the eye of someone important who happened to be visiting from Tokyo.`,
+        isAIContent: false
+    }
     /* {
         title: `Sono Bisque Doll wa Koi wo Suru`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/dd513b18feb0cd0aa5806d1a99b0141c.jpg`,

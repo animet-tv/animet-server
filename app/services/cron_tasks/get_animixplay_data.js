@@ -119,7 +119,6 @@ const populatePreparedTitle = async () => {
                                 
                                     console.log('old PreparedTitle dropped ', new Date());
                                 });
-                                console.log(CR_prepared_titles);
                                 // save new PreparedTitle
                                 let newPreparedTitle = new PreparedTitle ({
                                     gogoanime: result_gogoanime,
