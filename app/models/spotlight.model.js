@@ -49,7 +49,7 @@ module.exports.getSpotlight = async (callback) => {
                     Spotlight.find({},{_id: 0})
                         .then(
                             _result => {
-                                client.setex('spotlight', 50400, JSON.stringify(_result));
+                                client.setex('spotlight', 5400, JSON.stringify(_result));
                                 callback(null, _result);
                             }
                         )
