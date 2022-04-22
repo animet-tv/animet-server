@@ -103,12 +103,12 @@ let spotlight_data = [
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/caa98eb5a8b1c58293a5b6c1acda1bc4.webp`,
         synopsis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.`,
     }, */
-    {
+   /*  {
         title: `Xian Wang de Richang Shenghuo 2nd Season`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/779b17401e27633587cb1685b388039a.webp`,
         synopsis: `Wang Ling, the major Protagonist of the anime, has enormous uncontrollable power wants to live a low-key life. He wants to get rid of these powers. Sometimes, he just hides his powers from other kids just to look normal. He avoids contact and connections with others just to hide his powers.`,
         isAIContent: false
-    },
+    }, */
   /*   {
         title: `JoJo no Kimyou na Bouken Part 6: Stone Ocean`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/53c87a67e5e03cbe93ff9125b9d66237.jpg`,
