@@ -30,6 +30,7 @@ var allowedOrigins = [
     'http://localhost:3001',
     'https://animet-server.herokuapp.com',
     'https://animet.tv',
+    'https://animet.site',
     'https://beta.animet.tv',
     'https://6162027bc2d4cd00081b5c32--animet.netlify.app',
     'https://animet-stream-api-4ywcb.ondigitalocean.app'

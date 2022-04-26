@@ -229,6 +229,17 @@
     "isDownload": false
   },
   {
+    "title": "Fate/stay night: Heaven's Feel I",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20791-6Ktwmvm5v2Wf.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isNew": false,
+    "isNSFW": false,
+    "isRemastered": false,
+    "isDownload": false
+  },
+  {
     "title": "Tamako Love Story",
     "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20519-YdNUizVJJIWI.png",
     "isDub": false,
