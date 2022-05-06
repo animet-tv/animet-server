@@ -45,6 +45,7 @@ const overflow = require('../../anime60/overflow.json');
 const rezeros2 = require(`../../anime60/rezero-s2.json`);
 const tamako_love_story = require(`../../anime60/tamako_love_story.json`);
 const fate_stay_night_movie_1 = require(`../../anime60/fate-stay-night-movie-1.json`);
+const torokase_orgasm = require(`../../anime60/torokase_orgasm.json`);
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -306,6 +307,8 @@ router.get(
                 res.json(tamako_love_story);
             } else if (title === `Fate/stay night: Heaven's Feel I` ) {
                 res.json(fate_stay_night_movie_1);
+            } else if (title === `Torokase Orgasm`) {
+                res.json(torokase_orgasm);
             }
          } catch (error) {
              console.log(error);
