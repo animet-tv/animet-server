@@ -23,6 +23,18 @@
         "download": "https://ouo.io/rD9QET",
         "iframe": false,
         "episode_number": 4
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-05-1080p60-SUB/18159146f0f4c62c1ba7846518eecf7393b1d11b/4c81fb",
+        "download": "https://ouo.io/hxdb4X",
+        "iframe": false,
+        "episode_number": 5
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-06-1080p60-SUB/20551d26df5f07862611587ed437c33149eacb6a/5da33d",
+        "download": "https://ouo.io/x23FfP",
+        "iframe": false,
+        "episode_number": 6
       }
     ]
   }

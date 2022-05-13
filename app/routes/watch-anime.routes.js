@@ -47,6 +47,7 @@ const tamako_love_story = require(`../../anime60/tamako_love_story.json`);
 const fate_stay_night_movie_1 = require(`../../anime60/fate-stay-night-movie-1.json`);
 const torokase_orgasm = require(`../../anime60/torokase_orgasm.json`);
 const kimi_ga_suki_1 = require(`../../anime60/kimi_ga_suki_1.json`);
+const musaigen_no_phantom = require(`../../anime60/musaigen-no-phantom-world.json`);
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -312,6 +313,8 @@ router.get(
                 res.json(torokase_orgasm);
             } else if (title === `Kimi ga Suki 1`) {
                 res.json(kimi_ga_suki_1);
+            } else if (title === `Musaigen no Phantom World: Mizutama no Kiseki`) {
+                res.json(musaigen_no_phantom);
             }
          } catch (error) {
              console.log(error);

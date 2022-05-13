@@ -29,7 +29,7 @@ let checkCorsAnyWhereNodes = async(callback) => {
                     lable: `${CorsAnyWhereList[i].label}`,
                     continent: `${CorsAnyWhereList[i].continent}`,
                     url: `${CorsAnyWhereList[i].url}`,
-                    msg: `error this node did not repsonse and not added to list`
+                    msg: `error this node did not repsonse and still added to list`
                 });
             }
         }
