@@ -48,15 +48,16 @@ const fate_stay_night_movie_1 = require(`../../anime60/fate-stay-night-movie-1.j
 const torokase_orgasm = require(`../../anime60/torokase_orgasm.json`);
 const kimi_ga_suki_1 = require(`../../anime60/kimi_ga_suki_1.json`);
 const musaigen_no_phantom = require(`../../anime60/musaigen-no-phantom-world.json`);
+const love_is_war_ultra_romatic = require(`../../anime60/love_is_war_ultra_romatic.json`);
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 80
+    max: 60
 });
 
 const anime60fps = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
-    max: 50
+    max: 25
 });
 
 
@@ -315,6 +316,8 @@ router.get(
                 res.json(kimi_ga_suki_1);
             } else if (title === `Musaigen no Phantom World: Mizutama no Kiseki`) {
                 res.json(musaigen_no_phantom);
+            } else if (title === `Love is War Ultra Romantic`) {
+                res.json(love_is_war_ultra_romatic);
             }
          } catch (error) {
              console.log(error);

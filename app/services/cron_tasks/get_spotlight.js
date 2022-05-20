@@ -180,13 +180,19 @@ let spotlight_data = [
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/86cc66b63194e95a891a3e6624fffa9b.jpg`,
         synopsis: `Ashito Aoi is a young, aspiring soccer player from a backwater town in Japan. His hopes of getting into a high school with a good soccer club are dashed when he causes an incident during a critical match for his team, which results in their loss and elimination from the tournament. Nevertheless, he catches the eye of someone important who happened to be visiting from Tokyo.`,
         isAIContent: false
-    }
+    },
     /* {
         title: `Sono Bisque Doll wa Koi wo Suru`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/dd513b18feb0cd0aa5806d1a99b0141c.jpg`,
         synopsis: `Traumatized by a childhood incident with a friend who took exception to his love of traditional dolls, doll-artisan hopeful Wakana Gojou passes his days as a loner, finding solace in the home ec room at his high school. To Wakana, people like beautiful Marin Kitagawa, a trendy girl who's always surrounded by a throng of friends, is practically an alien from another world.`,
         isAIContent: false
     } */
+    {
+        title: `Love is War Ultra Romantic`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/ultra-romatic-4k-spotlight.jpg`,
+        synopsis: `The elite members of Shuchiin Academy's student council continue their competitive day-to-day antics. Council president Miyuki Shirogane clashes daily against vice-president Kaguya Shinomiya, each fighting tooth and nail to trick the other into confessing their romantic love. Kaguya struggles within the strict confines of her wealthy, uptight family, rebelling against her cold default demeanor as she warms to Shirogane and the rest of her friends.`,
+        isAIContent: true
+    }
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT
