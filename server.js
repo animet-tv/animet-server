@@ -19,7 +19,6 @@ const { populateDailyTop, populateNewGenre } = require('./app/services/cron_task
 const animixplay = require('./app/services/cron_tasks/get_animixplay_data');
 const recentlyadded = require('./app/services/cron_tasks/get_recently_added');
 const spotlight = require('./app/services/cron_tasks/get_spotlight');
-const mediafire = require('./app/services/cron_tasks/update_mediafire_src');
 const seasonBuilder = require('./app/services/cron_tasks/add_new_anime_season');
 const buildAnimettvIndex = require('./app/services/animettv-index');
 const metricaStatsService = require("./app/services/cron_tasks/get_metrica_stats");
@@ -116,7 +115,7 @@ connectDB();
 // handel favicon request
 app.get('/favicon.ico', (req, res) => res.status(204));
 
-/* populateDailyTop(); */
+//populateDailyTop();
 /* populateNewGenre(); */
 // animixplay.populatePreparedTitle();
 /* animixplay.populateMovies(); */
@@ -125,13 +124,15 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 /* database_clean(); */
 /* database_population(); */
 /* recentlyadded.cleanRecentlyAdded();
-recentlyadded.populateRecentlyAdded() */
+recentlyadded.populateRecentlyAdded(); */
 /* spotlight.buildWeeklySpotlight() */
-/* let a = (async() => {
-    await mediafire.initMediaFire();
-})
-
-a(); */
+/* const RecentlyAdded = require('./app/models/recently-added.model');
+RecentlyAdded.populateRatingsWithJikan((err, status) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log(status);
+}) */
 
 /* buildAnimettvIndex.buildAnimettvIndex(); */
 

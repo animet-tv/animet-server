@@ -23,7 +23,6 @@ if (process.env.REDISCLOUD_URL) {
     var client = require("redis").createClient();
 }
 
-
 const Anime = mongoose.Schema({
     img_url: { type: String },
     title: { type: String }

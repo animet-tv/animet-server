@@ -12,11 +12,13 @@ if (process.env.REDISTOGO_URL) {
 
 
 const Anime = mongoose.Schema({
-    mal_id: { type: Number },
-    img_url: { type: String },
-    score: { type: Number },
     title: { type: String },
-    episodes: { type: Number }
+    id: { type: String, default: 'na' },
+    img_url: { type: String },
+    episodeNumber: { type: Number },
+    episodes: { type: Number, default: 0 },
+    type: { type: String, default: 'TV' },
+    score: { type: Number }
 },{ _id : false });
 
 

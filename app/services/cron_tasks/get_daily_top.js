@@ -4,11 +4,10 @@ const Jikan = require("animet-jikan-wrapper");
 const cheerio = require("whacko");
 const { delay } = require("bluebird");
 const mal = new Jikan();
-mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const rs = require("request");
-const gogo_baseURL = "https://www3.gogoanime.cm/";
+const gogo_baseURL = "https://gogoanime.sk/";
 const Genre = require("../../models/genres.model");
-const animetrendz = require("../cron_tasks/get_anitrendz");
+const animetrendz = require("./get_anitrendz");
 
 module.exports.populateDailyTop = async () => {
   try {
@@ -31,11 +30,12 @@ module.exports.populateDailyTop = async () => {
           let result = await mal.findTop("anime", `${i}`, `${subtype}`);
           result.top.forEach((el) => {
             _result.push({
-              mal_id: el.mal_id,
               title: el.title,
+              id: el.mal_id,
               img_url: el.image_url,
-              score: el.score,
               episodes: el.episodes,
+              type: el.type,
+              score: el.score,
             });
           });
           await delay(waitAmountPerRequest);

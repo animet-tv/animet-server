@@ -49,7 +49,6 @@ module.exports.getTopSeason = async (request) => {
         const animeItem = ({
           title: anime.title,
           img_url: anime.image_url,
-          mal_id: anime.mal_id,
           score: getScore(anime.score),
           genre: getAllGenres(anime.genres),
           synopsis: anime.synopsis,
@@ -70,6 +69,7 @@ module.exports.getTopSeason = async (request) => {
     console.log(error);
   }
 }
+
 
 module.exports.getSeasonById = async (id) => {
   try {

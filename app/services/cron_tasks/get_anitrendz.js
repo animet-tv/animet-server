@@ -41,13 +41,16 @@ let buildTopWeek = async(callback) => {
         try {
           let data = JSON.parse(resp.body);
           data.data.forEach(el => {
-            topOfTheWeek.push({
-              mal_id: 0,
-              img_url: el.attributes.posterImage.medium,
-              score: 0,
-              title: el.attributes.titles.en_jp,
-              episodes: el.attributes.episodeCount,
-            });
+            if (el.attributes.titles.en_jp) {
+              topOfTheWeek.push({
+                title: el.attributes.titles.en_jp,
+                id: el.attributes.slug,
+                img_url: el.attributes.posterImage.medium,
+                episodes: el.attributes.episodeCount,
+                type: el.attributes.subtype,
+                score: convertKitsuScore(el.attributes.averageRating),
+              });
+            }
           });
           callback(topOfTheWeek.shuffle());
         } catch (e) {
@@ -55,6 +58,10 @@ let buildTopWeek = async(callback) => {
         }
       }
     }); 
+}
+
+function convertKitsuScore(score) {
+  return parseInt(score)/10;
 }
 
 /* try find cover img ulr from animettv index list  */

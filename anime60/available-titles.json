@@ -8,7 +8,8 @@
     "isNew": true,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 8.48
   },
   {
     "title": "Kimi ga Suki 1",
@@ -19,7 +20,8 @@
     "isNew": false,
     "isNSFW": true,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 7.26
   },
   {
     "title": "Torokase Orgasm",
@@ -30,7 +32,8 @@
     "isNew": false,
     "isNSFW": true,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 7.44
   },
   {
     "title": "Overflow",
@@ -41,7 +44,8 @@
     "isNew": false,
     "isNSFW": true,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 7.18
   },
   {
     "title": "Fate/stay night: Heaven's Feel II",
@@ -52,7 +56,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 8.53
   },
   {
     "title": "Fate/Zero",
@@ -63,7 +68,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 8.29
   },
   {
     "title": "Demon Slayer Season 1",
@@ -74,7 +80,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 8.55
   },
   {
     "title": "Yasuke",
@@ -85,7 +92,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 6.77
   },
   {
     "title": "Mushoku Tensei: Jobless Reincarnation",
@@ -96,7 +104,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 8.37
   },
   {
     "title": "Boku no Hero Academia 5",
@@ -107,7 +116,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 7.43
   },
   {
     "title": "Sword Art Online",
@@ -118,7 +128,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": true
+    "isDownload": true,
+    "score": 7.20
   },
   {
     "title": "86",
@@ -129,7 +140,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.24
   },
   {
     "title": "Vinland Saga",
@@ -140,7 +152,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.73
   },
   {
     "title": "Cowboy Bebop Remastered",
@@ -151,7 +164,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": true,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.76
   },
   {
     "title": "Akira Remastered",
@@ -162,7 +176,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": true,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.16
   },
   {
     "title": "High School of the Dead: Complete Collection",
@@ -173,7 +188,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": true,
-    "isDownload": false
+    "isDownload": false,
+    "score": 7.08
   },
   {
     "title": "Evangelion: 1.0 You Are (Not) Alone",
@@ -184,7 +200,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": true,
-    "isDownload": true
+    "isDownload": true,
+    "score": 8.02
   },
   {
     "title": "Evangelion: 2.0 You Can (Not) Advance",
@@ -195,7 +212,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": true,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.32
   },
   {
     "title": "Evangelion: 3.0 You Can (Not) Redo",
@@ -206,7 +224,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": true,
-    "isDownload": true
+    "isDownload": true,
+    "score": 7.62
   },
   {
     "title": "Attack on Titan Season 2",
@@ -216,7 +235,9 @@
     "quality": "hd",
     "isNew": false,
     "isNSFW": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false,
+    "score": 8.50
   },
   {
     "title": "Attack on Titan",
@@ -226,7 +247,9 @@
     "quality": "hd",
     "isNew": false,
     "isNSFW": false,
-    "isRemastered": false
+    "isRemastered": false,
+    "isDownload": false,
+    "score": 8.85
   },
   {
     "title": "One Punch Man",
@@ -237,7 +260,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.51
   },
   {
     "title": "Violet Evergarden",
@@ -248,7 +272,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.95
   },
   {
     "title": "Love is War Ultra Romantic",
@@ -259,29 +284,8 @@
     "isNew": true,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
-  },
-  {
-    "title": "Musaigen no Phantom World: Mizutama no Kiseki",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21777-Blr4l1WVG7So.png",
-    "isDub": false,
-    "isSub": true,
-    "quality": "4k",
-    "isNew": true,
-    "isNSFW": false,
-    "isRemastered": false,
-    "isDownload": true
-  },
-  {
-    "title": "Fate/stay night: Heaven's Feel I",
-    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20791-6Ktwmvm5v2Wf.png",
-    "isDub": false,
-    "isSub": true,
-    "quality": "4k",
-    "isNew": false,
-    "isNSFW": false,
-    "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.97
   },
   {
     "title": "Tamako Love Story",
@@ -292,7 +296,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 7.94
   },
   {
     "title": "Demon Slayer Mugen Train",
@@ -303,7 +308,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.66
   },
   {
     "title": "Your Name",
@@ -314,7 +320,8 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.40
   },
   {
     "title": "Josee to Tora to Sakanatachi",
@@ -325,7 +332,32 @@
     "isNew": false,
     "isNSFW": false,
     "isRemastered": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.46
+  },
+  {
+    "title": "Fate/stay night: Heaven's Feel I",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20791-6Ktwmvm5v2Wf.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isNew": false,
+    "isNSFW": false,
+    "isRemastered": false,
+    "isDownload": false,
+    "score": 8.19
+  },
+  {
+    "title": "Musaigen no Phantom World: Mizutama no Kiseki",
+    "cover_img": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21777-Blr4l1WVG7So.png",
+    "isDub": false,
+    "isSub": true,
+    "quality": "4k",
+    "isNew": true,
+    "isNSFW": false,
+    "isRemastered": false,
+    "isDownload": true,
+    "score": 6.80
   },
   {
     "title": "Sol Levante",
@@ -336,7 +368,8 @@
     "isRemastered": false,
     "isNew": false,
     "isNSFW": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 4.97
   },
   {
     "title": "Her Blue Sky",
@@ -346,7 +379,8 @@
     "quality": "hd",
     "isRemastered": true,
     "isNew": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 7.50
   },
   {
     "title": "Ghost in the Shell 4K Digital",
@@ -357,7 +391,8 @@
     "isRemastered": false,
     "isNew": false,
     "isNSFW": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.28
   },
   {
     "title": "Mobile Suit Gundam: Hathaway's Flash",
@@ -366,7 +401,9 @@
     "isSub": true,
     "quality": "4k",
     "isRemastered": false,
-    "isNew": false
+    "isNew": false,
+    "isDownload": false,
+    "score": 7.86
   },
   {
     "title": "Violet Evergarden Movie",
@@ -376,7 +413,8 @@
     "quality": "4k",
     "isRemastered": false,
     "isNew": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.95
   },
   {
     "title": "Weathering with You",
@@ -387,6 +425,7 @@
     "isRemastered": false,
     "isNew": false,
     "isNSFW": false,
-    "isDownload": false
+    "isDownload": false,
+    "score": 8.32
   }
 ]

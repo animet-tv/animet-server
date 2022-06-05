@@ -6,7 +6,6 @@ const Jikan = require("animet-jikan-wrapper");
 const mal = new Jikan();
 const Top = require("../models/top.model");
 const Post = require("../models/post.model");
-mal.changeBaseURL(process.env.ANIMET_JIKAN_API_URL);
 const Genre = require("../models/genres.model");
 const Movie = require("../models/movies.model");
 const PreparedTitle = require("../models/prepared-title.model");
