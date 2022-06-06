@@ -29,6 +29,18 @@
         "download": "https://ouo.io/ZLyBblb",
         "iframe": false,
         "episode_number": 5
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/ultra-romantic-06-4k/39b46aca1f1c915f88b6181a9baf69f606a893c9/0b5e12",
+        "download": "https://ouo.io/5H7zqS",
+        "iframe": false,
+        "episode_number": 6
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/ultra-romantic-07-4k/2120765a2818407df314dcbb7b1b6ed9b678cb93/b54980",
+        "download": "https://ouo.io/dHGSvg",
+        "iframe": false,
+        "episode_number": 7
       }
     ]
   }
