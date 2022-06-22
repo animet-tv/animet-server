@@ -35,6 +35,42 @@
         "download": "https://ouo.io/x23FfP",
         "iframe": false,
         "episode_number": 6
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-07-cp/71ee0b1b2cfe7fc93f3b56f618a018795096727e/999248",
+        "download": "https://ouo.io/EJDdiT",
+        "iframe": false,
+        "episode_number": 7
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-08-cp/fb3ff5d82a968af20e37428897b4df1b9d4f228b/637b2f",
+        "download": "https://ouo.io/ZRRObn",
+        "iframe": false,
+        "episode_number": 8
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-09-cp/b2d8286e67a6292d66866707a239e518b4315d86/0f3c59",
+        "download": "https://ouo.io/uAhBpcV",
+        "iframe": false,
+        "episode_number": 9
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-10-cp/bc019ce83a5ca3740766acf96cb8d022e1a2c603/06c590",
+        "download": "https://ouo.io/00CrQM",
+        "iframe": false,
+        "episode_number": 10
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-11-cp/e46388e2e9fd6b4af342c8f17dc1387cec4e7ab0/5480a1",
+        "download": "https://ouo.io/Si9JXK",
+        "iframe": false,
+        "episode_number": 11
+      },
+      {
+        "src": "https://cdn.lbryplayer.xyz/api/v4/streams/free/RZS2P2-12-cp/606a1a61397c9a1ca05a7fa22864f762fe8f2e0f/68d373",
+        "download": "https://ouo.io/7LskzF",
+        "iframe": false,
+        "episode_number": 12
       }
     ]
   }

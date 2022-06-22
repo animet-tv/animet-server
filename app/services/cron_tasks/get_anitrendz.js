@@ -109,7 +109,6 @@ function uniqByKeepLast(data, key) {
 
 let updatedTopWeekly = async(top_of_the_week, callback) => {
   try {
-    console.log(top_of_the_week);
     await Top.update_TOP_OF_THE_WEEK(top_of_the_week, (err, result) => {
       if (err) {
         console.log(err);
