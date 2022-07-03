@@ -88,6 +88,7 @@ router.get(
                     break;
                 }
                const title = apiResult[el].title;
+               title = title.trim();
                if (title && result.length < 2) {
                    // find SUB 
                    if (title === animeTitle) {

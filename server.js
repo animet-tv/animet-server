@@ -32,7 +32,9 @@ var allowedOrigins = [
     'https://animet.site',
     'https://beta.animet.tv',
     'https://6162027bc2d4cd00081b5c32--animet.netlify.app',
-    'https://animet-stream-api-4ywcb.ondigitalocean.app'
+    'https://animet-stream-api-4ywcb.ondigitalocean.app',
+    'https://beta-animet-stream-api.herokuapp.com/',
+    
   ];
 
 app.use(
