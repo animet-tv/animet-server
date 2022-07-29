@@ -51,6 +51,16 @@ const storage_IMG = multer.diskStorage({
   },
 });
 
+// for IMGs public
+const storage_IMG_public = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${nanoid()}_${file.originalname}`);
+  }
+})
+
 const fileFilterImg = (req, file, cb) => {
   // only accepts allowed type
   if (!whiteList_IMG.includes(file.mimetype)) {
@@ -58,6 +68,8 @@ const fileFilterImg = (req, file, cb) => {
   }
   cb(null, true);
 };
+
+
 
 const uploadIMG = multer({
   storage: storage_IMG,
@@ -959,6 +971,41 @@ router.put(
     }
   }
 );
+
+router.post(
+  "/upload-anime-tracer",
+  defaultLimiter,
+  passport.authenticate(["regular-login"], { session: false }),
+  uploadIMG.single("anime-tracer"),
+  async(req, res) => {
+    try {
+      const file = req. file;
+      if (!file) {
+        res
+          .status(422)
+          .send({ success: false, msg: "Please upload correct file" });
+      } else {
+        User.getUserByAccountID(req.user.accountID, (err, accountProfile) =>  {
+          if (err) {
+            console.log(err);
+          }
+          if (accountProfile) {
+            console.log(accountProfile);
+            let content = fs.readFileSync(filePath);
+            const request = {
+              accountID: req.user.accountID,
+              fileName: content,
+            };
+
+            // upload to image storage bucket
+          }
+        })
+      }
+    } catch (error) {
+      res.sendStatus(404);
+    }
+  }
+)
 
 router.post(
   "/upload-avatar",

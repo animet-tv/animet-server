@@ -91,6 +91,8 @@ app.use('/api/user', user);
 app.use('/api/admin-user', adminUser);
 app.use('/api/watch-anime', watchAnime);
 app.use('/server-stat', serverStat);
+app.use(express.static(__dirname + '/public'));
+
 
 // Configuring the database
 const mongoose = require('mongoose');
