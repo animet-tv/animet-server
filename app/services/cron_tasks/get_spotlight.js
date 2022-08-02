@@ -83,11 +83,11 @@ let spotlight_data = [
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/75ab4bc4b9dcd30296b593bbc77502b1.webp`,
         synopsis: `Once respected as the Demon Realm's second greatest authority, the Demon King's aide, Jahy, ruled her subjects with fear. But when a magical girl attacks and destroys a mystic gem containing massive power, the Demon Realm is destroyed.  Although she survives, Jahy has lost almost all of her powers and finds herself stranded in the human world with a childlike appearance. In order to gather more mystic gems so that she can permanently restore both her original form and the Demon Realm`
     }, */
-    {
+    /* {
         title: `Blue Period`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/2292820f1793b077ce597157f1757478.webp`,
         synopsis: `Second-year high school student Yatora Yaguchi is bored with his normal life. He studies well and plays around with his friends, but in truth, he does not enjoy either of those activities. Bound by norms, he secretly envies those who do things differently.`,
-    },
+    }, */
     /* {
         title: `Visual Prison`,
         img: `https://frosty-snyder-1df076.netlify.app/spotlight/e0662e265d3a6bb0628a31dfbe1a4e74.webp`,
@@ -115,24 +115,24 @@ let spotlight_data = [
         synopsis: `In Florida, 2011, Jolyne Kuujou sits in a jail cell like her father Joutarou once did; yet this situation is not of her own choice. Framed for a crime she didn’t commit, and manipulated into serving a longer sentence, Jolyne is ready to resign to a dire fate as a prisoner of Green Dolphin Street Jail. `,
         isAIContent: false
     }, */ 
-    {
+   /*  {
         title: `Kyuuketsuki Sugu Shinu`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/ed1535978d64a545b092040b7ae23b77.jpg`,
         synopsis: `Vampires are said to have many weaknesses such as garlic, crosses, and sunlight. Game-loving vampire lord Draluc just so happens to be weak to... everything. He dies, turning into a pile of ash, at the slightest shock.`,
         isAIContent: false
-    },
+    }, */
     {
         title: `World Trigger 3rd Season`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/55f892af95650c74810e9a5c640ba1b9.jpg`,
         synopsis: `Third season of World Trigger. With Hyuse joining the Tamakoma Squad, the rank wars are continuing and the Tamakoma squad are striving to get selected for the Away Missions.`,
         isAIContent: false
     },
-    {
+    /* {
         title: `Kimetsu no Yaiba: Yuukaku-hen`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/Kimetsu no Yaiba: Yuukaku-hen-spotlight-hr.jpg`,
         synopsis: `The second season of Kimetsu no Yaiba. Tanjirou, Zenitsu, and Inosuke, aided by the Sound Hashira Tengen Uzui, travel to Yoshiwara red light district to hunt down a demon that has been terrorizing the town.`,
         isAIContent: false
-    },
+    }, */
     {
         title: `Tokyo Revengers (Uncensored)`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/21be4c9124316be0efaf8e628eb010ac.jpg`,
@@ -192,7 +192,19 @@ let spotlight_data = [
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/ultra-romatic-4k-spotlight.jpg`,
         synopsis: `The elite members of Shuchiin Academy's student council continue their competitive day-to-day antics. Council president Miyuki Shirogane clashes daily against vice-president Kaguya Shinomiya, each fighting tooth and nail to trick the other into confessing their romantic love. Kaguya struggles within the strict confines of her wealthy, uptight family, rebelling against her cold default demeanor as she warms to Shirogane and the rest of her friends.`,
         isAIContent: true
-    }
+    },
+    {
+        title: `One Piece`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/one-piece-xxss.potlight.png`,
+        synopsis: `One Piece is a story about  Monkey D. Luffy, who wants to become a sea-robber. In a world mystical, there have a mystical fruit whom eat will have a special power but also have greatest weakness. Monkey ate Gum-Gum Fruit which gave him a strange power but he can NEVER swim. And this weakness made his dream become a sea – robber to find ultimate treasure is difficult.`,
+        isAIContent: false
+    },
+    {
+        title: `Overlord IV`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/overlord-spotlight-xxs.png`,
+        synopsis: `E-Rantel, the capital city of the newly established Sorcerer Kingdom, suffers from a dire shortage of goods. Once a prosperous city known for its trade, it now faces a crisis due to its caution—or even fear—of its king, Ainz Ooal Gown. To make amends, Ainz sends Albedo to the city as a diplomatic envoy. Meanwhile, the cardinals of the Slane Theocracy discuss how to retaliate against Ainz after his attack crippled the Re-Estize Kingdom's army, plotting for the Baharuth Empire to take over the Sorcerer Kingdom. However, when Emperor Jircniv Rune Farlord El Nix arranges a meeting with the Theocracy's messengers at a colosseum, he is confronted by none other than Ainz himself.`,
+        isAIContent: false
+    },
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT
