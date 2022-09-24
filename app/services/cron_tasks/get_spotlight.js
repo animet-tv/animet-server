@@ -145,12 +145,12 @@ let spotlight_data = [
         synopsis: `Senkuu has made it his goal to bring back two million years of human achievement and revive the entirety of those turned to statues. However, one man stands in his way: Tsukasa Shishiou, who believes that only the fittest of those petrified should be revived.`,
         isAIContent: false
     },
-    {
+    /* {
         title: `Shingeki no Kyojin: The Final Season Part 2`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/Attack on Titan Final Season Part 2-spotlight.jpg`,
         synopsis: `The second part of Shingeki no Kyojin: The Final Season. The war for Paradis zeroes in on Shiganshina just as Jaegerists have seized control. After taking a huge blow from a surprise attack led by Eren, Marley swiftly acts to return the favor.`,
         isAIContent: false
-    },
+    }, */
     /* {
         title: `Boku no Hero Academia 5`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/bns5-60fps.jpg`,
@@ -163,12 +163,12 @@ let spotlight_data = [
         synopsis: `AnimetTV exclusive Yasuke DUB in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
     }, */
-    {
+   /*  {
         title: `Fate/Zero`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/spotlight.jpg`,
         synopsis: `AnimetTV exclusive Fate/Zero SUB in 60FPS.                                                                                                                                                                     `,
         isAIContent: true
-    },
+    }, */
     {
         title: `Spy x Family`,
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/7eaa9756161dffe3f656c77f8f720e4f.jpg`,
@@ -204,7 +204,13 @@ let spotlight_data = [
         img: `https://img.animet.site/file/animettv-avatars/other/spotlight/overlord-spotlight-xxs.png`,
         synopsis: `E-Rantel, the capital city of the newly established Sorcerer Kingdom, suffers from a dire shortage of goods. Once a prosperous city known for its trade, it now faces a crisis due to its caution—or even fear—of its king, Ainz Ooal Gown. To make amends, Ainz sends Albedo to the city as a diplomatic envoy. Meanwhile, the cardinals of the Slane Theocracy discuss how to retaliate against Ainz after his attack crippled the Re-Estize Kingdom's army, plotting for the Baharuth Empire to take over the Sorcerer Kingdom. However, when Emperor Jircniv Rune Farlord El Nix arranges a meeting with the Theocracy's messengers at a colosseum, he is confronted by none other than Ainz himself.`,
         isAIContent: false
+    },{
+        title: `Mamahaha no Tsurego ga Motokano datt`,
+        img: `https://img.animet.site/file/animettv-avatars/other/spotlight/887646895533264.jpg`,
+        synopsis: `A certain boy and girl in middle school became lovers, flirted with each other, disagreed on trivial things, became more frequently irritated with each other rather than excited... and ended up breaking up at graduation. And so the two of them, Mizuto Irido and Yume Ayai, wound up meeting each other in the most unexpected fashion.`,
+        isAIContent: false
     },
+
 ];
 
 // I DONT FUCKING KNOW NEED BETTER SOURCE FOR SPOTLIGHT

@@ -50,6 +50,7 @@ const kimi_ga_suki_1 = require(`../../anime60/kimi_ga_suki_1.json`);
 const musaigen_no_phantom = require(`../../anime60/musaigen-no-phantom-world.json`);
 const love_is_war_ultra_romatic = require(`../../anime60/love_is_war_ultra_romatic.json`);
 const hajimete_no_hitozuma = require(`../../anime60/hajimete_no_hitozuma.json`);
+const spyxfamily = require(`../../anime60/spyxfamily.json`);
 
 const animeLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
@@ -322,6 +323,8 @@ router.get(
                 res.json(love_is_war_ultra_romatic);
             } else if (title === `Hajimete no Hitozuma`) {
                 res.json(hajimete_no_hitozuma);
+            } else if (title === `Spy x Family`) {
+                res.json(spyxfamily);
             }
          } catch (error) {
              console.log(error);
